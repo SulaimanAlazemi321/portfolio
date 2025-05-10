@@ -1,6 +1,4 @@
-// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
@@ -11,16 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Navigation active state
     const sections = document.querySelectorAll('section');
     const navItems = document.querySelectorAll('.nav-links a');
 
-    // Smooth scrolling for navigation links
     navItems.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Close mobile menu if open
             if (navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
                 hamburger.classList.remove('active');
@@ -36,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Update active nav link on scroll
     window.addEventListener('scroll', function() {
         let current = '';
         
@@ -57,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Portfolio filtering
     const filterBtns = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
     const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -87,22 +80,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Contact form validation and submission
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Simple form validation
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
             if (name && email && subject && message) {
-                // Here you would typically send the form data to a server
-                // For demonstration, we'll just show a success message
                 alert('Thank you for your message! I will get back to you soon.');
                 contactForm.reset();
             } else {
@@ -111,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Scroll to top button
     const backToTop = document.querySelector('.back-to-top');
     
     if (backToTop) {
@@ -125,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Animation on scroll
     function revealOnScroll() {
         const reveals = document.querySelectorAll('.section-header, .service-card, .portfolio-item, .about-content, .contact-content');
         
@@ -142,15 +129,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', revealOnScroll);
     
-    // Call once to check for elements already in view on page load
     revealOnScroll();
 
-    // Add animation classes to elements
     document.querySelectorAll('.section-header, .service-card, .portfolio-item, .about-content, .contact-content').forEach(el => {
         el.classList.add('reveal');
     });
 
-    // Type writer effect for hero section
     const typeWriter = document.querySelector('.hero-content h2');
     
     if (typeWriter) {
@@ -166,14 +150,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // Start the typewriter effect after a short delay
         setTimeout(type, 1000);
     }
     
-    // Trigger scroll event to set initial active state
     window.dispatchEvent(new Event('scroll'));
 
-    // Theme toggle
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = document.querySelector('.theme-icon i');
 

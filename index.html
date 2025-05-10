@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Force dark backgrounds -->
     <style id="force-dark-backgrounds">
         html.dark-mode { background-color: #000 !important; }
         html.dark-mode body { background-color: #000 !important; }
@@ -20,7 +19,6 @@
         html.dark-mode .portfolio { background: #000 !important; }
         html.dark-mode footer { background: #000 !important; }
         
-        /* Enhanced navbar styling */
         html.dark-mode header {
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
@@ -47,14 +45,12 @@
             width: 100%;
         }
         
-        /* Section separators */
         html.dark-mode section {
             position: relative;
             border-bottom: none;
-            margin-bottom: 2px; /* Small gap between sections */
+            margin-bottom: 2px;
         }
         
-        /* Create a distinctive separator between sections */
         html.dark-mode section:after {
             content: "";
             position: absolute;
@@ -74,11 +70,10 @@
             box-shadow: 0 0 8px rgba(79, 163, 224, 0.4);
         }
         
-        /* Enhanced navbar with glowing border */
         html.dark-mode header {
             border-bottom: none;
             position: relative;
-            background: rgba(8, 8, 8, 0.97) !important; /* Slightly different from pure black */
+            background: rgba(8, 8, 8, 0.97) !important; 
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
         }
@@ -108,12 +103,10 @@
             font-weight: 700;
         }
         
-        /* Enhanced footer with visible top border */
         html.dark-mode footer {
             position: relative;
             border-top: none;
-            background: #080808 !important; /* Slightly lighter than black */
-            padding: 40px 0;
+            background: #080808 !important; 
             box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
         }
         
@@ -136,7 +129,6 @@
             box-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
         }
         
-        /* Add a subtle pattern to cards to distinguish them from the background */
         html.dark-mode .portfolio-item,
         html.dark-mode .service-card {
             background: linear-gradient(135deg, #0c0c0c, #101010) !important;
@@ -144,13 +136,11 @@
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
         }
         
-        /* Add a subtle highlight to section backgrounds */
         html.dark-mode #home { background: linear-gradient(135deg, #000000, #050505) !important; }
         html.dark-mode #about { background: linear-gradient(135deg, #030303, #000000) !important; }
         html.dark-mode #services { background: linear-gradient(135deg, #000000, #030303) !important; }
         html.dark-mode #portfolio { background: linear-gradient(135deg, #020202, #000000) !important; }
         
-        /* Add section indicators on the side for better navigation awareness */
         html.dark-mode section {
             position: relative;
         }
@@ -184,7 +174,6 @@
             color: white;
         }
         
-        /* Enhanced cards */
         html.dark-mode .portfolio-item,
         html.dark-mode .service-card {
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -200,7 +189,6 @@
             border: 1px solid rgba(79, 163, 224, 0.1);
         }
         
-        /* Improved skill bars */
         html.dark-mode .skill-bar {
             height: 8px;
             background: rgba(255, 255, 255, 0.05);
@@ -216,7 +204,6 @@
             box-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
         }
         
-        /* Enhanced section headers */
         html.dark-mode .section-header h2 {
             font-size: 2.5rem;
             font-weight: 700;
@@ -232,7 +219,6 @@
             box-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
         }
         
-        /* Enhanced buttons */
         html.dark-mode .primary-btn {
             background: linear-gradient(90deg, #4fa3e0, #2a7bb9);
             border: none;
@@ -250,7 +236,6 @@
             box-shadow: 0 8px 25px rgba(79, 163, 224, 0.4);
         }
         
-        /* Enhanced service icons */
         html.dark-mode .service-icon {
             width: 70px;
             height: 70px;
@@ -274,7 +259,6 @@
             transform: translateY(-5px);
         }
         
-        /* Enhanced filter buttons */
         html.dark-mode .filter-btn {
             background: rgba(10, 10, 10, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -294,7 +278,6 @@
             box-shadow: 0 5px 15px rgba(79, 163, 224, 0.3);
         }
         
-        /* Enhanced scrollbar */
         html.dark-mode::-webkit-scrollbar {
             width: 10px;
             background: #000;
@@ -309,7 +292,6 @@
             background: #4fa3e0;
         }
         
-        /* Enhanced social icons */
         html.dark-mode .social-icons {
             display: flex;
             gap: 15px;
@@ -338,7 +320,6 @@
             box-shadow: 0 5px 15px rgba(79, 163, 224, 0.2);
         }
         
-        /* Portfolio item enhancements */
         html.dark-mode .portfolio-img {
             position: relative;
             overflow: hidden;
@@ -365,7 +346,6 @@
             color: #fff;
         }
         
-        /* Image enhancements */
         html.dark-mode .cert-image,
         html.dark-mode .project-image {
             width: 100%;
@@ -383,7 +363,6 @@
             filter: brightness(1) contrast(1.2);
         }
         
-        /* Dark mode toggle enhancement */
         html.dark-mode .theme-switch-wrapper {
             background: rgba(10, 10, 10, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -405,7 +384,6 @@
     
     <style>
         :root {
-            /* Light mode */
             --primary-color: #3498db;
             --secondary-color: #2ecc71;
             --accent-color: #e67e22;
@@ -418,7 +396,6 @@
             --header-bg: rgba(255, 255, 255, 0.95);
         }
         
-        /* Dark mode colors - much darker for night viewing */
         .dark-mode {
             --primary-color: #4fa3e0;
             --secondary-color: #2ecc71;
@@ -432,7 +409,6 @@
             --header-bg: rgba(10, 10, 10, 0.95);
         }
         
-        /* Transition effects for theme switching */
         body, header, section, .hero, .about, .services, .portfolio, footer,
         .logo, .nav-links a, .hero-content h1, .hero-content h2, .hero-content p,
         .service-card, .portfolio-item, .portfolio-info, .skill-bar, .skill-level,
@@ -440,7 +416,6 @@
             transition: all 0.3s ease;
         }
         
-        /* Global styles that use CSS variables */
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
@@ -539,7 +514,6 @@
             border-top: 1px solid var(--border-color);
         }
         
-        /* Theme toggle switch - moved to top right */
         .theme-switch-wrapper {
             display: flex;
             align-items: center;
@@ -602,7 +576,6 @@
             color: var(--text-color);
         }
         
-        /* Luxury effects for dark mode */
         .dark-mode .logo,
         .dark-mode .highlight {
             text-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
@@ -715,26 +688,22 @@
             color: white;
         }
         
-        /* Protect eyes at night */
         .dark-mode img {
             filter: brightness(0.85);
         }
         
-        /* Add space for the top-right toggle */
         @media screen and (max-width: 768px) {
             header {
                 padding-top: 60px;
             }
         }
         
-        /* Make Security+ and Network+ images use the same scale as other images */
         #security-plus-cert,
         #network-plus-cert {
             transform: scale(0.95);
             transform-origin: center;
         }
         
-        /* Make navbar sticky in dark mode */
         html.dark-mode header {
             position: fixed;
             top: 0;
@@ -744,12 +713,10 @@
             transition: all 0.3s ease;
         }
         
-        /* Add padding to the first section to compensate for fixed navbar */
         html.dark-mode #home {
             padding-top: 120px;
         }
         
-        /* Fix back-to-top arrow for consistency in both modes */
         .back-to-top {
             width: 40px;
             height: 40px;
@@ -786,7 +753,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 163, 224, 0.5);
         }
         
-        /* Ensure consistent styling in both light and dark modes */
         .footer-content {
             display: flex;
             flex-direction: column;
@@ -794,14 +760,12 @@
             justify-content: center;
         }
         
-        /* Ultra-smooth portfolio animation with subtle effects */
         .portfolio-item {
             transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
             will-change: transform, box-shadow;
             transform: translateY(0) scale(1);
         }
         
-        /* Add a more noticeable hover effect for cards */
         .portfolio-item:hover {
             transform: translateY(-8px) scale(1.03);
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
@@ -811,7 +775,6 @@
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 163, 224, 0.3);
         }
         
-        /* Make all images scale consistently on hover */
         .portfolio-item:hover .cert-image,
         .portfolio-item:hover .project-image,
         .portfolio-item:hover #security-plus-cert,
@@ -822,7 +785,7 @@
         }
         
         .portfolio-grid {
-            min-height: 400px; /* Maintain consistent height during filtering */
+            min-height: 400px;
         }
         
         .portfolio-item.fade-out {
@@ -847,7 +810,6 @@
             }
         }
         
-        /* Improve text readability in About Me section */
         .about-text p {
             font-size: 1.1rem;
             line-height: 1.8;
@@ -859,7 +821,6 @@
             color: #e0e0e0;
         }
         
-        /* Improve text readability in Services section */
         .service-card h3 {
             font-size: 1.4rem;
             margin-bottom: 15px;
@@ -876,26 +837,23 @@
             color: #e0e0e0;
         }
         
-        /* Fix portfolio info background in light mode */
         .portfolio-info {
-            background-color: #fff; /* Light mode background */
+            background-color: #fff;
             padding: 20px;
         }
         
         html.dark-mode .portfolio-info {
-            background-color: #111111; /* Dark mode background */
+            background-color: #111111;
         }
         
-        /* Fix portfolio image background in light mode */
         .portfolio-img {
-            background-color: #f9f9f9; /* Light mode background */
+            background-color: #f9f9f9;
         }
         
         html.dark-mode .portfolio-img {
-            background-color: #0a0a0a; /* Dark mode background */
+            background-color: #0a0a0a;
         }
         
-        /* Fix nav bar background in dark mode */
         html.dark-mode header {
             background-color: #0a0a0a !important;
         }
