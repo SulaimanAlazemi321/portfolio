@@ -11,6 +11,16 @@
     --transition: all 0.3s ease;
 }
 
+/* Dark Mode Overrides */
+html.dark-mode {
+    --bg-color: #0a0a0a;
+    background-color: #0a0a0a;
+}
+
+html.dark-mode body {
+    background-color: #0a0a0a;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -88,6 +98,18 @@ section {
     padding: 100px 0;
 }
 
+html.dark-mode section {
+    background-color: #0a0a0a;
+}
+
+html.dark-mode .about, 
+html.dark-mode .services,
+html.dark-mode .portfolio,
+html.dark-mode .contact,
+html.dark-mode footer {
+    background-color: #0a0a0a;
+}
+
 .section-header {
     text-align: center;
     margin-bottom: 60px;
@@ -128,6 +150,11 @@ header {
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+}
+
+html.dark-mode header {
+    background: rgba(10, 10, 10, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 nav {
@@ -200,6 +227,10 @@ nav {
     background: linear-gradient(170deg, #f9f9f9 0%, #f0f0f0 100%);
     position: relative;
     overflow: hidden;
+}
+
+html.dark-mode .hero {
+    background: linear-gradient(170deg, #111111 0%, #0a0a0a 100%);
 }
 
 .hero .container {
@@ -460,18 +491,31 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
+    min-height: 400px;
 }
 
 .portfolio-item {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: var(--transition);
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
     position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(0) scale(1);
+    will-change: transform, box-shadow;
+    opacity: 1;
 }
 
 .portfolio-item:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+html.dark-mode .portfolio-item:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 163, 224, 0.2);
+    border: 1px solid rgba(79, 163, 224, 0.1);
 }
 
 .portfolio-img {
@@ -479,6 +523,47 @@ nav {
     background: #f0f0f0;
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cert-image, 
+.project-image,
+.university-logo,
+.diyar-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transform: scale(0.95);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Standard hover scaling for all images except A+ */
+.portfolio-item:hover .cert-image:not(#A-plus-cert),
+.portfolio-item:hover .project-image,
+.portfolio-item:hover .university-logo,
+.portfolio-item:hover .diyar-logo {
+    transform: scale(1.05);
+}
+
+/* Special handling for A+ certification */
+#A-plus-cert {
+    transform: scale(1.25);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.portfolio-item:hover #A-plus-cert {
+    transform: scale(1.35);
+}
+
+/* Portfolio item animation states */
+.portfolio-item.hiding {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
 }
 
 .project-placeholder {
@@ -500,7 +585,8 @@ nav {
 
 .portfolio-info {
     padding: 20px;
-    background: white;
+    background: var(--card-bg);
+    flex-grow: 1;
 }
 
 .portfolio-info h3 {
@@ -705,3 +791,17 @@ footer {
         grid-template-columns: 1fr;
     }
 } 
+
+/* === Fix white backgrounds in dark mode === */
+.dark-mode .nav-links {
+    background: var(--card-bg) !important;
+}
+
+/* Make all main sections use your dark section color */
+.dark-mode .about,
+.dark-mode .services,
+.dark-mode .portfolio,
+.dark-mode .contact {
+    background: var(--section-bg) !important;
+}
+  

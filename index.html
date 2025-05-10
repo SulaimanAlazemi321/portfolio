@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark-mode">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +7,628 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Force dark backgrounds -->
+    <style id="force-dark-backgrounds">
+        html.dark-mode { background-color: #000 !important; }
+        html.dark-mode body { background-color: #000 !important; }
+        html.dark-mode section { background-color: #000 !important; }
+        html.dark-mode header { background-color: rgba(0,0,0,0.95) !important; }
+        html.dark-mode .hero { background: #000 !important; }
+        html.dark-mode .about { background: #000 !important; }
+        html.dark-mode .services { background: #000 !important; }
+        html.dark-mode .portfolio { background: #000 !important; }
+        html.dark-mode footer { background: #000 !important; }
+        
+        /* Enhanced navbar styling */
+        html.dark-mode header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        }
+        
+        html.dark-mode .nav-links a {
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        html.dark-mode .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        html.dark-mode .nav-links a:hover::after,
+        html.dark-mode .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        /* Section separators */
+        html.dark-mode section {
+            position: relative;
+            border-bottom: none;
+            margin-bottom: 2px; /* Small gap between sections */
+        }
+        
+        /* Create a distinctive separator between sections */
+        html.dark-mode section:after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(79, 163, 224, 0.1), 
+                rgba(79, 163, 224, 0.3), 
+                rgba(79, 163, 224, 0.5), 
+                rgba(79, 163, 224, 0.3), 
+                rgba(79, 163, 224, 0.1), 
+                transparent
+            );
+            box-shadow: 0 0 8px rgba(79, 163, 224, 0.4);
+        }
+        
+        /* Enhanced navbar with glowing border */
+        html.dark-mode header {
+            border-bottom: none;
+            position: relative;
+            background: rgba(8, 8, 8, 0.97) !important; /* Slightly different from pure black */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        }
+        
+        html.dark-mode header:after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(79, 163, 224, 0.1), 
+                rgba(79, 163, 224, 0.3), 
+                rgba(79, 163, 224, 0.7), 
+                rgba(79, 163, 224, 0.3), 
+                rgba(79, 163, 224, 0.1), 
+                transparent
+            );
+            box-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
+        }
+        
+        html.dark-mode .logo {
+            color: #4fa3e0;
+            text-shadow: 0 0 10px rgba(79, 163, 224, 0.3);
+            font-weight: 700;
+        }
+        
+        /* Enhanced footer with visible top border */
+        html.dark-mode footer {
+            position: relative;
+            border-top: none;
+            background: #080808 !important; /* Slightly lighter than black */
+            padding: 40px 0;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        html.dark-mode footer:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(79, 163, 224, 0.1), 
+                rgba(79, 163, 224, 0.3), 
+                rgba(79, 163, 224, 0.7), 
+                rgba(79, 163, 224, 0.3), 
+                rgba(79, 163, 224, 0.1), 
+                transparent
+            );
+            box-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
+        }
+        
+        /* Add a subtle pattern to cards to distinguish them from the background */
+        html.dark-mode .portfolio-item,
+        html.dark-mode .service-card {
+            background: linear-gradient(135deg, #0c0c0c, #101010) !important;
+            border: 1px solid rgba(79, 163, 224, 0.1);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Add a subtle highlight to section backgrounds */
+        html.dark-mode #home { background: linear-gradient(135deg, #000000, #050505) !important; }
+        html.dark-mode #about { background: linear-gradient(135deg, #030303, #000000) !important; }
+        html.dark-mode #services { background: linear-gradient(135deg, #000000, #030303) !important; }
+        html.dark-mode #portfolio { background: linear-gradient(135deg, #020202, #000000) !important; }
+        
+        /* Add section indicators on the side for better navigation awareness */
+        html.dark-mode section {
+            position: relative;
+        }
+        
+        html.dark-mode section::before {
+            display: none;
+        }
+        
+        html.dark-mode .back-to-top {
+            background: rgba(79, 163, 224, 0.7);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4), 0 0 10px rgba(79, 163, 224, 0.3);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+        }
+        
+        html.dark-mode .back-to-top:hover {
+            background: rgba(79, 163, 224, 0.9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 163, 224, 0.5);
+        }
+        
+        html.dark-mode .back-to-top i {
+            font-size: 18px;
+            color: white;
+        }
+        
+        /* Enhanced cards */
+        html.dark-mode .portfolio-item,
+        html.dark-mode .service-card {
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(17, 17, 17, 0.6) !important;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        html.dark-mode .portfolio-item:hover,
+        html.dark-mode .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 163, 224, 0.2);
+            border: 1px solid rgba(79, 163, 224, 0.1);
+        }
+        
+        /* Improved skill bars */
+        html.dark-mode .skill-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        html.dark-mode .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, #4fa3e0, #2a7bb9);
+            border-radius: 4px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
+        }
+        
+        /* Enhanced section headers */
+        html.dark-mode .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #f0f0f0;
+        }
+        
+        html.dark-mode .section-header .underline {
+            height: 3px;
+            background: linear-gradient(90deg, #4fa3e0, #2a7bb9);
+            box-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
+        }
+        
+        /* Enhanced buttons */
+        html.dark-mode .primary-btn {
+            background: linear-gradient(90deg, #4fa3e0, #2a7bb9);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(79, 163, 224, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        html.dark-mode .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(79, 163, 224, 0.4);
+        }
+        
+        /* Enhanced service icons */
+        html.dark-mode .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid rgba(79, 163, 224, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: #4fa3e0;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(79, 163, 224, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        html.dark-mode .service-card:hover .service-icon {
+            color: #fff;
+            background: rgba(79, 163, 224, 0.8);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(79, 163, 224, 0.4);
+            transform: translateY(-5px);
+        }
+        
+        /* Enhanced filter buttons */
+        html.dark-mode .filter-btn {
+            background: rgba(10, 10, 10, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: #aaa;
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin: 0 5px 10px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        html.dark-mode .filter-btn:hover,
+        html.dark-mode .filter-btn.active {
+            background: #4fa3e0;
+            color: #fff;
+            border-color: #4fa3e0;
+            box-shadow: 0 5px 15px rgba(79, 163, 224, 0.3);
+        }
+        
+        /* Enhanced scrollbar */
+        html.dark-mode::-webkit-scrollbar {
+            width: 10px;
+            background: #000;
+        }
+        
+        html.dark-mode::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 5px;
+        }
+        
+        html.dark-mode::-webkit-scrollbar-thumb:hover {
+            background: #4fa3e0;
+        }
+        
+        /* Enhanced social icons */
+        html.dark-mode .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        html.dark-mode .social-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(15, 15, 15, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: #4fa3e0;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        html.dark-mode .social-icon:hover {
+            background: rgba(79, 163, 224, 0.2);
+            border-color: rgba(79, 163, 224, 0.3);
+            transform: translateY(-5px);
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(79, 163, 224, 0.2);
+        }
+        
+        /* Portfolio item enhancements */
+        html.dark-mode .portfolio-img {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        html.dark-mode .portfolio-info {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        html.dark-mode .portfolio-info h3 {
+            color: #4fa3e0;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        html.dark-mode .portfolio-link {
+            color: #4fa3e0;
+            transition: all 0.3s ease;
+        }
+        
+        html.dark-mode .portfolio-link:hover {
+            color: #fff;
+        }
+        
+        /* Image enhancements */
+        html.dark-mode .cert-image,
+        html.dark-mode .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            transform: scale(0.95);
+            transform-origin: center;
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        html.dark-mode .portfolio-item:hover .cert-image,
+        html.dark-mode .portfolio-item:hover .project-image {
+            transform: scale(1);
+            filter: brightness(1) contrast(1.2);
+        }
+        
+        /* Dark mode toggle enhancement */
+        html.dark-mode .theme-switch-wrapper {
+            background: rgba(10, 10, 10, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            padding: 10px 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        html.dark-mode .slider {
+            background: #333;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        html.dark-mode input:checked + .slider {
+            background: linear-gradient(90deg, #4fa3e0, #2a7bb9);
+        }
+    </style>
+    
     <style>
+        :root {
+            /* Light mode */
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e67e22;
+            --background-color: #fff;
+            --card-bg: #f9f9f9;
+            --text-color: #333;
+            --text-muted: #666;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --header-bg: rgba(255, 255, 255, 0.95);
+        }
+        
+        /* Dark mode colors - much darker for night viewing */
+        .dark-mode {
+            --primary-color: #4fa3e0;
+            --secondary-color: #2ecc71;
+            --accent-color: #e6b422;
+            --background-color: #0a0a0a;
+            --card-bg: #111111;
+            --text-color: #f0f0f0;
+            --text-muted: #aaaaaa;
+            --border-color: rgba(255, 255, 255, 0.05);
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+            --header-bg: rgba(10, 10, 10, 0.95);
+        }
+        
+        /* Transition effects for theme switching */
+        body, header, section, .hero, .about, .services, .portfolio, footer,
+        .logo, .nav-links a, .hero-content h1, .hero-content h2, .hero-content p,
+        .service-card, .portfolio-item, .portfolio-info, .skill-bar, .skill-level,
+        .highlight, .about-text p {
+            transition: all 0.3s ease;
+        }
+        
+        /* Global styles that use CSS variables */
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        header {
+            background: var(--header-bg);
+            box-shadow: var(--shadow);
+        }
+        
+        .logo {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+            color: var(--text-color);
+            background-color: transparent;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a::before {
+            background: var(--primary-color);
+        }
+        
+        .hamburger span {
+            background: var(--text-color);
+        }
+        
+        .hero {
+            background: linear-gradient(170deg, var(--card-bg) 0%, var(--background-color) 100%);
+        }
+        
+        .hero-content h1, .section-header h2 {
+            color: var(--text-color);
+        }
+        
+        .hero-content h2, .hero-content p {
+            color: var(--text-muted);
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+        }
+        
+        .contact-info {
+            color: var(--text-color);
+        }
+        
+        .primary-btn {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-text p, .service-card p, .portfolio-info p {
+            color: var(--text-muted);
+        }
+        
+        .service-card, .portfolio-item {
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        
+        .service-icon {
+            color: var(--primary-color);
+            background: var(--background-color);
+            border: 1px solid var(--border-color);
+        }
+        
+        .skill-bar {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .light-mode .skill-bar {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-level {
+            background: var(--primary-color);
+        }
+        
+        footer {
+            background: var(--card-bg);
+            color: var(--text-color);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        /* Theme toggle switch - moved to top right */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            background: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        
+        .theme-switch {
+            display: inline-block;
+            height: 24px;
+            position: relative;
+            width: 48px;
+        }
+        
+        .theme-switch input {
+            display: none;
+        }
+        
+        .slider {
+            background-color: #333;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            background-color: white;
+            bottom: 4px;
+            content: "";
+            height: 16px;
+            left: 4px;
+            position: absolute;
+            transition: 0.4s;
+            width: 16px;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+        
+        .theme-icon {
+            margin-right: 10px;
+            color: var(--text-color);
+        }
+        
+        /* Luxury effects for dark mode */
+        .dark-mode .logo,
+        .dark-mode .highlight {
+            text-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
+        }
+        
+        .dark-mode .service-icon,
+        .dark-mode .primary-btn,
+        .dark-mode .skill-level,
+        .dark-mode .nav-links a.active::before {
+            box-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
+        }
+        
+        .dark-mode .portfolio-item:hover,
+        .dark-mode .service-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 163, 224, 0.3);
+            transform: translateY(-5px);
+        }
+
         .cert-image, .project-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 8px;
-            transform: scale(0.9);
+            transform: scale(0.95);
             transform-origin: center;
+            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
         }
         .diyar-logo {
             object-fit: contain;
@@ -27,7 +641,7 @@
         .contact-info {
             margin-top: 15px;
             font-size: 16px;
-            color: #333;
+            color: var(--text-color);
             font-weight: 500;
         }
         .contact-info span {
@@ -35,22 +649,23 @@
             display: inline-block;
         }
         .education-box {
-            background-color: #f9f9f9;
-            border-left: 4px solid #007bff;
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--primary-color);
             padding: 20px;
             margin: 20px 0;
             border-radius: 4px;
         }
         .education-box h3 {
-            color: #007bff;
+            color: var(--primary-color);
             margin-top: 0;
             margin-bottom: 5px;
         }
         .education-box p {
             margin: 5px 0;
+            color: var(--text-muted);
         }
         #A-plus-cert {
-            transform: scale(1.1);
+            transform: scale(1.25);
             transform-origin: center;
         }
         .cta-buttons {
@@ -59,7 +674,7 @@
         .skill-level-text {
             float: right;
             font-size: 12px;
-            color: #666;
+            color: var(--text-muted);
             margin-top: 5px;
         }
         .university-logo {
@@ -74,9 +689,240 @@
         .footer-content .back-to-top {
             margin-top: 10px;
         }
+        
+        .portfolio-img {
+            background-color: var(--card-bg);
+        }
+        
+        .social-icon {
+            color: var(--primary-color);
+        }
+        
+        .filter-btn {
+            background: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            margin: 0 5px 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* Protect eyes at night */
+        .dark-mode img {
+            filter: brightness(0.85);
+        }
+        
+        /* Add space for the top-right toggle */
+        @media screen and (max-width: 768px) {
+            header {
+                padding-top: 60px;
+            }
+        }
+        
+        /* Make Security+ and Network+ images use the same scale as other images */
+        #security-plus-cert,
+        #network-plus-cert {
+            transform: scale(0.95);
+            transform-origin: center;
+        }
+        
+        /* Make navbar sticky in dark mode */
+        html.dark-mode header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        /* Add padding to the first section to compensate for fixed navbar */
+        html.dark-mode #home {
+            padding-top: 120px;
+        }
+        
+        /* Fix back-to-top arrow for consistency in both modes */
+        .back-to-top {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .back-to-top i {
+            font-size: 18px;
+            color: white;
+        }
+        
+        html.dark-mode .back-to-top {
+            background: rgba(79, 163, 224, 0.7);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4), 0 0 10px rgba(79, 163, 224, 0.3);
+        }
+        
+        html.dark-mode .back-to-top:hover {
+            background: rgba(79, 163, 224, 0.9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 163, 224, 0.5);
+        }
+        
+        /* Ensure consistent styling in both light and dark modes */
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Ultra-smooth portfolio animation with subtle effects */
+        .portfolio-item {
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            will-change: transform, box-shadow;
+            transform: translateY(0) scale(1);
+        }
+        
+        /* Add a more noticeable hover effect for cards */
+        .portfolio-item:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        .dark-mode .portfolio-item:hover {
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 163, 224, 0.3);
+        }
+        
+        /* Make all images scale consistently on hover */
+        .portfolio-item:hover .cert-image,
+        .portfolio-item:hover .project-image,
+        .portfolio-item:hover #security-plus-cert,
+        .portfolio-item:hover #network-plus-cert,
+        .portfolio-item:hover .university-logo,
+        .portfolio-item:hover .diyar-logo {
+            transform: scale(1.20);
+        }
+        
+        .portfolio-grid {
+            min-height: 400px; /* Maintain consistent height during filtering */
+        }
+        
+        .portfolio-item.fade-out {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        
+        .portfolio-item.fade-in {
+            opacity: 1;
+            transform: scale(1);
+            animation: fadeInScale 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Improve text readability in About Me section */
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        html.dark-mode .about-text p {
+            color: #e0e0e0;
+        }
+        
+        /* Improve text readability in Services section */
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .service-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+        
+        html.dark-mode .service-card p {
+            color: #e0e0e0;
+        }
+        
+        /* Fix portfolio info background in light mode */
+        .portfolio-info {
+            background-color: #fff; /* Light mode background */
+            padding: 20px;
+        }
+        
+        html.dark-mode .portfolio-info {
+            background-color: #111111; /* Dark mode background */
+        }
+        
+        /* Fix portfolio image background in light mode */
+        .portfolio-img {
+            background-color: #f9f9f9; /* Light mode background */
+        }
+        
+        html.dark-mode .portfolio-img {
+            background-color: #0a0a0a; /* Dark mode background */
+        }
+        
+        /* Fix nav bar background in dark mode */
+        html.dark-mode header {
+            background-color: #0a0a0a !important;
+        }
+        
+        html.dark-mode .nav-links {
+            background-color: #0a0a0a !important;
+        }
+        
+        html.dark-mode .nav-links a {
+            background-color: transparent;
+            color: var(--text-color);
+        }
+        
+        html.dark-mode .hamburger span {
+            background-color: var(--text-color);
+        }
     </style>
 </head>
 <body>
+    <div class="theme-switch-wrapper">
+        <span class="theme-icon"><i class="fas fa-sun"></i></span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+    
     <header>
         <div class="container">
             <nav>
@@ -101,7 +947,7 @@
             <div class="hero-content">
                 <h1>Hello, I'm <span class="highlight">Sulaiman Alazemi</span></h1>
                 <h2>Cybersecurity Engineer</h2>
-                <p>Securing web applications, hardening Linux, Windows, and Active Directory environments, and performing vulnerability assessments.</p>
+                <p>Securing web applications, hardening Linux, Windows, and performing vulnerability assessments.</p>
                 <div class="contact-info">
                     <span><i class="fas fa-envelope"></i> alroot777@gmail.com</span>
                     <span><i class="fas fa-phone"></i> +44 7466 563180</span>
@@ -111,8 +957,15 @@
                     <a href="#portfolio" class="btn primary-btn">View My Work </a>
                 </div>
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/salazemi/" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/SulaimanAlazemi321" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/salazemi/" class="social-icon" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/SulaimanAlazemi321" class="social-icon" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                </div>
+                
+                <div class="self-study-progress" style="margin-top: 25px;">
+                    <span>Hours of Self-Study: 916 / 10,000 <span style="float: right;">9.16%</span></span>
+                    <div class="skill-bar" style="margin-top: 8px;">
+                        <div class="skill-level" style="width: 9.16%"></div>
+                    </div>
                 </div>
             </div>
             <div class="hero-image">
@@ -134,9 +987,11 @@
                     
                     <p>During my internship in Network Solutions, I had the chance to work alongside cybersecurity professionals, gaining hands-on experience with tools such as Proofpoint, Forcepoint, CrowdStrike, and SealPath. I also designed and delivered beginner-friendly courses in cybersecurity and ethical hacking, helping others understand important topics like Kali Linux, NMAP, and WiFi security.</p>
                     
-                    <p>I've earned certifications including CompTIA A+, Network+, and Security+, which have given me a solid foundation in both technical and theoretical aspects of cybersecurity. Additionally, I enjoy practicing through Capture The Flag (CTF) challenges on platforms like TryHackMe and HackTheBox, where I've learned both offensive and defensive security techniques.</p>
+                    <p>I've earned certifications including CompTIA A+, Network+, and Security+, providing me with a solid foundation in both technical and theoretical aspects of cybersecurity. Additionally, I regularly engage with Capture The Flag (CTF) challenges on platforms like TryHackMe and HackTheBox, enhancing my skills in both offensive and defensive cybersecurity practices.</p>
                     
-                    <p>I'm currently exploring the role of machine learning in cybersecurity, particularly for vulnerability assessment and threat detection. I'm always keen to connect with others who share my interest in cybersecurity, whether they're fellow students, professionals, or mentors.</p>
+                    <p>Currently, I'm expanding my knowledge by learning about security solutions and configuring technologies such as Data Loss Prevention (DLP), Endpoint Detection and Response (EDR), Extended Detection and Response (XDR), Network Detection and Response (NDR), Two-Factor Authentication (2FA), DNS Security Extensions (DNSSEC), and more.</p>
+                    
+                    <p>I'm always keen to connect with others who share my passion for cybersecurity, whether they're fellow students, professionals, or mentors. Feel free to reach out and connect!</p>
                     
                     <div class="skills">
                         <div class="skill">
@@ -152,21 +1007,9 @@
                             </div>
                         </div>
                         <div class="skill">
-                            <span>Windows & Active Directory <span class="skill-level-text">Intermediate</span></span>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 60%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
                             <span>Network Security <span class="skill-level-text">Intermediate</span></span>
                             <div class="skill-bar">
                                 <div class="skill-level" style="width: 65%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span>Security Tools (Proofpoint, CrowdStrike) <span class="skill-level-text">Beginner to Intermediate</span></span>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 55%"></div>
                             </div>
                         </div>
                     </div>
@@ -239,7 +1082,7 @@
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="education">
-                    <div class="portfolio-img" style="background-color: #f8f9fa; display: flex; align-items: center; justify-content: center;">
+                    <div class="portfolio-img" style="background-color: var(--card-bg); display: flex; align-items: center; justify-content: center;">
                         <img src="Images/universityOfSalford.png" alt="University of Salford" class="university-logo">
                     </div>
                     <div class="portfolio-info">
@@ -255,7 +1098,7 @@
                     <div class="portfolio-info">
                         <h3>TryHackMe Challenges</h3>
                         <p>CTF Player</p>
-                        <a href="https://tryhackme.com/p/SulaimanAlazemi" target="_blank" class="portfolio-link"><i class="fas fa-link"></i></a>
+                        <a href="https://tryhackme.com/p/SulaimanAlazemi" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="security">
@@ -265,17 +1108,17 @@
                     <div class="portfolio-info">
                         <h3>Offensive Security Course</h3>
                         <p>5-Day Training Development</p>
-                        <a href="https://www.instagram.com/understandkw/" target="_blank" class="portfolio-link"><i class="fas fa-link"></i></a>
+                        <a href="https://www.instagram.com/understandkw/" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="certifications">
                     <div class="portfolio-img">
-                        <img src="Images/Security+.png" alt="CompTIA Security+" class="cert-image">
+                        <img src="Images/Security+.png" alt="CompTIA Security+" class="cert-image" id="security-plus-cert">
                     </div>
                     <div class="portfolio-info">
                         <h3>CompTIA Security+</h3>
                         <p>Apr. 2025 - Apr. 2028</p>
-                        <a href="https://www.credly.com/badges/eaa7d121-58ac-4fc1-a023-95d6a5bfecee" target="_blank" class="portfolio-link"><i class="fas fa-link"></i></a>
+                        <a href="https://www.credly.com/badges/eaa7d121-58ac-4fc1-a023-95d6a5bfecee" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="certifications">
@@ -285,7 +1128,7 @@
                     <div class="portfolio-info">
                         <h3>Jr Penetration Tester</h3>
                         <p>TryHackMe Certification</p>
-                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-8I0HLEVCP5.pdf" target="_blank" class="portfolio-link"><i class="fas fa-link"></i></a>
+                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-8I0HLEVCP5.pdf" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="certifications">
@@ -295,17 +1138,17 @@
                     <div class="portfolio-info">
                         <h3>CompTIA A+</h3>
                         <p>Sept. 2024 - Sept. 2027</p>
-                        <a href="https://www.credly.com/badges/3e0170a3-42f9-49c1-89f0-a78f7e200c31" target="_blank" class="portfolio-link"><i class="fas fa-link"></i></a>
+                        <a href="https://www.credly.com/badges/3e0170a3-42f9-49c1-89f0-a78f7e200c31" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="certifications">
                     <div class="portfolio-img">
-                        <img src="Images/network+.png" alt="CompTIA Network+" class="cert-image">
+                        <img src="Images/network+.png" alt="CompTIA Network+" class="cert-image" id="network-plus-cert">
                     </div>
                     <div class="portfolio-info">
                         <h3>CompTIA Network+</h3>
                         <p>Apr. 2025 - Apr. 2028</p>
-                        <a href="https://www.credly.com/badges/9698db44-1ca6-4fd4-9aaf-4ba1d883e243" target="_blank" class="portfolio-link"><i class="fas fa-link"></i></a>
+                        <a href="https://www.credly.com/badges/9698db44-1ca6-4fd4-9aaf-4ba1d883e243" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
                     </div>
                 </div>
                 <div class="portfolio-item" data-category="certifications">
@@ -342,32 +1185,141 @@
 
     <script src="script.js"></script>
     <script>
-        // Portfolio filter functionality
         document.addEventListener('DOMContentLoaded', function() {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
             
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    // Remove active class from all buttons
                     filterBtns.forEach(b => b.classList.remove('active'));
-                    
-                    // Add active class to clicked button
                     this.classList.add('active');
-                    
-                    // Get filter value
                     const filterValue = this.getAttribute('data-filter');
                     
-                    // Filter portfolio items
+                    portfolioItems.forEach(item => {
+                        if (!(filterValue === 'all' || item.getAttribute('data-category') === filterValue)) {
+                            item.style.display = 'none';
+                        }
+                    });
+                    
                     portfolioItems.forEach(item => {
                         if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(8px) scale(0.98)';
                             item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
+                            void item.offsetWidth;
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0) scale(1)';
                         }
                     });
                 });
             });
+            
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            window.addEventListener('scroll', function() {
+                const scrollPos = window.scrollY + 100;
+                const sections = document.querySelectorAll('section');
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            });
+            
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = document.querySelector('.theme-icon i');
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            
+            if (savedTheme === 'light') {
+                document.documentElement.classList.remove('dark-mode');
+                document.documentElement.classList.add('light-mode');
+                themeToggle.checked = false;
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                document.documentElement.classList.remove('light-mode');
+                document.documentElement.classList.add('dark-mode');
+                themeToggle.checked = true;
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+            
+            themeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    document.documentElement.classList.remove('light-mode');
+                    document.documentElement.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    document.documentElement.classList.remove('dark-mode');
+                    document.documentElement.classList.add('light-mode');
+                    localStorage.setItem('theme', 'light');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            });
+            
+            window.dispatchEvent(new Event('scroll'));
+            
+            if (document.documentElement.classList.contains('dark-mode')) {
+                forceBlackBackgrounds();
+            }
+            
+            themeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    forceBlackBackgrounds();
+                } else {
+                    removeBlackBackgrounds();
+                }
+            });
+            
+            function forceBlackBackgrounds() {
+                const style = document.createElement('style');
+                style.id = 'force-dark-mode';
+                style.innerHTML = `
+                    html.dark-mode { background-color: #000 !important; }
+                    html.dark-mode body { background-color: #000 !important; }
+                    html.dark-mode section { background-color: #000 !important; }
+                    html.dark-mode header { background-color: rgba(0,0,0,0.95) !important; }
+                    html.dark-mode .hero { background: #000 !important; }
+                    html.dark-mode .about { background: #000 !important; }
+                    html.dark-mode .services { background: #000 !important; }
+                    html.dark-mode .portfolio { background: #000 !important; }
+                    html.dark-mode footer { background-color: #080808 !important; }
+                    html.dark-mode .portfolio-item { background-color: #111 !important; }
+                    html.dark-mode .service-card { background-color: #111 !important; }
+                    html.dark-mode .portfolio-info { background-color: #111 !important; }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            function removeBlackBackgrounds() {
+                const style = document.getElementById('force-dark-mode');
+                if (style) {
+                    style.remove();
+                }
+            }
+            
+            if (document.documentElement.classList.contains('dark-mode')) {
+                forceBlackBackgrounds();
+            }
         });
     </script>
 </body>
