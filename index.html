@@ -1912,13 +1912,13 @@
                         
                         // Fix formatting of hours text with better spacing
                         newSelfStudy.innerHTML = `
-                            <div class="study-header">
+                            <div class="study-header" style="display: flex; justify-content: space-between;">
                                 <span>Hours of Self-Study</span>
-                                <span class="percentage">9.16%</span>
+                                <span class="percentage" style="margin-left: 12px;">9.19% </span >
                             </div>
-                            <div class="study-count">916 / 10,000</div>
+                            <div class="study-count">919 / 10,000</div>
                             <div class="skill-bar" style="margin-top: 8px; height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 4px; overflow: hidden;">
-                                <div class="skill-level" style="width: 9.16%; height: 100%; background: var(--primary-color);"></div>
+                                <div class="skill-level" style="width: 9.19%; height: 100%; background: var(--primary-color);"></div>
                             </div>
                         `;
                         
