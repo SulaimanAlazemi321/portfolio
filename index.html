@@ -694,13 +694,17 @@
         
         @media screen and (max-width: 768px) {
             header {
-                padding: 10px 0;
+                padding: 15px 20px;
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
                 z-index: 1000;
                 background: var(--header-bg);
+            }
+
+            .container {
+                padding: 0 20px;
             }
 
             .nav-links {
@@ -712,8 +716,9 @@
                 background: var(--header-bg);
                 flex-direction: column;
                 align-items: center;
-                padding: 20px 0;
-                transition: 0.3s;
+                padding: 40px 0;
+                transition: 0.3s ease;
+                z-index: 999;
             }
 
             .nav-links.active {
@@ -721,20 +726,35 @@
             }
 
             .nav-links li {
-                margin: 15px 0;
+                margin: 20px 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+                width: 200px;
+                text-align: center;
+                border-radius: 30px;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                background: rgba(79, 163, 224, 0.1);
             }
 
             .hamburger {
                 display: block;
+                cursor: pointer;
             }
 
             #home {
-                padding-top: 80px;
+                padding-top: 100px;
             }
 
             .hero .container {
                 display: flex;
                 flex-direction: column;
+                padding: 20px;
             }
 
             .hero-content {
@@ -746,251 +766,606 @@
             .hero-image {
                 order: 1;
                 margin-bottom: 30px;
-            }
-
-            .self-study-progress {
-                margin-top: 20px;
-                width: 100%;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .contact-info span {
-                margin: 5px 0;
-            }
-
-            .social-icons {
+                display: flex;
                 justify-content: center;
-                margin-top: 20px;
-            }
-
-            .theme-switch-wrapper {
-                top: 10px;
-                right: 10px;
-                padding: 8px 12px;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-                margin-top: 20px;
-            }
-
-            .hero-content h2 {
-                font-size: 1.2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
             }
 
             .profile-image {
                 width: 200px;
                 height: 200px;
                 margin: 0 auto;
+                border: 3px solid var(--primary-color);
+                box-shadow: 0 0 20px rgba(79, 163, 224, 0.3);
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .contact-info span {
+                margin: 5px 0;
+                padding: 10px 20px;
+                background: rgba(79, 163, 224, 0.1);
+                border-radius: 30px;
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+                margin-top: 25px;
+                gap: 20px;
+            }
+
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .about-text p {
+                font-size: 1rem;
+                text-align: left;
+                padding: 0 10px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 20px;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 20px;
+            }
+
+            .portfolio-filter {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 30px;
+                padding: 0 10px;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+                margin: 5px;
+            }
+
+            .portfolio-item {
+                margin-bottom: 30px;
+            }
+
+            .portfolio-info {
+                padding: 20px 15px;
+            }
+
+            .theme-switch-wrapper {
+                top: 15px;
+                right: 15px;
+                padding: 8px 12px;
+            }
+
+            .skill-bar {
+                margin-bottom: 25px;
+            }
+
+            .skill {
+                margin-bottom: 20px;
             }
         }
 
         @media screen and (max-width: 480px) {
             .hero-content h1 {
                 font-size: 1.8rem;
+                line-height: 1.3;
             }
 
             .hero-content h2 {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
+                margin: 10px 0;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                line-height: 1.5;
             }
 
             .contact-info span {
                 font-size: 0.9rem;
+                padding: 8px 15px;
             }
 
-            .theme-switch-wrapper {
-                padding: 6px 10px;
+            .profile-image {
+                width: 180px;
+                height: 180px;
             }
 
-            .logo {
-                font-size: 1.1rem;
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .filter-btn {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+
+            .portfolio-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .portfolio-info p {
+                font-size: 0.9rem;
+            }
+
+            .skill-level-text {
+                font-size: 11px;
             }
         }
-        
-        #security-plus-cert,
-        #network-plus-cert {
-            transform: scale(0.95);
-            transform-origin: center;
+
+        /* Add smooth scrolling for better mobile experience */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Improve touch targets for mobile */
+        .nav-links a,
+        .social-icon,
+        .filter-btn,
+        .portfolio-link {
+            touch-action: manipulation;
+        }
+
+        /* Add active state for touch devices */
+        @media (hover: none) {
+            .nav-links a:active,
+            .social-icon:active,
+            .filter-btn:active,
+            .portfolio-link:active {
+                transform: scale(0.95);
+            }
+        }
+    </style>
+    
+    <style>
+        /* Mobile-specific styles */
+        .mobile-layout .container {
+            padding: 0 15px;
         }
         
-        html.dark-mode header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
+        /* Mobile hero section */
+        .mobile-hero {
+            padding-top: 70px !important;
+            padding-bottom: 20px;
         }
         
-        html.dark-mode #home {
-            padding-top: 120px;
-        }
-        
-        .back-to-top {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .mobile-hero-header {
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin: 0 auto;
-            transition: all 0.3s ease;
-            background: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
+            margin-bottom: 20px;
         }
         
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        .mobile-profile-wrapper {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 10px rgba(79, 163, 224, 0.3);
         }
         
-        .back-to-top i {
-            font-size: 18px;
-            color: white;
+        .mobile-profile-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
-        html.dark-mode .back-to-top {
-            background: rgba(79, 163, 224, 0.7);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4), 0 0 10px rgba(79, 163, 224, 0.3);
+        .mobile-name-title {
+            flex: 1;
         }
         
-        html.dark-mode .back-to-top:hover {
-            background: rgba(79, 163, 224, 0.9);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 163, 224, 0.5);
+        .mobile-name-title h1 {
+            font-size: 1.2rem;
+            margin: 0 0 5px 0;
+            line-height: 1.2;
         }
         
-        .footer-content {
+        .mobile-name-title h2 {
+            font-size: 0.9rem;
+            margin: 0;
+            color: var(--text-muted);
+        }
+        
+        /* Mobile contact card */
+        .mobile-contact-card {
+            background: rgba(79, 163, 224, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-card-header {
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+        
+        .contact-card-header i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+        
+        .contact-items {
             display: flex;
             flex-direction: column;
+            gap: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
             align-items: center;
-            justify-content: center;
-        }
-        
-        .portfolio-item {
-            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            will-change: transform, box-shadow;
-            transform: translateY(0) scale(1);
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-        }
-
-        .dark-mode .portfolio-item:hover {
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 163, 224, 0.3);
-        }
-        
-        .portfolio-item:hover .cert-image,
-        .portfolio-item:hover .project-image,
-        .portfolio-item:hover #security-plus-cert,
-        .portfolio-item:hover #network-plus-cert,
-        .portfolio-item:hover .university-logo,
-        .portfolio-item:hover .diyar-logo {
-            transform: scale(1.20);
-        }
-        
-        .portfolio-grid {
-            min-height: 400px;
-        }
-        
-        .portfolio-item.fade-out {
-            opacity: 0;
-            transform: scale(0.8);
-        }
-        
-        .portfolio-item.fade-in {
-            opacity: 1;
-            transform: scale(1);
-            animation: fadeInScale 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        
-        @keyframes fadeInScale {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-        
-        html.dark-mode .about-text p {
-            color: #e0e0e0;
-        }
-        
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .service-card p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            font-weight: 400;
-        }
-        
-        html.dark-mode .service-card p {
-            color: #e0e0e0;
-        }
-        
-        .portfolio-info {
-            background-color: #fff;
-            padding: 20px;
-        }
-        
-        html.dark-mode .portfolio-info {
-            background-color: #111111;
-        }
-        
-        .portfolio-img {
-            background-color: #f9f9f9;
-        }
-        
-        html.dark-mode .portfolio-img {
-            background-color: #0a0a0a;
-        }
-        
-        html.dark-mode header {
-            background-color: #0a0a0a !important;
-        }
-        
-        html.dark-mode .nav-links {
-            background-color: #0a0a0a !important;
-        }
-        
-        html.dark-mode .nav-links a {
-            background-color: transparent;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            text-decoration: none;
             color: var(--text-color);
         }
         
-        html.dark-mode .hamburger span {
-            background-color: var(--text-color);
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 12px;
+        }
+        
+        .contact-details {
+            flex: 1;
+        }
+        
+        .contact-type {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        .contact-value {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        .contact-action {
+            color: var(--text-muted);
+        }
+        
+        /* Mobile quick access buttons */
+        .mobile-quick-access {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .mobile-action-button {
+            flex: 1;
+            margin: 0 5px;
+            padding: 12px 10px;
+            text-align: center;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(79, 163, 224, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-action-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 5px rgba(79, 163, 224, 0.2);
+        }
+        
+        /* Self study progress styling */
+        .self-study-progress {
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .self-study-progress .study-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .self-study-progress .study-count {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+        
+        /* Mobile section wrappers */
+        .mobile-section-wrapper {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--card-bg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark-mode .mobile-section-wrapper {
+            background: #111;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mobile-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: var(--card-bg);
+            cursor: pointer;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .dark-mode .mobile-section-header {
+            background: #111;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .mobile-section-header h2 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+        }
+        
+        .mobile-section-toggle {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(79, 163, 224, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .mobile-section-content {
+            padding: 0;
+        }
+        
+        .mobile-section-content section {
+            padding: 20px 0;
+            margin: 0;
+            box-shadow: none;
+            border-radius: 0;
+        }
+        
+        .mobile-section-content .section-header {
+            display: none; /* Hide original section header */
+        }
+        
+        /* Adjust portfolio grid for mobile */
+        .mobile-layout .portfolio-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .mobile-layout .portfolio-item {
+            width: 100%;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            background: var(--card-bg);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .dark-mode.mobile-layout .portfolio-item {
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Mobile portfolio image container */
+        .mobile-layout .portfolio-img {
+            position: relative;
+            width: 100%;
+            height: 180px; /* Fixed height for consistency */
+            overflow: hidden;
+            background-color: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Image sizing and positioning for mobile */
+        .mobile-layout .cert-image,
+        .mobile-layout .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Changed from cover to contain */
+            max-height: 180px;
+            padding: 10px;
+            transform: none !important; /* Remove scale animations for better performance */
+            transition: none !important;
+        }
+        
+        /* Special handling for logos in mobile */
+        .mobile-layout .diyar-logo,
+        .mobile-layout .university-logo {
+            max-width: 80%;
+            height: auto;
+            max-height: 160px;
+            background-color: var(--background-color);
+            border-radius: 5px;
+            padding: 15px;
+        }
+        
+        /* Fix for certification images */
+        .mobile-layout #security-plus-cert,
+        .mobile-layout #network-plus-cert,
+        .mobile-layout #A-plus-cert {
+            transform: none !important;
+            max-width: 90%;
+            height: auto;
+        }
+        
+        /* Portfolio info section for mobile */
+        .mobile-layout .portfolio-info {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mobile-layout .portfolio-info h3 {
+            font-size: 1.1rem;
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+        
+        .mobile-layout .portfolio-info p {
+            font-size: 0.9rem;
+            margin: 4px 0;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+        
+        /* Portfolio link for mobile */
+        .mobile-layout .portfolio-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: rgba(79, 163, 224, 0.1);
+            border-radius: 5px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+        
+        .mobile-layout .portfolio-link:active {
+            background: rgba(79, 163, 224, 0.2);
+            transform: translateY(2px);
+        }
+        
+        /* Portfolio grid optimization for mobile */
+        .mobile-layout .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 0 15px;
+        }
+        
+        /* Portfolio filter scrollable for mobile */
+        .mobile-layout .portfolio-filter {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 5px 15px;
+            margin: 0 0 20px 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        /* Make mobile section content display portfolio items properly */
+        .mobile-layout .mobile-section-content .portfolio-grid {
+            padding: 15px;
+        }
+        
+        .mobile-layout .mobile-section-content .portfolio-filter {
+            margin: 0 15px 15px 15px;
+            padding: 5px 0;
+        }
+        
+        /* Add thumbnail gallery view option for mobile */
+        .mobile-layout .thumbnail-view-toggle {
+            display: flex;
+            justify-content: center;
+            margin: 0 0 20px 0;
+            padding: 0 15px;
+        }
+        
+        .mobile-layout .view-toggle-btn {
+            padding: 5px 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            color: var(--text-color);
+            font-size: 0.8rem;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        
+        .mobile-layout .view-toggle-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        /* Thumbnail gallery view for mobile */
+        .mobile-layout .portfolio-grid.thumbnail-view {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .mobile-layout .portfolio-grid.thumbnail-view .portfolio-item {
+            margin-bottom: 0;
+        }
+        
+        .mobile-layout .portfolio-grid.thumbnail-view .portfolio-img {
+            height: 120px;
+        }
+        
+        .mobile-layout .portfolio-grid.thumbnail-view .portfolio-info {
+            padding: 10px;
+        }
+        
+        .mobile-layout .portfolio-grid.thumbnail-view .portfolio-info h3 {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .mobile-layout .portfolio-grid.thumbnail-view .portfolio-info p {
+            display: none;
+        }
+        
+        .mobile-layout .portfolio-grid.thumbnail-view .portfolio-link {
+            margin-top: 5px;
+            padding: 5px 10px;
+            font-size: 0.8rem;
         }
     </style>
 </head>
@@ -1042,9 +1417,9 @@
                 </div>
                 
                 <div class="self-study-progress" style="margin-top: 25px;">
-                    <span>Hours of Self-Study: 916 / 10,000 <span style="float: right;">9.16%</span></span>
+                    <span>Hours of Self-Study: 919 / 10,000 <span style="float: right;">9.19%</span></span>
                     <div class="skill-bar" style="margin-top: 8px;">
-                        <div class="skill-level" style="width: 9.16%"></div>
+                        <div class="skill-level" style="width: 9.19%"></div>
                     </div>
                 </div>
             </div>
@@ -1269,59 +1644,642 @@
             const filterBtns = document.querySelectorAll('.filter-btn');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
             
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    const filterValue = this.getAttribute('data-filter');
-                    
-                    portfolioItems.forEach(item => {
-                        if (!(filterValue === 'all' || item.getAttribute('data-category') === filterValue)) {
-                            item.style.display = 'none';
-                        }
-                    });
-                    
-                    portfolioItems.forEach(item => {
-                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                            item.style.opacity = '0';
-                            item.style.transform = 'translateY(8px) scale(0.98)';
-                            item.style.display = 'block';
-                            void item.offsetWidth;
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0) scale(1)';
-                        }
-                    });
-                });
+            // Mobile detection
+            const isMobile = window.innerWidth <= 768;
+            
+            // Apply mobile-specific layout if on mobile
+            if (isMobile) {
+                applyMobileLayout();
+            }
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth <= 768 && !document.body.classList.contains('mobile-layout')) {
+                    applyMobileLayout();
+                } else if (window.innerWidth > 768 && document.body.classList.contains('mobile-layout')) {
+                    applyDesktopLayout();
+                }
             });
             
-            const navLinks = document.querySelectorAll('.nav-links a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.forEach(item => item.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-            
-            window.addEventListener('scroll', function() {
-                const scrollPos = window.scrollY + 100;
-                const sections = document.querySelectorAll('section');
+            // Function to apply mobile-specific layout
+            function applyMobileLayout() {
+                document.body.classList.add('mobile-layout');
                 
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    const sectionId = section.getAttribute('id');
+                // Hide the navigation bar on mobile
+                const header = document.querySelector('header');
+                if (header) {
+                    header.style.display = 'none';
+                }
+                
+                // Create mobile-specific sections
+                createMobileHero();
+                reorganizeSections();
+                optimizePortfolioForMobile();
+                
+                // Make sure the theme toggle is always visible
+                ensureThemeToggleVisible();
+                
+                // Update View Portfolio button to ensure it works with closed sections
+                const portfolioButton = document.querySelector('.mobile-action-button.full-width');
+                if (portfolioButton) {
+                    portfolioButton.addEventListener('click', function(e) {
+                        // Find the portfolio mobile wrapper
+                        const portfolioWrapper = document.getElementById('mobile-portfolio-wrapper');
+                        if (portfolioWrapper) {
+                            // Ensure portfolio section is expanded and others are closed
+                            const allSections = document.querySelectorAll('.mobile-section-content');
+                            const allToggles = document.querySelectorAll('.mobile-section-toggle i');
+                            
+                            // Close all sections first
+                            allSections.forEach((section, i) => {
+                                section.style.display = 'none';
+                                if (allToggles[i]) {
+                                    allToggles[i].className = 'fas fa-chevron-down';
+                                }
+                            });
+                            
+                            // Then open just the portfolio section
+                            const content = portfolioWrapper.querySelector('.mobile-section-content');
+                            const toggle = portfolioWrapper.querySelector('.mobile-section-toggle i');
+                            
+                            if (content && toggle) {
+                                content.style.display = 'block';
+                                toggle.className = 'fas fa-chevron-up';
+                                
+                                // Scroll to portfolio section
+                                setTimeout(() => {
+                                    portfolioWrapper.scrollIntoView({ behavior: 'smooth' });
+                                }, 100);
+                            }
+                        }
+                    });
+                }
+            }
+            
+            // Function to revert to desktop layout
+            function applyDesktopLayout() {
+                document.body.classList.remove('mobile-layout');
+                location.reload(); // Simple approach - reload page when switching to desktop
+            }
+            
+            // Function to ensure theme toggle is always visible
+            function ensureThemeToggleVisible() {
+                const themeToggle = document.querySelector('.theme-switch-wrapper');
+                if (!themeToggle) return;
+                
+                // Make sure the theme toggle has a higher z-index and is visible
+                themeToggle.style.zIndex = "10001";
+                themeToggle.style.position = "fixed";
+                themeToggle.style.display = "flex";
+                
+                // Add CSS for better visibility on mobile
+                const themeToggleStyle = document.createElement('style');
+                themeToggleStyle.textContent = `
+                    .theme-switch-wrapper {
+                        position: fixed;
+                        top: 15px;
+                        right: 20px;
+                        z-index: 10001;
+                        display: flex;
+                        align-items: center;
+                        padding: 8px 12px;
+                        background: rgba(0, 0, 0, 0.3);
+                        border-radius: 30px;
+                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+                        backdrop-filter: blur(5px);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                    }
                     
-                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === '#' + sectionId) {
-                                link.classList.add('active');
+                    .light-mode .theme-switch-wrapper {
+                        background: rgba(255, 255, 255, 0.3);
+                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                        border: 1px solid rgba(0, 0, 0, 0.1);
+                    }
+                    
+                    /* When on mobile, position in the right corner */
+                    @media screen and (max-width: 768px) {
+                        .theme-switch-wrapper {
+                            top: 15px;
+                            right: 15px;
+                        }
+                    }
+                `;
+                document.head.appendChild(themeToggleStyle);
+            }
+            
+            // Enhanced createMobileHero function with better contact details and self-study display
+            function createMobileHero() {
+                const heroSection = document.getElementById('home');
+                if (!heroSection) return;
+                
+                // Add mobile-specific class
+                heroSection.classList.add('mobile-hero');
+                
+                // Add site title at the top since navbar is gone
+                const siteTitle = document.createElement('div');
+                siteTitle.className = 'mobile-site-title';
+                siteTitle.innerHTML = '<h1>Sulaiman Alazemi</h1>';
+                
+                // Get hero content elements
+                const heroContent = heroSection.querySelector('.hero-content');
+                const heroImage = heroSection.querySelector('.hero-image');
+                
+                if (heroContent && heroImage) {
+                    // Create compact header with image and name
+                    const compactHeader = document.createElement('div');
+                    compactHeader.className = 'mobile-hero-header';
+                    
+                    // Create image wrapper
+                    const imageWrapper = document.createElement('div');
+                    imageWrapper.className = 'mobile-profile-wrapper';
+                    imageWrapper.appendChild(heroImage.querySelector('img').cloneNode(true));
+                    
+                    // Create name and title
+                    const nameTitle = document.createElement('div');
+                    nameTitle.className = 'mobile-name-title';
+                    nameTitle.innerHTML = `
+                        <h1>${heroContent.querySelector('h1').innerHTML}</h1>
+                        <h2>${heroContent.querySelector('h2').textContent}</h2>
+                    `;
+                    
+                    // Assemble compact header
+                    compactHeader.appendChild(imageWrapper);
+                    compactHeader.appendChild(nameTitle);
+                    
+                    // Create enhanced contact card section
+                    const contactCard = document.createElement('div');
+                    contactCard.className = 'mobile-contact-card';
+                    
+                    // Add contact info in a card format
+                    const contactInfo = heroContent.querySelector('.contact-info');
+                    if (contactInfo) {
+                        // Create contact card header
+                        const cardHeader = document.createElement('div');
+                        cardHeader.className = 'contact-card-header';
+                        cardHeader.innerHTML = '<i class="fas fa-address-card"></i> Contact Details';
+                        contactCard.appendChild(cardHeader);
+                        
+                        // Create contact items container
+                        const contactItems = document.createElement('div');
+                        contactItems.className = 'contact-items';
+                        
+                        // Add contact items with improved styling
+                        const contactTypes = [
+                            { icon: 'fa-envelope', prefix: 'mailto:', text: 'Email', label: 'alroot777@gmail.com', value: 'alroot777@gmail.com' },
+                            { icon: 'fa-phone', prefix: 'tel:', text: 'Phone', label: '+44 7466 563180', value: '+447466563180' },
+                            { icon: 'fa-whatsapp', prefix: 'https://wa.me/', text: 'WhatsApp', label: '+965 5159 0622', value: '+96551590622' }
+                        ];
+                        
+                        contactTypes.forEach(type => {
+                            const contactSpan = contactInfo.querySelector(`span:has(i.fas.${type.icon}), span:has(i.fab.${type.icon})`);
+                            if (contactSpan) {
+                                const contactItem = document.createElement('a');
+                                contactItem.className = 'contact-item';
+                                contactItem.href = `${type.prefix}${type.value}`;
+                                contactItem.innerHTML = `
+                                    <div class="contact-icon">
+                                        <i class="${contactSpan.querySelector('i').className}"></i>
+                                    </div>
+                                    <div class="contact-details">
+                                        <div class="contact-type">${type.text}</div>
+                                        <div class="contact-value">${type.label}</div>
+                                    </div>
+                                    <div class="contact-action">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                `;
+                                
+                                contactItems.appendChild(contactItem);
                             }
                         });
+                        
+                        contactCard.appendChild(contactItems);
+                    }
+                    
+                    // Create quick access buttons
+                    const quickAccessButtons = document.createElement('div');
+                    quickAccessButtons.className = 'mobile-quick-access';
+                    
+                    // Add View Portfolio button
+                    const portfolioButton = document.createElement('a');
+                    portfolioButton.href = '#portfolio';
+                    portfolioButton.className = 'mobile-action-button full-width';
+                    portfolioButton.innerHTML = '<i class="fas fa-briefcase"></i> View Portfolio';
+                    
+                    // Add click handler to ensure portfolio section is open
+                    portfolioButton.addEventListener('click', function(e) {
+                        // Find the portfolio mobile wrapper
+                        const portfolioWrapper = document.getElementById('mobile-portfolio-wrapper');
+                        if (portfolioWrapper) {
+                            // Ensure portfolio section is expanded
+                            const content = portfolioWrapper.querySelector('.mobile-section-content');
+                            const toggle = portfolioWrapper.querySelector('.mobile-section-toggle i');
+                            
+                            if (content && toggle) {
+                                content.style.display = 'block';
+                                toggle.className = 'fas fa-chevron-up';
+                            }
+                        }
+                    });
+                    
+                    quickAccessButtons.appendChild(portfolioButton);
+                    
+                    // Clear and rebuild the hero section
+                    heroSection.innerHTML = '';
+                    const newContainer = document.createElement('div');
+                    newContainer.className = 'container';
+                    newContainer.appendChild(siteTitle); // Add site title at the top
+                    newContainer.appendChild(compactHeader);
+                    newContainer.appendChild(contactCard);
+                    newContainer.appendChild(quickAccessButtons);
+                    
+                    // Add social icons
+                    const socialIcons = heroContent.querySelector('.social-icons');
+                    if (socialIcons) {
+                        newContainer.appendChild(socialIcons.cloneNode(true));
+                    }
+                    
+                    // Add self-study progress with improved formatting
+                    const selfStudy = heroContent.querySelector('.self-study-progress');
+                    if (selfStudy) {
+                        // Create a new formatted version
+                        const newSelfStudy = document.createElement('div');
+                        newSelfStudy.className = 'self-study-progress';
+                        newSelfStudy.style.margin = '25px 5px 0';
+                        newSelfStudy.style.padding = '15px';
+                        newSelfStudy.style.backgroundColor = 'rgba(79, 163, 224, 0.05)';
+                        newSelfStudy.style.borderRadius = '8px';
+                        
+                        // Fix formatting of hours text with better spacing
+                        newSelfStudy.innerHTML = `
+                            <div class="study-header">
+                                <span>Hours of Self-Study</span>
+                                <span class="percentage">9.16%</span>
+                            </div>
+                            <div class="study-count">916 / 10,000</div>
+                            <div class="skill-bar" style="margin-top: 8px; height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 4px; overflow: hidden;">
+                                <div class="skill-level" style="width: 9.16%; height: 100%; background: var(--primary-color);"></div>
+                            </div>
+                        `;
+                        
+                        newContainer.appendChild(newSelfStudy);
+                    }
+                    
+                    heroSection.appendChild(newContainer);
+                    
+                    // Add CSS for site title in mobile view
+                    const siteTitleStyle = document.createElement('style');
+                    siteTitleStyle.textContent = `
+                        .mobile-site-title {
+                            text-align: center;
+                            margin-bottom: 20px;
+                            padding-top: 10px;
+                        }
+                        
+                        .mobile-site-title h1 {
+                            margin: 0;
+                            font-size: 1.6rem;
+                            color: var(--primary-color);
+                            font-weight: 700;
+                            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+                        }
+                        
+                        .dark-mode .mobile-site-title h1 {
+                            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 10px rgba(79, 163, 224, 0.2);
+                        }
+                    `;
+                    document.head.appendChild(siteTitleStyle);
+                }
+            }
+            
+            // Enhanced mobile navigation
+            function enhanceMobileNavigation() {
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
+                
+                if (hamburger && navLinks) {
+                    // Handle hamburger click
+                    hamburger.addEventListener('click', function() {
+                        this.classList.toggle('active');
+                        navLinks.classList.toggle('active');
+                    });
+                    
+                    // Close menu when a link is clicked
+                    const links = navLinks.querySelectorAll('a');
+                    links.forEach(link => {
+                        link.addEventListener('click', function() {
+                            hamburger.classList.remove('active');
+                            navLinks.classList.remove('active');
+                            
+                            // Update active link class
+                            links.forEach(l => l.classList.remove('active'));
+                            this.classList.add('active');
+                            
+                            // Handle smooth scrolling to section
+                            const target = this.getAttribute('href');
+                            if (target.startsWith('#')) {
+                                const targetSection = document.querySelector(target);
+                                if (targetSection) {
+                                    setTimeout(() => {
+                                        window.scrollTo({
+                                            top: targetSection.offsetTop - 80,
+                                            behavior: 'smooth'
+                                        });
+                                    }, 300);
+                                }
+                            }
+                        });
+                    });
+                    
+                    // Add styles for mobile navigation
+                    const mobileNavStyle = document.createElement('style');
+                    mobileNavStyle.textContent = `
+                        @media screen and (max-width: 768px) {
+                            header {
+                                padding: 15px 20px;
+                                position: fixed;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                z-index: 1000;
+                            }
+                            
+                            .nav-links {
+                                position: fixed;
+                                top: 60px;
+                                left: -100%;
+                                width: 100%;
+                                height: calc(100vh - 60px);
+                                background: var(--header-bg);
+                                flex-direction: column;
+                                align-items: center;
+                                padding: 40px 0;
+                                transition: 0.3s ease;
+                                z-index: 999;
+                            }
+                            
+                            .nav-links.active {
+                                left: 0;
+                            }
+                            
+                            .nav-links li {
+                                margin: 20px 0;
+                            }
+                            
+                            .nav-links a {
+                                font-size: 1.2rem;
+                                padding: 10px 20px;
+                                width: 200px;
+                                text-align: center;
+                                border-radius: 30px;
+                                transition: all 0.3s ease;
+                            }
+                            
+                            .nav-links a:hover {
+                                background: rgba(79, 163, 224, 0.1);
+                            }
+                            
+                            .hamburger {
+                                display: block;
+                                cursor: pointer;
+                                z-index: 1001;
+                            }
+                            
+                            .hamburger span {
+                                display: block;
+                                width: 25px;
+                                height: 3px;
+                                background: var(--text-color);
+                                margin: 5px 0;
+                                transition: 0.3s;
+                            }
+                            
+                            .hamburger.active span:nth-child(1) {
+                                transform: rotate(45deg) translate(5px, 5px);
+                            }
+                            
+                            .hamburger.active span:nth-child(2) {
+                                opacity: 0;
+                            }
+                            
+                            .hamburger.active span:nth-child(3) {
+                                transform: rotate(-45deg) translate(5px, -5px);
+                            }
+                            
+                            /* Add padding to home section to accommodate fixed header */
+                            #home {
+                                padding-top: 100px !important;
+                            }
+                            
+                            .mobile-hero {
+                                padding-top: 130px !important;
+                            }
+                        }
+                    `;
+                    document.head.appendChild(mobileNavStyle);
+                }
+            }
+
+            // Add "View All" section to portfolio
+            function optimizePortfolioForMobile() {
+                // Find portfolio section and grid
+                const portfolioSection = document.getElementById('portfolio');
+                if (!portfolioSection) return;
+                
+                const portfolioGrid = portfolioSection.querySelector('.portfolio-grid');
+                if (!portfolioGrid) return;
+                
+                // Add view toggle buttons
+                const portfolioFilter = portfolioSection.querySelector('.portfolio-filter');
+                if (portfolioFilter) {
+                    // Add "View All" option to portfolio
+                    const viewAllButton = document.createElement('a');
+                    viewAllButton.className = 'view-all-button';
+                    viewAllButton.innerHTML = '<i class="fas fa-th-large"></i> View All Items';
+                    viewAllButton.href = '#';
+                    viewAllButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Create full screen portfolio viewer
+                        createFullScreenPortfolioViewer(portfolioGrid);
+                    });
+                    
+                    // Insert the View All button
+                    portfolioFilter.parentNode.insertBefore(viewAllButton, portfolioFilter);
+                    
+                    // Add view toggle buttons
+                    const toggleContainer = document.createElement('div');
+                    toggleContainer.className = 'thumbnail-view-toggle';
+                    
+                    const listViewBtn = document.createElement('button');
+                    listViewBtn.className = 'view-toggle-btn';
+                    listViewBtn.textContent = 'List View';
+                    listViewBtn.addEventListener('click', function() {
+                        if (!this.classList.contains('active')) {
+                            this.classList.add('active');
+                            thumbnailViewBtn.classList.remove('active');
+                            portfolioGrid.classList.remove('thumbnail-view');
+                        }
+                    });
+                    
+                    const thumbnailViewBtn = document.createElement('button');
+                    thumbnailViewBtn.className = 'view-toggle-btn active'; // Make Grid View active by default
+                    thumbnailViewBtn.textContent = 'Grid View';
+                    thumbnailViewBtn.addEventListener('click', function() {
+                        if (!this.classList.contains('active')) {
+                            this.classList.add('active');
+                            listViewBtn.classList.remove('active');
+                            portfolioGrid.classList.add('thumbnail-view');
+                        }
+                    });
+                    
+                    toggleContainer.appendChild(listViewBtn);
+                    toggleContainer.appendChild(thumbnailViewBtn);
+                    
+                    // Insert after filter buttons
+                    portfolioFilter.parentNode.insertBefore(toggleContainer, portfolioFilter.nextSibling);
+                    
+                    // Set Grid View as default
+                    portfolioGrid.classList.add('thumbnail-view');
+                    
+                    // Add CSS for View All button
+                    const viewAllStyle = document.createElement('style');
+                    viewAllStyle.textContent = `
+                        .mobile-layout .view-all-button {
+                            display: block;
+                            margin: 0 15px 15px;
+                            padding: 12px;
+                            text-align: center;
+                            background: var(--primary-color);
+                            color: white;
+                            border-radius: 8px;
+                            text-decoration: none;
+                            font-weight: 500;
+                            box-shadow: 0 3px 10px rgba(79, 163, 224, 0.3);
+                        }
+                        
+                        .mobile-layout .view-all-button i {
+                            margin-right: 8px;
+                        }
+                        
+                        .mobile-layout .full-screen-portfolio {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background: var(--background-color);
+                            z-index: 9999;
+                            overflow-y: auto;
+                            padding: 60px 15px 20px;
+                        }
+                        
+                        .mobile-layout .portfolio-viewer-header {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            height: 50px;
+                            background: var(--primary-color);
+                            color: white;
+                            display: flex;
+                            align-items: center;
+                            padding: 0 15px;
+                            z-index: 10000;
+                            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+                        }
+                        
+                        .mobile-layout .portfolio-viewer-title {
+                            flex: 1;
+                            font-weight: 500;
+                        }
+                        
+                        .mobile-layout .close-viewer {
+                            width: 30px;
+                            height: 30px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 50%;
+                            background: rgba(255, 255, 255, 0.2);
+                        }
+                        
+                        .mobile-layout .portfolio-viewer-grid {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 10px;
+                        }
+                        
+                        .mobile-layout .portfolio-viewer-item {
+                            background: var(--card-bg);
+                            border-radius: 8px;
+                            overflow: hidden;
+                            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                        }
+                        
+                        .mobile-layout .portfolio-viewer-img {
+                            height: 120px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            overflow: hidden;
+                        }
+                        
+                        .mobile-layout .portfolio-viewer-img img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                        
+                        .mobile-layout .portfolio-viewer-info {
+                            padding: 10px;
+                        }
+                        
+                        .mobile-layout .portfolio-viewer-info h3 {
+                            margin: 0 0 5px;
+                            font-size: 0.9rem;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                        
+                        .dark-mode .portfolio-viewer-item {
+                            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+                        }
+                    `;
+                    document.head.appendChild(viewAllStyle);
+                    
+                    // Enhance mobile filter functionality
+                    enhanceMobileFilters(portfolioFilter, portfolioGrid);
+                }
+                
+                // Optimize each portfolio item for mobile
+                const portfolioItems = portfolioGrid.querySelectorAll('.portfolio-item');
+                portfolioItems.forEach(item => {
+                    // Create a more efficient layout for mobile
+                    const img = item.querySelector('.portfolio-img img');
+                    if (img) {
+                        // Add loading="lazy" for better performance
+                        img.setAttribute('loading', 'lazy');
+                        
+                        // Adjust image display for different types
+                        if (img.classList.contains('diyar-logo') || 
+                            img.classList.contains('university-logo')) {
+                            img.style.objectFit = 'contain';
+                            img.style.padding = '10px';
+                        }
+                    }
+                    
+                    // Make links more touch-friendly
+                    const link = item.querySelector('.portfolio-link');
+                    if (link) {
+                        // Add icon for better visibility
+                        link.innerHTML = '<i class="fas fa-external-link-alt"></i> View';
                     }
                 });
-            });
+            }
             
+            // Theme toggling functionality
             const themeToggle = document.getElementById('theme-toggle');
             const themeIcon = document.querySelector('.theme-icon i');
             const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -1362,14 +2320,6 @@
                 forceBlackBackgrounds();
             }
             
-            themeToggle.addEventListener('change', function() {
-                if (this.checked) {
-                    forceBlackBackgrounds();
-                } else {
-                    removeBlackBackgrounds();
-                }
-            });
-            
             function forceBlackBackgrounds() {
                 const style = document.createElement('style');
                 style.id = 'force-dark-mode';
@@ -1396,11 +2346,609 @@
                     style.remove();
                 }
             }
-            
-            if (document.documentElement.classList.contains('dark-mode')) {
-                forceBlackBackgrounds();
-            }
         });
+
+        // Enhanced full-screen portfolio viewer with category organization
+        function createFullScreenPortfolioViewer(portfolioGrid) {
+            // Create viewer container
+            const viewer = document.createElement('div');
+            viewer.className = 'full-screen-portfolio';
+            
+            // Create header
+            const header = document.createElement('div');
+            header.className = 'portfolio-viewer-header';
+            header.innerHTML = `
+                <div class="portfolio-viewer-title">All Portfolio Items</div>
+                <div class="close-viewer"><i class="fas fa-times"></i></div>
+            `;
+            
+            // Add close functionality
+            const closeBtn = header.querySelector('.close-viewer');
+            closeBtn.addEventListener('click', function() {
+                document.body.removeChild(viewer);
+            });
+            
+            // Create main content container with scrolling
+            const contentContainer = document.createElement('div');
+            contentContainer.className = 'portfolio-viewer-content';
+            
+            // Group items by category
+            const categories = [
+                { id: 'certifications', label: 'Certifications', icon: 'certificate' },
+                { id: 'security', label: 'Security Projects', icon: 'shield-alt' },
+                { id: 'education', label: 'Education', icon: 'graduation-cap' },
+                { id: 'experience', label: 'Experience', icon: 'briefcase' }
+            ];
+            
+            // Get all portfolio items
+            const portfolioItems = portfolioGrid.querySelectorAll('.portfolio-item');
+            
+            // Create a container for each category and populate with matching items
+            categories.forEach(category => {
+                // Create category section
+                const categorySection = document.createElement('div');
+                categorySection.className = 'portfolio-viewer-category';
+                
+                // Create category header
+                const categoryHeader = document.createElement('div');
+                categoryHeader.className = 'category-header';
+                categoryHeader.innerHTML = `
+                    <i class="fas fa-${category.icon}"></i>
+                    <h2>${category.label}</h2>
+                `;
+                categorySection.appendChild(categoryHeader);
+                
+                // Create grid for this category
+                const categoryGrid = document.createElement('div');
+                categoryGrid.className = 'portfolio-viewer-grid';
+                
+                // Find and clone items for this category
+                let itemCount = 0;
+                portfolioItems.forEach(item => {
+                    if (item.getAttribute('data-category') === category.id) {
+                        itemCount++;
+                        
+                        // Create viewer item clone
+                        const viewerItem = createViewerItem(item);
+                        categoryGrid.appendChild(viewerItem);
+                    }
+                });
+                
+                // Only add category if it has items
+                if (itemCount > 0) {
+                    categorySection.appendChild(categoryGrid);
+                    contentContainer.appendChild(categorySection);
+                }
+            });
+            
+            // Helper function to create viewer item
+            function createViewerItem(originalItem) {
+                // Create a simplified version of each item
+                const viewerItem = document.createElement('div');
+                viewerItem.className = 'portfolio-viewer-item';
+                viewerItem.setAttribute('data-category', originalItem.getAttribute('data-category'));
+                
+                // Copy the image
+                const imgContainer = document.createElement('div');
+                imgContainer.className = 'portfolio-viewer-img';
+                
+                const originalImg = originalItem.querySelector('.portfolio-img img');
+                if (originalImg) {
+                    const img = originalImg.cloneNode(true);
+                    imgContainer.appendChild(img);
+                }
+                
+                // Copy the title
+                const infoContainer = document.createElement('div');
+                infoContainer.className = 'portfolio-viewer-info';
+                
+                const originalTitle = originalItem.querySelector('.portfolio-info h3');
+                if (originalTitle) {
+                    const title = document.createElement('h3');
+                    title.textContent = originalTitle.textContent;
+                    infoContainer.appendChild(title);
+                }
+                
+                // Add description if available (first paragraph)
+                const originalDesc = originalItem.querySelector('.portfolio-info p');
+                if (originalDesc) {
+                    const desc = document.createElement('p');
+                    desc.textContent = originalDesc.textContent;
+                    infoContainer.appendChild(desc);
+                }
+                
+                // Add link if exists
+                const originalLink = originalItem.querySelector('.portfolio-link');
+                if (originalLink) {
+                    const link = originalLink.cloneNode(true);
+                    link.className = 'portfolio-viewer-link';
+                    // Keep original href
+                    infoContainer.appendChild(link);
+                }
+                
+                // Assemble viewer item
+                viewerItem.appendChild(imgContainer);
+                viewerItem.appendChild(infoContainer);
+                
+                // Make the entire item clickable if it has a link
+                if (originalLink) {
+                    viewerItem.style.cursor = 'pointer';
+                    viewerItem.addEventListener('click', function(e) {
+                        if (e.target.tagName !== 'A') { // Don't trigger if clicking the link itself
+                            window.open(originalLink.href, '_blank');
+                        }
+                    });
+                }
+                
+                return viewerItem;
+            }
+            
+            // Add CSS for category organization
+            const categoryStyle = document.createElement('style');
+            categoryStyle.textContent = `
+                .portfolio-viewer-content {
+                    padding-bottom: 30px;
+                }
+                
+                .portfolio-viewer-category {
+                    margin-bottom: 25px;
+                }
+                
+                .category-header {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 15px;
+                    padding-bottom: 8px;
+                    border-bottom: 1px solid var(--border-color);
+                }
+                
+                .category-header i {
+                    width: 30px;
+                    height: 30px;
+                    background: var(--primary-color);
+                    color: white;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 12px;
+                }
+                
+                .category-header h2 {
+                    margin: 0;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    color: var(--text-color);
+                }
+                
+                .portfolio-viewer-grid {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 12px;
+                }
+                
+                .portfolio-viewer-item {
+                    background: var(--card-bg);
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+                
+                .portfolio-viewer-item:active {
+                    transform: scale(0.98);
+                }
+                
+                .portfolio-viewer-img {
+                    height: 130px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                    background: #f8f8f8;
+                }
+                
+                .dark-mode .portfolio-viewer-img {
+                    background: #0d0d0d;
+                }
+                
+                .portfolio-viewer-img img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    padding: 5px;
+                }
+                
+                .portfolio-viewer-info {
+                    padding: 12px;
+                }
+                
+                .portfolio-viewer-info h3 {
+                    margin: 0 0 5px;
+                    font-size: 0.95rem;
+                    font-weight: 600;
+                    color: var(--primary-color);
+                }
+                
+                .portfolio-viewer-info p {
+                    margin: 0 0 8px;
+                    font-size: 0.8rem;
+                    color: var(--text-muted);
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+                
+                .portfolio-viewer-link {
+                    display: inline-flex;
+                    align-items: center;
+                    padding: 5px 10px;
+                    background: rgba(79, 163, 224, 0.1);
+                    border-radius: 4px;
+                    color: var(--primary-color);
+                    font-size: 0.8rem;
+                    text-decoration: none;
+                }
+                
+                .portfolio-viewer-link i {
+                    margin-right: 5px;
+                }
+                
+                .dark-mode .portfolio-viewer-item {
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+                }
+            `;
+            document.head.appendChild(categoryStyle);
+            
+            // Assemble viewer
+            viewer.appendChild(header);
+            viewer.appendChild(contentContainer);
+            
+            // Add to document
+            document.body.appendChild(viewer);
+            
+            // Add scroll position to top
+            setTimeout(() => {
+                contentContainer.scrollTop = 0;
+            }, 100);
+        }
+
+        // Add CSS for full-width button and improved filter UI for mobile
+        const styleSheet = document.createElement("style");
+        styleSheet.innerHTML = `
+            .mobile-action-button.full-width {
+                width: 100%;
+                margin: 0;
+            }
+            
+            /* Make sure filter buttons work well on mobile */
+            .mobile-layout .filter-btn {
+                flex: 0 0 auto;
+                margin: 0 5px;
+                white-space: nowrap;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-layout .filter-btn.active {
+                background: var(--primary-color);
+                color: white;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            }
+            
+            .mobile-layout .filter-btn:active {
+                transform: scale(0.95);
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+        // Reorganize sections for mobile
+        function reorganizeSections() {
+            const main = document.createElement('div');
+            main.className = 'mobile-main-content';
+            
+            // Move portfolio section to be right after hero for quick access
+            const portfolioSection = document.getElementById('portfolio');
+            const aboutSection = document.getElementById('about');
+            const servicesSection = document.getElementById('services');
+            
+            if (portfolioSection && aboutSection && servicesSection) {
+                // Get the parent element
+                const parent = portfolioSection.parentElement;
+                
+                // Create mobile section wrappers with tab-like navigation
+                const mobilePortfolioWrapper = createMobileSectionWrapper(portfolioSection, 'Portfolio');
+                const mobileAboutWrapper = createMobileSectionWrapper(aboutSection, 'About');
+                const mobileServicesWrapper = createMobileSectionWrapper(servicesSection, 'Services');
+                
+                // Remove original sections
+                portfolioSection.remove();
+                aboutSection.remove();
+                servicesSection.remove();
+                
+                // Add mobile sections in desired order
+                parent.appendChild(mobilePortfolioWrapper);
+                parent.appendChild(mobileAboutWrapper);
+                parent.appendChild(mobileServicesWrapper);
+                
+                // Initialize mobile tabs (all closed by default)
+                initializeMobileTabs();
+            }
+        }
+
+        // Create mobile section wrapper with tab-like header
+        function createMobileSectionWrapper(section, title) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'mobile-section-wrapper';
+            wrapper.id = `mobile-${section.id}-wrapper`;
+            
+            // Create tab-like header
+            const header = document.createElement('div');
+            header.className = 'mobile-section-header';
+            header.innerHTML = `
+                <h2>${title}</h2>
+                <div class="mobile-section-toggle">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            `;
+            
+            // Create content container
+            const content = document.createElement('div');
+            content.className = 'mobile-section-content';
+            content.style.display = 'none'; // Initially hidden
+            
+            // Clone the section and fix any category highlighting issues
+            const clonedSection = section.cloneNode(true);
+            
+            // If this is the portfolio section, ensure only one filter button is active
+            if (section.id === 'portfolio') {
+                const filterButtons = clonedSection.querySelectorAll('.filter-btn');
+                filterButtons.forEach((btn, index) => {
+                    if (index === 0) { // Only make "All" active
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+            
+            content.appendChild(clonedSection);
+            
+            // Add click event to header
+            header.addEventListener('click', function() {
+                const isOpen = content.style.display !== 'none';
+                content.style.display = isOpen ? 'none' : 'block';
+                header.querySelector('.mobile-section-toggle i').className = 
+                    isOpen ? 'fas fa-chevron-down' : 'fas fa-chevron-up';
+            });
+            
+            wrapper.appendChild(header);
+            wrapper.appendChild(content);
+            
+            return wrapper;
+        }
+
+        // Initialize mobile tabs
+        function initializeMobileTabs() {
+            // Ensure all tabs are closed by default
+            const sectionWrappers = document.querySelectorAll('.mobile-section-wrapper');
+            sectionWrappers.forEach(wrapper => {
+                const content = wrapper.querySelector('.mobile-section-content');
+                const toggle = wrapper.querySelector('.mobile-section-toggle i');
+                
+                if (content && toggle) {
+                    content.style.display = 'none';
+                    toggle.className = 'fas fa-chevron-down';
+                }
+            });
+        }
+
+        // New function to enhance mobile filters
+        function enhanceMobileFilters(filterContainer, portfolioGrid) {
+            // Get all filter buttons
+            const filterButtons = Array.from(filterContainer.querySelectorAll('.filter-btn'));
+            
+            // Create completely new buttons to avoid any event handler conflicts
+            filterButtons.forEach(oldBtn => {
+                // Create a new button element
+                const newBtn = document.createElement('button');
+                newBtn.className = 'filter-btn';
+                newBtn.setAttribute('data-filter', oldBtn.getAttribute('data-filter'));
+                newBtn.textContent = oldBtn.textContent;
+                
+                // Set active state for 'All' button only
+                if (oldBtn.getAttribute('data-filter') === 'all') {
+                    newBtn.classList.add('active');
+                }
+                
+                // Add improved click handler
+                newBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Remove active class from ALL filter buttons
+                    const allFilterButtons = document.querySelectorAll('.filter-btn');
+                    allFilterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to ONLY this button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    const portfolioItems = document.querySelectorAll('.portfolio-item');
+                    
+                    // Apply filtering with animation
+                    portfolioItems.forEach(item => {
+                        const itemCategory = item.getAttribute('data-category');
+                        
+                        if (filterValue === 'all' || itemCategory === filterValue) {
+                            // Show matching items
+                            item.style.display = 'flex';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            // Hide non-matching items
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(10px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                    
+                    // Scroll to the top of the portfolio section
+                    const topOfPortfolio = portfolioGrid.getBoundingClientRect().top + window.pageYOffset - 80;
+                    window.scrollTo({
+                        top: topOfPortfolio,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Replace the old button with the new one
+                oldBtn.parentNode.replaceChild(newBtn, oldBtn);
+            });
+            
+            // Add CSS for better filter button highlighting and styles
+            const styleSheet = document.createElement("style");
+            styleSheet.innerHTML = `
+                .mobile-layout .portfolio-item {
+                    transition: opacity 0.3s ease, transform 0.3s ease;
+                }
+                
+                .mobile-layout .filter-btn {
+                    background: rgba(79, 163, 224, 0.05);
+                    color: var(--text-muted);
+                    border: 1px solid transparent;
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    font-size: 0.9rem;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    overflow: hidden;
+                }
+                
+                .mobile-layout .filter-btn.active {
+                    background: var(--primary-color);
+                    color: white;
+                    box-shadow: 0 3px 10px rgba(79, 163, 224, 0.3);
+                    transform: translateY(-2px);
+                }
+                
+                .mobile-layout .filter-btn.active::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -1px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: white;
+                }
+            `;
+            document.head.appendChild(styleSheet);
+        }
     </script>
+    
+    <style>
+        /* Always keep theme toggle visible */
+        .theme-switch-wrapper {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: var(--card-bg);
+            padding: 10px 15px;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        
+        /* Mobile-specific theme toggle styling */
+        @media screen and (max-width: 768px) {
+            .theme-switch-wrapper {
+                top: 15px;
+                right: 70px; /* Position to the left of hamburger menu */
+                padding: 8px 12px;
+            }
+            
+            /* Adjust header for mobile */
+            header {
+                padding: 15px 20px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                background: var(--header-bg);
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background: var(--header-bg);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                transition: 0.3s ease;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 20px 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+                width: 200px;
+                text-align: center;
+                border-radius: 30px;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links a:hover {
+                background: rgba(79, 163, 224, 0.1);
+            }
+            
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                z-index: 1001;
+            }
+            
+            .hamburger span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background: var(--text-color);
+                margin: 5px 0;
+                transition: 0.3s;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+            
+            #home {
+                padding-top: 100px;
+            }
+        }
+    </style>
 </body>
 </html> 
