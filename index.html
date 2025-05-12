@@ -1417,9 +1417,9 @@
                 </div>
                 
                 <div class="self-study-progress" style="margin-top: 25px;">
-                    <span>Hours of Self-Study: 919 / 10,000 <span style="float: right;">9.19%</span></span>
+                    <span>Hours of Self-Study: 922 / 10,000 <span style="float: right;">9.22%</span></span>
                     <div class="skill-bar" style="margin-top: 8px;">
-                        <div class="skill-level" style="width: 9.19%"></div>
+                        <div class="skill-level" style="width: 9.22%"></div>
                     </div>
                 </div>
             </div>
@@ -1650,16 +1650,425 @@
             // Apply mobile-specific layout if on mobile
             if (isMobile) {
                 applyMobileLayout();
+                
+                // Add mobile card detail view functionality
+                setupMobileCardDetailView();
             }
             
             // Handle window resize
             window.addEventListener('resize', function() {
                 if (window.innerWidth <= 768 && !document.body.classList.contains('mobile-layout')) {
                     applyMobileLayout();
+                    setupMobileCardDetailView();
                 } else if (window.innerWidth > 768 && document.body.classList.contains('mobile-layout')) {
                     applyDesktopLayout();
                 }
             });
+            
+            // Function to set up mobile card detail view
+            function setupMobileCardDetailView() {
+                const portfolioItems = document.querySelectorAll('.portfolio-item');
+                
+                portfolioItems.forEach(item => {
+                    item.addEventListener('click', function(e) {
+                        // Prevent click if user clicked on a link
+                        if (e.target.tagName === 'A' || e.target.closest('a')) {
+                            return;
+                        }
+                        
+                        // Create and show detailed card view
+                        createDetailedCardView(this);
+                    });
+                });
+            }
+            
+            // Function to create detailed card view
+            function createDetailedCardView(card) {
+                // Get card data
+                const category = card.getAttribute('data-category');
+                const imgSrc = card.querySelector('.portfolio-img img').src;
+                const imgAlt = card.querySelector('.portfolio-img img').alt;
+                const title = card.querySelector('.portfolio-info h3').textContent;
+                
+                // Get all paragraphs
+                const paragraphs = Array.from(card.querySelectorAll('.portfolio-info p')).map(p => p.textContent);
+                
+                // Get link if exists
+                const linkElement = card.querySelector('.portfolio-info a');
+                const link = linkElement ? linkElement.href : null;
+                const linkText = linkElement ? (linkElement.textContent.trim() || 'View Details') : null;
+                
+                // Create modal container
+                const modal = document.createElement('div');
+                modal.className = 'mobile-card-modal';
+                
+                // Create modal content with additional details based on category
+                let additionalContent = '';
+                
+                // Generate different additional content based on category
+                if (category === 'experience') {
+                    if (title.includes('Diyar')) {
+                        additionalContent = `
+                            <div class="modal-section">
+                                <h4>Skills & Technologies:</h4>
+                                <ul>
+                                    <li>Implemented and configured Data Loss Prevention (DLP) solutions using Forcepoint</li>
+                                    <li>Worked with Endpoint Detection and Response (EDR) using CrowdStrike</li>
+                                    <li>Configured SealPath for document protection and rights management</li>
+                                    <li>Applied security policies and best practices in real-world enterprise environments</li>
+                                    <li>Participated in security monitoring and incident response procedures</li>
+                                    <li>Collaborated with the Network Solutions team on implementing secure infrastructure</li>
+                                </ul>
+                            </div>
+                            <div class="modal-section">
+                                <h4>Key Achievements:</h4>
+                                <ul>
+                                    <li>Successfully completed security implementation projects under senior supervision</li>
+                                    <li>Gained practical experience with enterprise security tools and solutions</li>
+                                    <li>Developed understanding of security operations in a corporate environment</li>
+                                </ul>
+                            </div>
+                        `;
+                    }
+                } else if (category === 'education') {
+                    additionalContent = `
+                        <div class="modal-section">
+                            <h4>Program Details:</h4>
+                            <ul>
+                                <li>Specializing in Cyber Security and Computer Science</li>
+                                <li>Key modules include Network Security, Ethical Hacking, Secure Programming, and Digital Forensics</li>
+                                <li>Developing practical skills alongside theoretical knowledge</li>
+                                <li>Working on security-focused programming and research projects</li>
+                            </ul>
+                        </div>
+                    `;
+                } else if (category === 'security') {
+                    if (title.includes('TryHackMe')) {
+                        additionalContent = `
+                            <div class="modal-section">
+                                <h4>Platform Details:</h4>
+                                <p>TryHackMe is an online platform for learning and practicing cybersecurity skills through hands-on challenges.</p>
+                                <h4>Achievements:</h4>
+                                <ul>
+                                    <li>Completed numerous security challenges and learning paths</li>
+                                    <li>Gained practical experience in exploitation techniques and vulnerability assessment</li>
+                                    <li>Developed skills in reconnaissance, privilege escalation, and post-exploitation</li>
+                                    <li>Practiced both offensive and defensive security techniques</li>
+                                </ul>
+                            </div>
+                        `;
+                    } else if (title.includes('Offensive Security')) {
+                        additionalContent = `
+                            <div class="modal-section">
+                                <h4>Course Details:</h4>
+                                <p>Developed and delivered a 5-day training program covering offensive security techniques for beginners.</p>
+                                <h4>Topics Covered:</h4>
+                                <ul>
+                                    <li>Introduction to Kali Linux and ethical hacking tools</li>
+                                    <li>Network scanning and enumeration techniques</li>
+                                    <li>Web application security testing</li>
+                                    <li>Exploitation fundamentals and methodology</li>
+                                    <li>WiFi security assessment</li>
+                                </ul>
+                            </div>
+                        `;
+                    }
+                } else if (category === 'certifications') {
+                    if (title.includes('Security+')) {
+                        additionalContent = `
+                            <div class="modal-section">
+                                <h4>Certification Details:</h4>
+                                <p>CompTIA Security+ is a globally recognized certification validating foundational security skills.</p>
+                                <h4>Skills Validated:</h4>
+                                <ul>
+                                    <li>Network security concepts and implementation</li>
+                                    <li>Threats, vulnerabilities, and security controls</li>
+                                    <li>Identity and access management</li>
+                                    <li>Risk management and cryptography</li>
+                                    <li>Security architecture and tools</li>
+                                </ul>
+                            </div>
+                        `;
+                    } else if (title.includes('Network+')) {
+                        additionalContent = `
+                            <div class="modal-section">
+                                <h4>Certification Details:</h4>
+                                <p>CompTIA Network+ validates essential networking skills and knowledge.</p>
+                                <h4>Skills Validated:</h4>
+                                <ul>
+                                    <li>Network architecture and design</li>
+                                    <li>Network operations and security</li>
+                                    <li>Troubleshooting and tools</li>
+                                    <li>Network protocols and services</li>
+                                </ul>
+                            </div>
+                        `;
+                    } else if (title.includes('A+')) {
+                        additionalContent = `
+                            <div class="modal-section">
+                                <h4>Certification Details:</h4>
+                                <p>CompTIA A+ is the industry standard for establishing IT careers, validating understanding of hardware, software, and operating systems.</p>
+                                <h4>Skills Validated:</h4>
+                                <ul>
+                                    <li>Hardware and infrastructure support</li>
+                                    <li>Operating system configuration and support</li>
+                                    <li>Software troubleshooting</li>
+                                    <li>Security fundamentals</li>
+                                    <li>Basic networking</li>
+                                </ul>
+                            </div>
+                        `;
+                    } else if (title.includes('Jr Penetration Tester')) {
+                        additionalContent = `
+                            <div class="modal-section">
+                                <h4>Certification Details:</h4>
+                                <p>TryHackMe's Jr Penetration Tester certification validates practical penetration testing skills.</p>
+                                <h4>Skills Validated:</h4>
+                                <ul>
+                                    <li>Reconnaissance and information gathering</li>
+                                    <li>Vulnerability scanning and assessment</li>
+                                    <li>Web application security testing</li>
+                                    <li>Network security assessment</li>
+                                    <li>Basic exploitation techniques</li>
+                                </ul>
+                            </div>
+                        `;
+                    }
+                }
+                
+                // Build modal content
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>${title}</h3>
+                            <div class="modal-close"><i class="fas fa-times"></i></div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-image">
+                                <img src="${imgSrc}" alt="${imgAlt}">
+                            </div>
+                            <div class="modal-info">
+                                ${paragraphs.map(p => `<p>${p}</p>`).join('')}
+                                ${additionalContent}
+                            </div>
+                            ${link ? `<a href="${link}" class="modal-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> ${linkText}</a>` : ''}
+                        </div>
+                    </div>
+                `;
+                
+                // Add close functionality
+                modal.querySelector('.modal-close').addEventListener('click', function() {
+                    document.body.removeChild(modal);
+                    document.body.style.overflow = 'auto'; // Re-enable scrolling
+                });
+                
+                // Add styles for modal
+                const modalStyle = document.createElement('style');
+                modalStyle.textContent = `
+                    .mobile-card-modal {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: rgba(0, 0, 0, 0.8);
+                        z-index: 10000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 20px;
+                        animation: modalFadeIn 0.3s ease;
+                    }
+                    
+                    @keyframes modalFadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+                    
+                    .modal-content {
+                        width: 100%;
+                        max-width: 500px;
+                        max-height: 90vh;
+                        background: var(--background-color);
+                        border-radius: 12px;
+                        overflow: hidden;
+                        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+                        display: flex;
+                        flex-direction: column;
+                        animation: modalSlideIn 0.3s ease;
+                    }
+                    
+                    @keyframes modalSlideIn {
+                        from { transform: translateY(50px); opacity: 0; }
+                        to { transform: translateY(0); opacity: 1; }
+                    }
+                    
+                    .modal-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 15px 20px;
+                        border-bottom: 1px solid var(--border-color);
+                        background: var(--card-bg);
+                    }
+                    
+                    .modal-header h3 {
+                        margin: 0;
+                        color: var(--primary-color);
+                        font-size: 1.2rem;
+                    }
+                    
+                    .modal-close {
+                        width: 30px;
+                        height: 30px;
+                        background: rgba(0, 0, 0, 0.1);
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        color: var(--text-color);
+                    }
+                    
+                    .modal-body {
+                        padding: 20px;
+                        overflow-y: auto;
+                        flex: 1;
+                    }
+                    
+                    .modal-image {
+                        width: 100%;
+                        height: 200px;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        margin-bottom: 20px;
+                        background: var(--card-bg);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid var(--border-color);
+                    }
+                    
+                    .modal-image img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        padding: 10px;
+                    }
+                    
+                    .modal-info p {
+                        margin: 10px 0;
+                        color: var(--text-color);
+                    }
+                    
+                    .modal-section {
+                        margin: 20px 0;
+                    }
+                    
+                    .modal-section h4 {
+                        color: var(--primary-color);
+                        margin: 15px 0 8px;
+                        font-size: 1.1rem;
+                    }
+                    
+                    .modal-section ul {
+                        margin: 10px 0;
+                        padding-left: 20px;
+                    }
+                    
+                    .modal-section li {
+                        margin-bottom: 8px;
+                        color: var(--text-muted);
+                    }
+                    
+                    .modal-link {
+                        display: inline-block;
+                        margin-top: 20px;
+                        padding: 10px 20px;
+                        background: var(--primary-color);
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 5px;
+                        text-align: center;
+                    }
+                    
+                    .modal-link i {
+                        margin-right: 5px;
+                    }
+                    
+                    /* Special handling for various certificate images */
+                    .modal-image img[src*="A+.png"],
+                    .modal-image img[src*="Security+.png"],
+                    .modal-image img[src*="network+.png"] {
+                        padding: 20px;
+                        max-width: 90%;
+                        object-fit: contain;
+                    }
+                    
+                    .modal-image img[src*="diyarLogo.png"],
+                    .modal-image img[src*="universityOfSalford.png"] {
+                        background-color: white;
+                        padding: 20px;
+                        object-fit: contain;
+                        max-width: 80%;
+                    }
+                    
+                    /* Make the portfolio items more clickable-looking on mobile */
+                    .mobile-layout .portfolio-item {
+                        cursor: pointer;
+                        position: relative;
+                    }
+                    
+                    .mobile-layout .portfolio-item::after {
+                        content: '';
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        width: 30px;
+                        height: 30px;
+                        background: rgba(0, 0, 0, 0.3);
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: white;
+                        font-family: 'Font Awesome 5 Free';
+                        font-weight: 900;
+                        content: '\\f002';
+                        font-size: 14px;
+                        opacity: 0.7;
+                        pointer-events: none;
+                    }
+                    
+                    .dark-mode .mobile-card-modal {
+                        background: rgba(0, 0, 0, 0.9);
+                    }
+                    
+                    .dark-mode .modal-content {
+                        background: #111;
+                    }
+                    
+                    .dark-mode .modal-header {
+                        background: #0a0a0a;
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                    }
+                    
+                    .dark-mode .modal-close {
+                        background: rgba(255, 255, 255, 0.1);
+                        color: #ddd;
+                    }
+                    
+                    .dark-mode .modal-image {
+                        background: #0a0a0a;
+                        border: 1px solid rgba(255, 255, 255, 0.05);
+                    }
+                `;
+                document.head.appendChild(modalStyle);
+                
+                // Add to document
+                document.body.appendChild(modal);
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            }
             
             // Function to apply mobile-specific layout
             function applyMobileLayout() {
@@ -1914,11 +2323,11 @@
                         newSelfStudy.innerHTML = `
                             <div class="study-header" style="display: flex; justify-content: space-between;">
                                 <span>Hours of Self-Study</span>
-                                <span class="percentage" style="margin-left: 12px;">9.19% </span >
+                                <span class="percentage" style="margin-left: 12px;">9.22% </span >
                             </div>
-                            <div class="study-count">919 / 10,000</div>
+                            <div class="study-count">922 / 10,000</div>
                             <div class="skill-bar" style="margin-top: 8px; height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 4px; overflow: hidden;">
-                                <div class="skill-level" style="width: 9.19%; height: 100%; background: var(--primary-color);"></div>
+                                <div class="skill-level" style="width: 9.22%; height: 100%; background: var(--primary-color);"></div>
                             </div>
                         `;
                         
