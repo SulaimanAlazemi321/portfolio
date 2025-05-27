@@ -1,0 +1,26 @@
+# Study Hours Updater Scripts
+update_study_hours.py
+update_hours.bat
+STUDY_HOURS_README.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db 
