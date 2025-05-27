@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-
-<html class="dark-mode" lang="en">
+<html lang="en" class="dark-mode">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Sulaiman Alazemi | Cybersecurity Portfolio</title>
-<link href="styles.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<style id="force-dark-backgrounds">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sulaiman Alazemi | Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style id="force-dark-backgrounds">
         html.dark-mode { background-color: #000 !important; }
         html.dark-mode body { background-color: #000 !important; }
         html.dark-mode section { background-color: #000 !important; }
@@ -381,7 +381,8 @@
             background: linear-gradient(90deg, #4fa3e0, #2a7bb9);
         }
     </style>
-<style>
+    
+    <style>
         :root {
             --primary-color: #3498db;
             --secondary-color: #2ecc71;
@@ -946,7 +947,8 @@
             }
         }
     </style>
-<style>
+    
+    <style>
         /* Mobile-specific styles */
         .mobile-layout .container {
             padding: 0 15px;
@@ -1368,265 +1370,279 @@
     </style>
 </head>
 <body>
-<div class="theme-switch-wrapper">
-<span class="theme-icon"><i class="fas fa-sun"></i></span>
-<label class="theme-switch">
-<input checked="" id="theme-toggle" type="checkbox"/>
-<span class="slider"></span>
-</label>
-</div>
-<header>
-<div class="container">
-<nav>
-<div class="logo">Sulaiman Alazemi</div>
-<ul class="nav-links">
-<li><a class="active" href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#portfolio">Portfolio</a></li>
-</ul>
-<div class="hamburger">
-<span></span>
-<span></span>
-<span></span>
-</div>
-</nav>
-</div>
-</header>
-<section class="hero" id="home">
-<div class="container">
-<div class="hero-content">
-<h1>Hello, I'm <span class="highlight">Sulaiman Alazemi</span></h1>
-<h2>Cybersecurity Engineer</h2>
-<p>Securing web applications, hardening Linux, Windows, and performing vulnerability assessments.</p>
-<div class="contact-info">
-<span><i class="fas fa-envelope"></i> alroot777@gmail.com</span>
-<span><i class="fas fa-phone"></i> +44 7466 563180</span>
-<span><i class="fab fa-whatsapp"></i> +965 5159 0622</span>
-</div>
-<div class="cta-buttons">
-<a class="btn primary-btn" href="#portfolio">View My Work </a>
-</div>
-<div class="social-icons">
-<a class="social-icon" href="https://www.linkedin.com/in/salazemi/" rel="noopener" target="_blank"><i class="fab fa-linkedin"></i></a>
-<a class="social-icon" href="https://github.com/SulaimanAlazemi321" rel="noopener" target="_blank"><i class="fab fa-github"></i></a>
-</div>
-<div class="self-study-progress" style="margin-top: 25px;">
-<span id="update-hours-trigger-area" style="cursor: pointer;" title="Click to update hours">
+    <div class="theme-switch-wrapper">
+        <span class="theme-icon"><i class="fas fa-sun"></i></span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+    
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Sulaiman Alazemi</div>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hello, I'm <span class="highlight">Sulaiman Alazemi</span></h1>
+                <h2>Cybersecurity Engineer</h2>
+                <p>Securing web applications, hardening Linux, Windows, and performing vulnerability assessments.</p>
+                <div class="contact-info">
+                    <span><i class="fas fa-envelope"></i> alroot777@gmail.com</span>
+                    <span><i class="fas fa-phone"></i> +44 7466 563180</span>
+                    <span><i class="fab fa-whatsapp"></i> +965 5159 0622</span>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#portfolio" class="btn primary-btn">View My Work </a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/salazemi/" class="social-icon" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/SulaimanAlazemi321" class="social-icon" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                </div>
+                
+                <div class="self-study-progress" style="margin-top: 25px;">
+                    <span title="Click to update hours" style="cursor: pointer;" id="update-hours-trigger-area">
                         Hours of Self-Study: <span id="study-hours-value">950</span> / 10,000 
                         <span id="study-hours-percentage" style="float: right;">9.50%</span>
-</span>
-<div class="skill-bar" style="margin-top: 8px;">
-<div class="skill-level" id="study-skill-bar-level" style="width: 9.50%;"></div>
-</div>
-</div>
-</div>
-<div class="hero-image">
-<img alt="Sulaiman Alazemi" class="profile-image" src="Images/SulaimanAlazemi_Photo.jpeg" style="border-radius: 50%;"/>
-</div>
-</div>
-</section>
-<section class="about" id="about">
-<div class="container">
-<div class="section-header">
-<h2>About Me</h2>
-<div class="underline"></div>
-</div>
-<div class="about-content">
-<div class="about-text">
-<p>I'm a Computer Science student with a strong interest in Cybersecurity, currently studying at the University of Salford. I enjoy learning new skills and tackling practical challenges, always looking to grow my knowledge in this exciting field.</p>
-<p>During my internship in Network Solutions, I had the chance to work alongside cybersecurity professionals, gaining hands-on experience with tools such as Proofpoint, Forcepoint, CrowdStrike, and SealPath. I also designed and delivered beginner-friendly courses in cybersecurity and ethical hacking, helping others understand important topics like Kali Linux, NMAP, and WiFi security.</p>
-<p>I've earned certifications including CompTIA A+, Network+, and Security+, providing me with a solid foundation in both technical and theoretical aspects of cybersecurity. Additionally, I regularly engage with Capture The Flag (CTF) challenges on platforms like TryHackMe and HackTheBox, enhancing my skills in both offensive and defensive cybersecurity practices.</p>
-<p>Currently, I'm expanding my knowledge by learning about security solutions and configuring technologies such as Data Loss Prevention (DLP), Endpoint Detection and Response (EDR), Extended Detection and Response (XDR), Network Detection and Response (NDR), Two-Factor Authentication (2FA), DNS Security Extensions (DNSSEC), and more.</p>
-<p>I'm always keen to connect with others who share my passion for cybersecurity, whether they're fellow students, professionals, or mentors. Feel free to reach out and connect!</p>
-<div class="skills">
-<div class="skill">
-<span>Secure Website Development <span class="skill-level-text"> Intermediate to advance</span></span>
-<div class="skill-bar">
-<div class="skill-level" style="width: 75%"></div>
-</div>
-</div>
-<div class="skill">
-<span>Penetration Testing <span class="skill-level-text">Beginner to Intermediate</span></span>
-<div class="skill-bar">
-<div class="skill-level" style="width: 50%"></div>
-</div>
-</div>
-<div class="skill">
-<span>Network Security <span class="skill-level-text">Intermediate</span></span>
-<div class="skill-bar">
-<div class="skill-level" style="width: 65%"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="services" id="services">
-<div class="container">
-<div class="section-header">
-<h2>Services</h2>
-<div class="underline"></div>
-</div>
-<div class="services-grid">
-<div class="service-card">
-<div class="service-icon">
-<i class="fas fa-code"></i>
-</div>
-<h3>Secure Website Design</h3>
-<p>I develop websites with security as the primary focus, implementing proper security tokens, input sanitization, secure authentication, and protection against common vulnerabilities like XSS and CSRF attacks.</p>
-</div>
-<div class="service-card">
-<div class="service-icon">
-<i class="fas fa-chalkboard-teacher"></i>
-</div>
-<h3>Cybersecurity Training</h3>
-<p>Comprehensive training programs covering offensive and defensive security techniques, customized for beginners to intermediate skill levels. I focus on building strong foundations and practical skills for those new to cybersecurity.</p>
-</div>
-</div>
-</div>
-</section>
-<section class="portfolio" id="portfolio">
-<div class="container">
-<div class="section-header">
-<h2>Portfolio</h2>
-<div class="underline"></div>
-</div>
-<div class="portfolio-filter">
-<button class="filter-btn active" data-filter="all">All</button>
-<button class="filter-btn" data-filter="security">Security Projects</button>
-<button class="filter-btn" data-filter="certifications">Certifications</button>
-<button class="filter-btn" data-filter="education">Education</button>
-<button class="filter-btn" data-filter="experience">Experience</button>
-</div>
-<div class="portfolio-grid">
-<div class="portfolio-item" data-category="experience">
-<div class="portfolio-img">
-<img alt="Diyar United Company" class="project-image diyar-logo" src="Images/diyarLogo.png"/>
-</div>
-<div class="portfolio-info">
-<h3>Cyber Security Engineer Intern</h3>
-<p>Diyar United Company</p>
-<p>May 2025 - Present</p>
-<p>Kuwait City, Al Asimah, Kuwait · On-site</p>
-<p>Collaborating with cybersecurity engineers on implementing DLP, NDR, and EDR solutions using tools such as Forcepoint, CrowdStrike, and SealPath.</p>
-</div>
-</div>
-<div class="portfolio-item" data-category="experience">
-<div class="portfolio-img">
-<img alt="Diyar United Company" class="project-image diyar-logo" src="Images/diyarLogo.png"/>
-</div>
-<div class="portfolio-info">
-<h3>Cyber Security Engineer Intern</h3>
-<p>Diyar United Company</p>
-<p>Jul 2024 - Sep 2024 · 3 months</p>
-<p>Kuwait City, Al Asimah, Kuwait · On-site</p>
-<p>Collaborated with cybersecurity engineers on implementing DLP, NDR, and EDR solutions using tools such as Forcepoint, CrowdStrike, and SealPath.</p>
-</div>
-</div>
-<div class="portfolio-item" data-category="education">
-<div class="portfolio-img" style="background-color: var(--card-bg); display: flex; align-items: center; justify-content: center;">
-<img alt="University of Salford" class="university-logo" src="Images/universityOfSalford.png"/>
-</div>
-<div class="portfolio-info">
-<h3>The University of Salford</h3>
-<p>BSc Computer Science with Cyber Security</p>
-<p>Sep 2023 - Jul 2026</p>
-</div>
-</div>
-<div class="portfolio-item" data-category="security">
-<div class="portfolio-img">
-<img alt="TryHackMe Challenges" class="project-image" src="Images/tryhackme.jpg"/>
-</div>
-<div class="portfolio-info">
-<h3>TryHackMe Challenges</h3>
-<p>CTF Player</p>
-<a class="portfolio-link" href="https://tryhackme.com/p/SulaimanAlazemi" rel="noopener" target="_blank"><i class="fas fa-link"></i></a>
-</div>
-</div>
-<div class="portfolio-item" data-category="security">
-<div class="portfolio-img">
-<img alt="Offensive Security Course" class="project-image" src="Images/OffensiveSecurityCourse.png"/>
-</div>
-<div class="portfolio-info">
-<h3>Offensive Security Course</h3>
-<p>5-Day Training Development</p>
-<a class="portfolio-link" href="https://www.instagram.com/understandkw/" rel="noopener" target="_blank"><i class="fas fa-link"></i></a>
-</div>
-</div>
-<div class="portfolio-item" data-category="certifications">
-<div class="portfolio-img">
-<img alt="CompTIA Security+" class="cert-image" id="security-plus-cert" src="Images/Security+.png"/>
-</div>
-<div class="portfolio-info">
-<h3>CompTIA Security+</h3>
-<p>Apr. 2025 - Apr. 2028</p>
-<a class="portfolio-link" href="https://www.credly.com/badges/eaa7d121-58ac-4fc1-a023-95d6a5bfecee" rel="noopener" target="_blank"><i class="fas fa-link"></i></a>
-</div>
-</div>
-<div class="portfolio-item" data-category="certifications">
-<div class="portfolio-img">
-<img alt="TryHackMe Certification" class="cert-image" src="Images/tryhackme.jpg"/>
-</div>
-<div class="portfolio-info">
-<h3>Jr Penetration Tester</h3>
-<p>TryHackMe Certification</p>
-<a class="portfolio-link" href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-8I0HLEVCP5.pdf" rel="noopener" target="_blank"><i class="fas fa-link"></i></a>
-</div>
-</div>
-<div class="portfolio-item" data-category="certifications">
-<div class="portfolio-img">
-<img alt="CompTIA A+" class="cert-image" id="A-plus-cert" src="Images/A+.png"/>
-</div>
-<div class="portfolio-info">
-<h3>CompTIA A+</h3>
-<p>Sept. 2024 - Sept. 2027</p>
-<a class="portfolio-link" href="https://www.credly.com/badges/3e0170a3-42f9-49c1-89f0-a78f7e200c31" rel="noopener" target="_blank"><i class="fas fa-link"></i></a>
-</div>
-</div>
-<div class="portfolio-item" data-category="certifications">
-<div class="portfolio-img">
-<img alt="CompTIA Network+" class="cert-image" id="network-plus-cert" src="Images/network+.png"/>
-</div>
-<div class="portfolio-info">
-<h3>CompTIA Network+</h3>
-<p>Apr. 2025 - Apr. 2028</p>
-<a class="portfolio-link" href="https://www.credly.com/badges/9698db44-1ca6-4fd4-9aaf-4ba1d883e243" rel="noopener" target="_blank"><i class="fas fa-link"></i></a>
-</div>
-</div>
-<div class="portfolio-item" data-category="certifications">
-<div class="portfolio-img">
-<img alt="Microsoft Cybersecurity" class="cert-image" src="Images/microsoft.svg"/>
-</div>
-<div class="portfolio-info">
-<h3>Unlock Microsoft Cybersecurity Reference Architecture &amp; Mapping to Cyber Kill Chain &amp; MITRE ATT&amp;CK</h3>
-<p>Issued Jun. 2023</p>
-</div>
-</div>
-<div class="portfolio-item" data-category="certifications">
-<div class="portfolio-img">
-<img alt="Coded Android Development" class="cert-image" src="Images/coded_logo.jpeg"/>
-</div>
-<div class="portfolio-info">
-<h3>Coded Android Development</h3>
-<p>Issued Jul. 2023</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<footer>
-<div class="container">
-<div class="footer-content">
-<div class="back-to-top">
-<a href="#home"><i class="fas fa-arrow-up"></i></a>
-</div>
-</div>
-</div>
-</footer>
-<script src="script.js"></script>
-<script>
+                    </span>
+                    <div class="skill-bar" style="margin-top: 8px;">
+                        <div class="skill-level" id="study-skill-bar-level" style="width: 9.50%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="Images/SulaimanAlazemi_Photo.jpeg" alt="Sulaiman Alazemi" class="profile-image" style="border-radius: 50%;">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+              
+                <div class="about-text">
+                    <p>I'm a Computer Science student with a strong interest in Cybersecurity, currently studying at the University of Salford. I enjoy learning new skills and tackling practical challenges, always looking to grow my knowledge in this exciting field.</p>
+                    
+                    <p>During my internship in Network Solutions, I had the chance to work alongside cybersecurity professionals, gaining hands-on experience with tools such as Proofpoint, Forcepoint, CrowdStrike, and SealPath. I also designed and delivered beginner-friendly courses in cybersecurity and ethical hacking, helping others understand important topics like Kali Linux, NMAP, and WiFi security.</p>
+                    
+                    <p>I've earned certifications including CompTIA A+, Network+, and Security+, providing me with a solid foundation in both technical and theoretical aspects of cybersecurity. Additionally, I regularly engage with Capture The Flag (CTF) challenges on platforms like TryHackMe and HackTheBox, enhancing my skills in both offensive and defensive cybersecurity practices.</p>
+                    
+                    <p>Currently, I'm expanding my knowledge by learning about security solutions and configuring technologies such as Data Loss Prevention (DLP), Endpoint Detection and Response (EDR), Extended Detection and Response (XDR), Network Detection and Response (NDR), Two-Factor Authentication (2FA), DNS Security Extensions (DNSSEC), and more.</p>
+                    
+                    <p>I'm always keen to connect with others who share my passion for cybersecurity, whether they're fellow students, professionals, or mentors. Feel free to reach out and connect!</p>
+                    
+                    <div class="skills">
+                        <div class="skill">
+                            <span>Secure Website Development <span class="skill-level-text"> Intermediate to advance</span></span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Penetration Testing <span class="skill-level-text">Beginner to Intermediate</span></span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 50%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span>Network Security <span class="skill-level-text">Intermediate</span></span>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 65%"></div>
+                            </div>
+                        </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Services</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Secure Website Design</h3>
+                    <p>I develop websites with security as the primary focus, implementing proper security tokens, input sanitization, secure authentication, and protection against common vulnerabilities like XSS and CSRF attacks.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Cybersecurity Training</h3>
+                    <p>Comprehensive training programs covering offensive and defensive security techniques, customized for beginners to intermediate skill levels. I focus on building strong foundations and practical skills for those new to cybersecurity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>Portfolio</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="security">Security Projects</button>
+                <button class="filter-btn" data-filter="certifications">Certifications</button>
+                <button class="filter-btn" data-filter="education">Education</button>
+                <button class="filter-btn" data-filter="experience">Experience</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="experience">
+                    <div class="portfolio-img">
+                        <img src="Images/diyarLogo.png" alt="Diyar United Company" class="project-image diyar-logo">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Cyber Security Engineer Intern</h3>
+                        <p>Diyar United Company</p>
+                        <p>May 2025 - Present</p>
+                        <p>Kuwait City, Al Asimah, Kuwait · On-site</p>
+                        <p>Collaborating with cybersecurity engineers on implementing DLP, NDR, and EDR solutions using tools such as Forcepoint, CrowdStrike, and SealPath.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="experience">
+                    <div class="portfolio-img">
+                        <img src="Images/diyarLogo.png" alt="Diyar United Company" class="project-image diyar-logo">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Cyber Security Engineer Intern</h3>
+                        <p>Diyar United Company</p>
+                        <p>Jul 2024 - Sep 2024 · 3 months</p>
+                        <p>Kuwait City, Al Asimah, Kuwait · On-site</p>
+                        <p>Collaborated with cybersecurity engineers on implementing DLP, NDR, and EDR solutions using tools such as Forcepoint, CrowdStrike, and SealPath.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="education">
+                    <div class="portfolio-img" style="background-color: var(--card-bg); display: flex; align-items: center; justify-content: center;">
+                        <img src="Images/universityOfSalford.png" alt="University of Salford" class="university-logo">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>The University of Salford</h3>
+                        <p>BSc Computer Science with Cyber Security</p>
+                        <p>Sep 2023 - Jul 2026</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="security">
+                    <div class="portfolio-img">
+                        <img src="Images/tryhackme.jpg" alt="TryHackMe Challenges" class="project-image">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>TryHackMe Challenges</h3>
+                        <p>CTF Player</p>
+                        <a href="https://tryhackme.com/p/SulaimanAlazemi" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="security">
+                    <div class="portfolio-img">
+                        <img src="Images/OffensiveSecurityCourse.png" alt="Offensive Security Course" class="project-image">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Offensive Security Course</h3>
+                        <p>5-Day Training Development</p>
+                        <a href="https://www.instagram.com/understandkw/" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="certifications">
+                    <div class="portfolio-img">
+                        <img src="Images/Security+.png" alt="CompTIA Security+" class="cert-image" id="security-plus-cert">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>CompTIA Security+</h3>
+                        <p>Apr. 2025 - Apr. 2028</p>
+                        <a href="https://www.credly.com/badges/eaa7d121-58ac-4fc1-a023-95d6a5bfecee" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="certifications">
+                    <div class="portfolio-img">
+                        <img src="Images/tryhackme.jpg" alt="TryHackMe Certification" class="cert-image">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Jr Penetration Tester</h3>
+                        <p>TryHackMe Certification</p>
+                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-8I0HLEVCP5.pdf" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="certifications">
+                    <div class="portfolio-img">
+                        <img src="Images/A+.png" alt="CompTIA A+" class="cert-image" id="A-plus-cert">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>CompTIA A+</h3>
+                        <p>Sept. 2024 - Sept. 2027</p>
+                        <a href="https://www.credly.com/badges/3e0170a3-42f9-49c1-89f0-a78f7e200c31" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="certifications">
+                    <div class="portfolio-img">
+                        <img src="Images/network+.png" alt="CompTIA Network+" class="cert-image" id="network-plus-cert">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>CompTIA Network+</h3>
+                        <p>Apr. 2025 - Apr. 2028</p>
+                        <a href="https://www.credly.com/badges/9698db44-1ca6-4fd4-9aaf-4ba1d883e243" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="certifications">
+                    <div class="portfolio-img">
+                        <img src="Images/microsoft.svg" alt="Microsoft Cybersecurity" class="cert-image">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Unlock Microsoft Cybersecurity Reference Architecture & Mapping to Cyber Kill Chain & MITRE ATT&CK</h3>
+                        <p>Issued Jun. 2023</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="certifications">
+                    <div class="portfolio-img">
+                        <img src="Images/coded_logo.jpeg" alt="Coded Android Development" class="cert-image">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Coded Android Development</h3>
+                        <p>Issued Jul. 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="back-to-top">
+                    <a href="#home"><i class="fas fa-arrow-up"></i></a>
+            </div>
+                        </div>
+                        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
@@ -3245,7 +3261,8 @@
             document.head.appendChild(styleSheet);
         }
     </script>
-<style>
+    
+    <style>
         /* Always keep theme toggle visible */
         .theme-switch-wrapper {
             position: fixed;
