@@ -1,3366 +1,533 @@
 <!DOCTYPE html>
-<html lang="en" class="dark-mode">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sulaiman Alazemi | Cybersecurity Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="Images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="Images/favicon_io/site.webmanifest">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <style id="force-dark-backgrounds">
-        html.dark-mode { background-color: #000 !important; }
-        html.dark-mode body { background-color: #000 !important; }
-        html.dark-mode section { background-color: #000 !important; }
-        html.dark-mode header { background-color: rgba(0,0,0,0.95) !important; }
-        html.dark-mode .hero { background: #000 !important; }
-        html.dark-mode .about { background: #000 !important; }
-        html.dark-mode .services { background: #000 !important; }
-        html.dark-mode .portfolio { background: #000 !important; }
-        html.dark-mode footer { background: #000 !important; }
-        
-        html.dark-mode header {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-        }
-        
-        html.dark-mode .nav-links a {
-            position: relative;
-            padding-bottom: 5px;
-        }
-        
-        html.dark-mode .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-        
-        html.dark-mode .nav-links a:hover::after,
-        html.dark-mode .nav-links a.active::after {
-            width: 100%;
-        }
-        
-        html.dark-mode section {
-            position: relative;
-            border-bottom: none;
-            margin-bottom: 2px;
-        }
-        
-        html.dark-mode section:after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(79, 163, 224, 0.1), 
-                rgba(79, 163, 224, 0.3), 
-                rgba(79, 163, 224, 0.5), 
-                rgba(79, 163, 224, 0.3), 
-                rgba(79, 163, 224, 0.1), 
-                transparent
-            );
-            box-shadow: 0 0 8px rgba(79, 163, 224, 0.4);
-        }
-        
-        html.dark-mode header {
-            border-bottom: none;
-            position: relative;
-            background: rgba(8, 8, 8, 0.97) !important; 
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-        }
-        
-        html.dark-mode header:after {
-            content: "";
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(79, 163, 224, 0.1), 
-                rgba(79, 163, 224, 0.3), 
-                rgba(79, 163, 224, 0.7), 
-                rgba(79, 163, 224, 0.3), 
-                rgba(79, 163, 224, 0.1), 
-                transparent
-            );
-            box-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
-        }
-        
-        html.dark-mode .logo {
-            color: #4fa3e0;
-            text-shadow: 0 0 10px rgba(79, 163, 224, 0.3);
-            font-weight: 700;
-        }
-        
-        html.dark-mode footer {
-            position: relative;
-            border-top: none;
-            background: #080808 !important; 
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
-        }
-        
-        html.dark-mode footer:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(79, 163, 224, 0.1), 
-                rgba(79, 163, 224, 0.3), 
-                rgba(79, 163, 224, 0.7), 
-                rgba(79, 163, 224, 0.3), 
-                rgba(79, 163, 224, 0.1), 
-                transparent
-            );
-            box-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
-        }
-        
-        html.dark-mode .portfolio-item,
-        html.dark-mode .service-card {
-            background: linear-gradient(135deg, #0c0c0c, #101010) !important;
-            border: 1px solid rgba(79, 163, 224, 0.1);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        html.dark-mode #home { background: linear-gradient(135deg, #000000, #050505) !important; }
-        html.dark-mode #about { background: linear-gradient(135deg, #030303, #000000) !important; }
-        html.dark-mode #services { background: linear-gradient(135deg, #000000, #030303) !important; }
-        html.dark-mode #portfolio { background: linear-gradient(135deg, #020202, #000000) !important; }
-        
-        html.dark-mode section {
-            position: relative;
-        }
-        
-        html.dark-mode section::before {
-            display: none;
-        }
-        
-        html.dark-mode .back-to-top {
-            background: rgba(79, 163, 224, 0.7);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4), 0 0 10px rgba(79, 163, 224, 0.3);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-            transition: all 0.3s ease;
-            color: white;
-            text-decoration: none;
-        }
-        
-        html.dark-mode .back-to-top:hover {
-            background: rgba(79, 163, 224, 0.9);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 163, 224, 0.5);
-        }
-        
-        html.dark-mode .back-to-top i {
-            font-size: 18px;
-            color: white;
-        }
-        
-        html.dark-mode .portfolio-item,
-        html.dark-mode .service-card {
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(17, 17, 17, 0.6) !important;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-        
-        html.dark-mode .portfolio-item:hover,
-        html.dark-mode .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 163, 224, 0.2);
-            border: 1px solid rgba(79, 163, 224, 0.1);
-        }
-        
-        html.dark-mode .skill-bar {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        html.dark-mode .skill-level {
-            height: 100%;
-            background: linear-gradient(90deg, #4fa3e0, #2a7bb9);
-            border-radius: 4px;
-            position: relative;
-            box-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
-        }
-        
-        html.dark-mode .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #f0f0f0;
-        }
-        
-        html.dark-mode .section-header .underline {
-            height: 3px;
-            background: linear-gradient(90deg, #4fa3e0, #2a7bb9);
-            box-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
-        }
-        
-        html.dark-mode .primary-btn {
-            background: linear-gradient(90deg, #4fa3e0, #2a7bb9);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 30px;
-            color: #fff;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(79, 163, 224, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        html.dark-mode .primary-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(79, 163, 224, 0.4);
-        }
-        
-        html.dark-mode .service-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: rgba(10, 10, 10, 0.8);
-            border: 1px solid rgba(79, 163, 224, 0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 20px;
-            color: #4fa3e0;
-            font-size: 1.8rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(79, 163, 224, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        html.dark-mode .service-card:hover .service-icon {
-            color: #fff;
-            background: rgba(79, 163, 224, 0.8);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(79, 163, 224, 0.4);
-            transform: translateY(-5px);
-        }
-        
-        html.dark-mode .filter-btn {
-            background: rgba(10, 10, 10, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            color: #aaa;
-            padding: 8px 20px;
-            border-radius: 30px;
-            margin: 0 5px 10px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        html.dark-mode .filter-btn:hover,
-        html.dark-mode .filter-btn.active {
-            background: #4fa3e0;
-            color: #fff;
-            border-color: #4fa3e0;
-            box-shadow: 0 5px 15px rgba(79, 163, 224, 0.3);
-        }
-        
-        html.dark-mode::-webkit-scrollbar {
-            width: 10px;
-            background: #000;
-        }
-        
-        html.dark-mode::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 5px;
-        }
-        
-        html.dark-mode::-webkit-scrollbar-thumb:hover {
-            background: #4fa3e0;
-        }
-        
-        html.dark-mode .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        html.dark-mode .social-icon {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(15, 15, 15, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            color: #4fa3e0;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-        
-        html.dark-mode .social-icon:hover {
-            background: rgba(79, 163, 224, 0.2);
-            border-color: rgba(79, 163, 224, 0.3);
-            transform: translateY(-5px);
-            color: #fff;
-            box-shadow: 0 5px 15px rgba(79, 163, 224, 0.2);
-        }
-        
-        html.dark-mode .portfolio-img {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px 8px 0 0;
-        }
-        
-        html.dark-mode .portfolio-info {
-            padding: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        html.dark-mode .portfolio-info h3 {
-            color: #4fa3e0;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        
-        html.dark-mode .portfolio-link {
-            color: #4fa3e0;
-            transition: all 0.3s ease;
-        }
-        
-        html.dark-mode .portfolio-link:hover {
-            color: #fff;
-        }
-        
-        html.dark-mode .cert-image,
-        html.dark-mode .project-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-            transform: scale(0.95);
-            transform-origin: center;
-            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-        
-        html.dark-mode .portfolio-item:hover .cert-image,
-        html.dark-mode .portfolio-item:hover .project-image {
-            transform: scale(1);
-            filter: brightness(1) contrast(1.2);
-        }
-        
-        html.dark-mode .theme-switch-wrapper {
-            background: rgba(10, 10, 10, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 30px;
-            padding: 10px 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
-        }
-        
-        html.dark-mode .slider {
-            background: #333;
-            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-        }
-        
-        html.dark-mode input:checked + .slider {
-            background: linear-gradient(90deg, #4fa3e0, #2a7bb9);
-        }
-    </style>
+    <!-- AOS Animation (minimal) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     
-    <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2ecc71;
-            --accent-color: #e67e22;
-            --background-color: #fff;
-            --card-bg: #f9f9f9;
-            --text-color: #333;
-            --text-muted: #666;
-            --border-color: rgba(0, 0, 0, 0.1);
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --header-bg: rgba(255, 255, 255, 0.95);
-        }
-        
-        .dark-mode {
-            --primary-color: #4fa3e0;
-            --secondary-color: #2ecc71;
-            --accent-color: #e6b422;
-            --background-color: #0a0a0a;
-            --card-bg: #111111;
-            --text-color: #f0f0f0;
-            --text-muted: #aaaaaa;
-            --border-color: rgba(255, 255, 255, 0.05);
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
-            --header-bg: rgba(10, 10, 10, 0.95);
-        }
-        
-        body, header, section, .hero, .about, .services, .portfolio, footer,
-        .logo, .nav-links a, .hero-content h1, .hero-content h2, .hero-content p,
-        .service-card, .portfolio-item, .portfolio-info, .skill-bar, .skill-level,
-        .highlight, .about-text p {
-            transition: all 0.3s ease;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-        }
-        
-        header {
-            background: var(--header-bg);
-            box-shadow: var(--shadow);
-        }
-        
-        .logo {
-            color: var(--primary-color);
-        }
-        
-        .nav-links a {
-            font-weight: 500;
-            position: relative;
-            padding: 5px 0;
-            transition: var(--transition);
-            color: var(--text-color);
-            background-color: transparent;
-        }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary-color);
-        }
-        
-        .nav-links a::before {
-            background: var(--primary-color);
-        }
-        
-        .hamburger span {
-            background: var(--text-color);
-        }
-        
-        .hero {
-            background: linear-gradient(170deg, var(--card-bg) 0%, var(--background-color) 100%);
-        }
-        
-        .hero-content h1, .section-header h2 {
-            color: var(--text-color);
-        }
-        
-        .hero-content h2, .hero-content p {
-            color: var(--text-muted);
-        }
-        
-        .highlight {
-            color: var(--primary-color);
-        }
-        
-        .contact-info {
-            color: var(--text-color);
-        }
-        
-        .primary-btn {
-            background: var(--primary-color);
-            color: white;
-            box-shadow: var(--shadow);
-        }
-        
-        .about-text p, .service-card p, .portfolio-info p {
-            color: var(--text-muted);
-        }
-        
-        .service-card, .portfolio-item {
-            background: var(--card-bg);
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-        
-        .service-icon {
-            color: var(--primary-color);
-            background: var(--background-color);
-            border: 1px solid var(--border-color);
-        }
-        
-        .skill-bar {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .light-mode .skill-bar {
-            background: rgba(0, 0, 0, 0.1);
-        }
-        
-        .skill-level {
-            background: var(--primary-color);
-        }
-        
-        footer {
-            background: var(--card-bg);
-            color: var(--text-color);
-            border-top: 1px solid var(--border-color);
-        }
-        
-        .theme-switch-wrapper {
-            display: flex;
-            align-items: center;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 9999;
-            background: var(--card-bg);
-            padding: 10px 15px;
-            border-radius: 30px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-        
-        .theme-switch {
-            display: inline-block;
-            height: 24px;
-            position: relative;
-            width: 48px;
-        }
-        
-        .theme-switch input {
-            display: none;
-        }
-        
-        .slider {
-            background-color: #333;
-            bottom: 0;
-            cursor: pointer;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: 0.4s;
-            border-radius: 34px;
-        }
-        
-        .slider:before {
-            background-color: white;
-            bottom: 4px;
-            content: "";
-            height: 16px;
-            left: 4px;
-            position: absolute;
-            transition: 0.4s;
-            width: 16px;
-            border-radius: 50%;
-        }
-        
-        input:checked + .slider {
-            background-color: var(--primary-color);
-        }
-        
-        input:checked + .slider:before {
-            transform: translateX(24px);
-        }
-        
-        .theme-icon {
-            margin-right: 10px;
-            color: var(--text-color);
-        }
-        
-        .dark-mode .logo,
-        .dark-mode .highlight {
-            text-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
-        }
-        
-        .dark-mode .service-icon,
-        .dark-mode .primary-btn,
-        .dark-mode .skill-level,
-        .dark-mode .nav-links a.active::before {
-            box-shadow: 0 0 10px rgba(79, 163, 224, 0.5);
-        }
-        
-        .dark-mode .portfolio-item:hover,
-        .dark-mode .service-card:hover {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 163, 224, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .cert-image, .project-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-            transform: scale(0.95);
-            transform-origin: center;
-            transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-        .diyar-logo {
-            object-fit: contain;
-            padding: 15px;
-            background-color: white;
-        }
-        .diyar-job-image {
-            object-position: center;
-        }
-        .contact-info {
-            margin-top: 15px;
-            font-size: 16px;
-            color: var(--text-color);
-            font-weight: 500;
-        }
-        .contact-info span {
-            margin-right: 20px;
-            display: inline-block;
-        }
-        .education-box {
-            background-color: var(--card-bg);
-            border-left: 4px solid var(--primary-color);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-        .education-box h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-            margin-bottom: 5px;
-        }
-        .education-box p {
-            margin: 5px 0;
-            color: var(--text-muted);
-        }
-        #A-plus-cert {
-            transform: scale(1.25);
-            transform-origin: center;
-        }
-        .cta-buttons {
-            margin-top: 20px;
-        }
-        .skill-level-text {
-            float: right;
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 5px;
-        }
-        .university-logo {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 15px;
-        }
-        .footer-content {
-            text-align: center;
-        }
-        .footer-content .back-to-top {
-            margin-top: 10px;
-        }
-        
-        .portfolio-img {
-            background-color: var(--card-bg);
-        }
-        
-        .social-icon {
-            color: var(--primary-color);
-        }
-        
-        .filter-btn {
-            background: var(--card-bg);
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-            padding: 8px 16px;
-            margin: 0 5px 10px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-        
-        .dark-mode img {
-            filter: brightness(0.85);
-        }
-        
-        @media screen and (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                z-index: 1000;
-                background: var(--header-bg);
-            }
-
-            .container {
-                padding: 0 20px;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 60px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 60px);
-                background: var(--header-bg);
-                flex-direction: column;
-                align-items: center;
-                padding: 40px 0;
-                transition: 0.3s ease;
-                z-index: 999;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .nav-links li {
-                margin: 20px 0;
-            }
-
-            .nav-links a {
-                font-size: 1.2rem;
-                padding: 10px 20px;
-                width: 200px;
-                text-align: center;
-                border-radius: 30px;
-                transition: all 0.3s ease;
-            }
-
-            .nav-links a:hover {
-                background: rgba(79, 163, 224, 0.1);
-            }
-
-            .hamburger {
-                display: block;
-                cursor: pointer;
-            }
-
-            #home {
-                padding-top: 100px;
-            }
-
-            .hero .container {
-                display: flex;
-                flex-direction: column;
-                padding: 20px;
-            }
-
-            .hero-content {
-                order: 2;
-                text-align: center;
-                margin-bottom: 30px;
-            }
-
-            .hero-image {
-                order: 1;
-                margin-bottom: 30px;
-                display: flex;
-                justify-content: center;
-            }
-
-            .profile-image {
-                width: 200px;
-                height: 200px;
-                margin: 0 auto;
-                border: 3px solid var(--primary-color);
-                box-shadow: 0 0 20px rgba(79, 163, 224, 0.3);
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-
-            .contact-info span {
-                margin: 5px 0;
-                padding: 10px 20px;
-                background: rgba(79, 163, 224, 0.1);
-                border-radius: 30px;
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-
-            .social-icons {
-                justify-content: center;
-                margin-top: 25px;
-                gap: 20px;
-            }
-
-            .social-icon {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .about-text p {
-                font-size: 1rem;
-                text-align: left;
-                padding: 0 10px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                padding: 0 20px;
-            }
-
-            .service-card {
-                padding: 30px 20px;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                padding: 0 20px;
-            }
-
-            .portfolio-filter {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-                margin-bottom: 30px;
-                padding: 0 10px;
-            }
-
-            .filter-btn {
-                padding: 8px 16px;
-                font-size: 0.9rem;
-                margin: 5px;
-            }
-
-            .portfolio-item {
-                margin-bottom: 30px;
-            }
-
-            .portfolio-info {
-                padding: 20px 15px;
-            }
-
-            .theme-switch-wrapper {
-                top: 15px;
-                right: 15px;
-                padding: 8px 12px;
-            }
-
-            .skill-bar {
-                margin-bottom: 25px;
-            }
-
-            .skill {
-                margin-bottom: 20px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 1.8rem;
-                line-height: 1.3;
-            }
-
-            .hero-content h2 {
-                font-size: 1.2rem;
-                margin: 10px 0;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-                line-height: 1.5;
-            }
-
-            .contact-info span {
-                font-size: 0.9rem;
-                padding: 8px 15px;
-            }
-
-            .profile-image {
-                width: 180px;
-                height: 180px;
-            }
-
-            .social-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .filter-btn {
-                padding: 6px 12px;
-                font-size: 0.85rem;
-            }
-
-            .portfolio-info h3 {
-                font-size: 1.2rem;
-            }
-
-            .portfolio-info p {
-                font-size: 0.9rem;
-            }
-
-            .skill-level-text {
-                font-size: 11px;
-            }
-        }
-
-        /* Add smooth scrolling for better mobile experience */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Improve touch targets for mobile */
-        .nav-links a,
-        .social-icon,
-        .filter-btn,
-        .portfolio-link {
-            touch-action: manipulation;
-        }
-
-        /* Add active state for touch devices */
-        @media (hover: none) {
-            .nav-links a:active,
-            .social-icon:active,
-            .filter-btn:active,
-            .portfolio-link:active {
-                transform: scale(0.95);
-            }
-        }
-    </style>
-    
-    <style>
-        /* Mobile-specific styles */
-        .mobile-layout .container {
-            padding: 0 15px;
-        }
-        
-        /* Mobile hero section */
-        .mobile-hero {
-            padding-top: 70px !important;
-            padding-bottom: 20px;
-        }
-        
-        .mobile-hero-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .mobile-profile-wrapper {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-            border: 2px solid var(--primary-color);
-            box-shadow: 0 0 10px rgba(79, 163, 224, 0.3);
-        }
-        
-        .mobile-profile-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .mobile-name-title {
-            flex: 1;
-        }
-        
-        .mobile-name-title h1 {
-            font-size: 1.2rem;
-            margin: 0 0 5px 0;
-            line-height: 1.2;
-        }
-        
-        .mobile-name-title h2 {
-            font-size: 0.9rem;
-            margin: 0;
-            color: var(--text-muted);
-        }
-        
-        /* Mobile contact card */
-        .mobile-contact-card {
-            background: rgba(79, 163, 224, 0.05);
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .contact-card-header {
-            margin-bottom: 12px;
-            font-weight: 600;
-            color: var(--text-color);
-            font-size: 1.1rem;
-        }
-        
-        .contact-card-header i {
-            margin-right: 8px;
-            color: var(--primary-color);
-        }
-        
-        .contact-items {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--text-color);
-        }
-        
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            margin-right: 12px;
-        }
-        
-        .contact-details {
-            flex: 1;
-        }
-        
-        .contact-type {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-        
-        .contact-value {
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        
-        .contact-action {
-            color: var(--text-muted);
-        }
-        
-        /* Mobile quick access buttons */
-        .mobile-quick-access {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        
-        .mobile-action-button {
-            flex: 1;
-            margin: 0 5px;
-            padding: 12px 10px;
-            text-align: center;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 500;
-            box-shadow: 0 4px 10px rgba(79, 163, 224, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-action-button:active {
-            transform: scale(0.95);
-            box-shadow: 0 2px 5px rgba(79, 163, 224, 0.2);
-        }
-        
-        /* Self study progress styling */
-        .self-study-progress {
-            margin-top: 25px;
-            margin-bottom: 15px;
-        }
-        
-        .self-study-progress .study-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .self-study-progress .study-count {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 5px;
-        }
-        
-        /* Mobile section wrappers */
-        .mobile-section-wrapper {
-            margin-bottom: 15px;
-            border-radius: 10px;
-            overflow: hidden;
-            background: var(--card-bg);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .dark-mode .mobile-section-wrapper {
-            background: #111;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .mobile-section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: var(--card-bg);
-            cursor: pointer;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .dark-mode .mobile-section-header {
-            background: #111;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .mobile-section-header h2 {
-            margin: 0;
-            font-size: 1.3rem;
-            color: var(--primary-color);
-        }
-        
-        .mobile-section-toggle {
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(79, 163, 224, 0.1);
-            color: var(--primary-color);
-        }
-        
-        .mobile-section-content {
-            padding: 0;
-        }
-        
-        .mobile-section-content section {
-            padding: 20px 0;
-            margin: 0;
-            box-shadow: none;
-            border-radius: 0;
-        }
-        
-        .mobile-section-content .section-header {
-            display: none; /* Hide original section header */
-        }
-        
-        /* Adjust portfolio grid for mobile */
-        .mobile-layout .portfolio-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .mobile-layout .portfolio-item {
-            width: 100%;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            background: var(--card-bg);
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .dark-mode.mobile-layout .portfolio-item {
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Mobile portfolio image container */
-        .mobile-layout .portfolio-img {
-            position: relative;
-            width: 100%;
-            height: 180px; /* Fixed height for consistency */
-            overflow: hidden;
-            background-color: var(--card-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* Image sizing and positioning for mobile */
-        .mobile-layout .cert-image,
-        .mobile-layout .project-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Changed from cover to contain */
-            max-height: 180px;
-            padding: 10px;
-            transform: none !important; /* Remove scale animations for better performance */
-            transition: none !important;
-        }
-        
-        /* Special handling for logos in mobile */
-        .mobile-layout .diyar-logo,
-        .mobile-layout .university-logo {
-            max-width: 80%;
-            height: auto;
-            max-height: 160px;
-            background-color: var(--background-color);
-            border-radius: 5px;
-            padding: 15px;
-        }
-        
-        /* Fix for certification images */
-        .mobile-layout #security-plus-cert,
-        .mobile-layout #network-plus-cert,
-        .mobile-layout #A-plus-cert {
-            transform: none !important;
-            max-width: 90%;
-            height: auto;
-        }
-        
-        /* Portfolio info section for mobile */
-        .mobile-layout .portfolio-info {
-            padding: 15px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .mobile-layout .portfolio-info h3 {
-            font-size: 1.1rem;
-            margin-top: 0;
-            margin-bottom: 8px;
-            color: var(--primary-color);
-        }
-        
-        .mobile-layout .portfolio-info p {
-            font-size: 0.9rem;
-            margin: 4px 0;
-            color: var(--text-muted);
-            line-height: 1.4;
-        }
-        
-        /* Portfolio link for mobile */
-        .mobile-layout .portfolio-link {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 15px;
-            background: rgba(79, 163, 224, 0.1);
-            border-radius: 5px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            align-self: flex-start;
-        }
-        
-        .mobile-layout .portfolio-link:active {
-            background: rgba(79, 163, 224, 0.2);
-            transform: translateY(2px);
-        }
-        
-        /* Portfolio grid optimization for mobile */
-        .mobile-layout .portfolio-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            padding: 0 15px;
-        }
-        
-        /* Portfolio filter scrollable for mobile */
-        .mobile-layout .portfolio-filter {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            padding: 5px 15px;
-            margin: 0 0 20px 0;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* Firefox */
-        }
-        
-        /* Make mobile section content display portfolio items properly */
-        .mobile-layout .mobile-section-content .portfolio-grid {
-            padding: 15px;
-        }
-        
-        .mobile-layout .mobile-section-content .portfolio-filter {
-            margin: 0 15px 15px 15px;
-            padding: 5px 0;
-        }
-        
-        /* Add thumbnail gallery view option for mobile */
-        .mobile-layout .thumbnail-view-toggle {
-            display: flex;
-            justify-content: center;
-            margin: 0 0 20px 0;
-            padding: 0 15px;
-        }
-        
-        .mobile-layout .view-toggle-btn {
-            padding: 5px 15px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            color: var(--text-color);
-            font-size: 0.8rem;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-        
-        .mobile-layout .view-toggle-btn.active {
-            background: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-        
-        /* Thumbnail gallery view for mobile */
-        .mobile-layout .portfolio-grid.thumbnail-view {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-        
-        .mobile-layout .portfolio-grid.thumbnail-view .portfolio-item {
-            margin-bottom: 0;
-        }
-        
-        .mobile-layout .portfolio-grid.thumbnail-view .portfolio-img {
-            height: 120px;
-        }
-        
-        .mobile-layout .portfolio-grid.thumbnail-view .portfolio-info {
-            padding: 10px;
-        }
-        
-        .mobile-layout .portfolio-grid.thumbnail-view .portfolio-info h3 {
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .mobile-layout .portfolio-grid.thumbnail-view .portfolio-info p {
-            display: none;
-        }
-        
-        .mobile-layout .portfolio-grid.thumbnail-view .portfolio-link {
-            margin-top: 5px;
-            padding: 5px 10px;
-            font-size: 0.8rem;
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="theme-switch-wrapper">
-        <span class="theme-icon"><i class="fas fa-sun"></i></span>
-        <label class="theme-switch">
-            <input type="checkbox" id="theme-toggle" checked>
-            <span class="slider"></span>
-        </label>
-    </div>
-    
-    <header>
+    <!-- Subtle Background -->
+    <div class="background-gradient"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
         <div class="container">
-            <nav>
-                <div class="logo">Sulaiman Alazemi</div>
-                <ul class="nav-links">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>Sulaiman Alazemi</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburger" id="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-            </nav>
+            </div>
         </div>
-    </header>
+    </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1>Hello, I'm <span class="highlight">Sulaiman Alazemi</span></h1>
-                <h2>Cybersecurity Engineer</h2>
-                <p>Securing web applications, hardening Linux, Windows, and performing vulnerability assessments.</p>
-                <div class="contact-info">
-                    <span><i class="fas fa-envelope"></i> alroot777@gmail.com</span>
-                    <span><i class="fas fa-phone"></i> +44 7466 563180</span>
-                    <span><i class="fab fa-whatsapp"></i> +965 5159 0622</span>
+            <div class="hero-wrapper">
+                <div class="hero-content" data-aos-duration="800">
+                    <h1>Hello, I'm <span class="text-primary">Sulaiman Alazemi</span></h1>
+                    <h2 class="subtitle">Cybersecurity Engineer</h2>
+                    <p class="description">Securing web applications, hardening Linux & Windows systems, and performing comprehensive vulnerability assessments to protect digital infrastructure.</p>
+                    
+                    <div class="contact-quick">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>alroot777@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+44 7466 563180</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+965 5159 0622</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/salazemi/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/SulaimanAlazemi321" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:alroot777@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
-                <div class="cta-buttons">
-                    <a href="#portfolio" class="btn primary-btn">View My Work </a>
-                </div>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/salazemi/" class="social-icon" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/SulaimanAlazemi321" class="social-icon" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                </div>
-                
-                <div class="self-study-progress" style="margin-top: 25px;">
-                    <span title="Click to update hours" style="cursor: pointer;" id="update-hours-trigger-area">
-                        Hours of Self-Study: <span id="study-hours-value">1192</span> / 10,000 
-                        <span id="study-hours-percentage" style="float: right;">11.92%</span>
-                    </span>
-                    <div class="skill-bar" style="margin-top: 8px;">
-                        <div class="skill-level" id="study-skill-bar-level" style="width: 11.92%;"></div>
+
+                <div class="hero-image" data-aos-duration="800">
+                    <div class="profile-image-wrapper">
+                        <img src="Images/SulaimanAlazemi_Photo.jpeg" alt="Sulaiman Alazemi" class="profile-img">
+                    </div>
+                    
+                    <!-- 10k Hours Tracker -->
+                    <div class="study-tracker-hero">
+                        <div class="tracker-header">
+                            <div>
+                                <i class="fas fa-book-reader"></i>
+                                <span>Self-Study Progress</span>
+                            </div>
+                            <span class="study-count">1,194 / 10,000 hrs</span>
+                        </div>
+                        <div class="tracker-bar">
+                            <div class="tracker-fill" style="width: 11.94%"></div>
+                        </div>
+                        <div class="tracker-percent">11.94% Complete</div>
                     </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="Images/SulaimanAlazemi_Photo.jpeg" alt="Sulaiman Alazemi" class="profile-image" style="border-radius: 50%;">
-            </div>
         </div>
     </section>
 
-    <section id="about" class="about">
+    <!-- About Section -->
+    <section id="about" class="about-section">
         <div class="container">
-            <div class="section-header">
-                <h2>About Me</h2>
-                <div class="underline"></div>
+            <div class="section-title">
+                <h2>About <span class="text-primary">Me</span></h2>
+                <div class="title-line"></div>
             </div>
-            <div class="about-content">
-              
-                <div class="about-text">
-                    <p>I'm a Computer Science student with a strong interest in Cybersecurity, currently studying at the University of Salford. I enjoy learning new skills and tackling practical challenges, always looking to grow my knowledge in this exciting field.</p>
+
+            <div class="about-grid">
+                <div class="about-text" data-aos="fade-right">
+                    <p>I'm studying Computer Science at the University of Salford with a focus on <span class="text-primary">Cybersecurity</span>. I love learning about security and solving problems to protect systems and applications.</p>
                     
-                    <p>During my internship in Network Solutions, I had the chance to work alongside cybersecurity professionals, gaining hands-on experience with tools such as Proofpoint, Forcepoint, CrowdStrike, and SealPath. I also designed and delivered beginner-friendly courses in cybersecurity and ethical hacking, helping others understand important topics like Kali Linux, NMAP, and WiFi security.</p>
+                    <p>I worked at <span class="text-primary">Diyar United Company</span> as a Cyber Security Engineer Intern twice - in 2024 and 2025. I learned to use security solutions like DLP, EDR/XDR, NDR, and worked with tools from CrowdStrike, Palo Alto Networks, and Symantec.</p>
                     
-                    <p>I've earned certifications including CompTIA A+, Network+, and Security+, providing me with a solid foundation in both technical and theoretical aspects of cybersecurity. Additionally, I regularly engage with Capture The Flag (CTF) challenges on platforms like TryHackMe and HackTheBox, enhancing my skills in both offensive and defensive cybersecurity practices.</p>
-                    
-                    <p>Currently, I'm expanding my knowledge by learning about security solutions and configuring technologies such as Data Loss Prevention (DLP), Endpoint Detection and Response (EDR), Extended Detection and Response (XDR), Network Detection and Response (NDR), Two-Factor Authentication (2FA), DNS Security Extensions (DNSSEC), and more.</p>
-                    
-                    <p>I'm always keen to connect with others who share my passion for cybersecurity, whether they're fellow students, professionals, or mentors. Feel free to reach out and connect!</p>
-                    
-                    <div class="skills">
-                        <div class="skill">
-                            <span>Secure Website Development <span class="skill-level-text"> Intermediate to advance</span></span>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 75%"></div>
-                            </div>
+                    <p>I also teach others about cybersecurity. I ran a 5-day course on <span class="text-primary">ethical hacking and penetration testing</span>. Currently, I work as a <span class="text-primary">Hourly Paid Academic (HPA)</span> at the University of Salford, helping students with programming and Linux in lab workshops.</p>
+
+                    <div class="info-grid">
+                        <div class="info-box">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h4>Education</h4>
+                            <p>University of Salford</p>
                         </div>
-                        <div class="skill">
-                            <span>Penetration Testing <span class="skill-level-text">Beginner to Intermediate</span></span>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 50%"></div>
-                            </div>
+                        <div class="info-box">
+                            <i class="fas fa-briefcase"></i>
+                            <h4>Experience</h4>
+                            <p>HPA & Diyar United</p>
                         </div>
-                        <div class="skill">
-                            <span>Network Security <span class="skill-level-text">Intermediate</span></span>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 65%"></div>
-                            </div>
+                        <div class="info-box">
+                            <i class="fas fa-certificate"></i>
+                            <h4>Certifications</h4>
+                            <p>CompTIA A+, N+, S+</p>
                         </div>
-                            </div>
+                        <div class="info-box">
+                            <i class="fas fa-code"></i>
+                            <h4>Expertise</h4>
+                            <p>Offensive & Defensive</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="services" class="services">
+    <!-- Services Section -->
+    <section id="services" class="services-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Services</h2>
-                <div class="underline"></div>
+            <div class="section-title">
+                <h2>My <span class="text-primary">Services</span></h2>
+                <div class="title-line"></div>
             </div>
+
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Secure Website Design</h3>
-                    <p>I develop websites with security as the primary focus, implementing proper security tokens, input sanitization, secure authentication, and protection against common vulnerabilities like XSS and CSRF attacks.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
                     <h3>Cybersecurity Training</h3>
-                    <p>Comprehensive training programs covering offensive and defensive security techniques, customized for beginners to intermediate skill levels. I focus on building strong foundations and practical skills for those new to cybersecurity.</p>
+                    <p>I offer training in different areas of cybersecurity, including ethical hacking, penetration testing, and network security. My courses are designed for beginners and professionals who want to improve their skills.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Web Application Security</h3>
+                    <p>I help secure your web applications by implementing security controls such as secure routing, rate limiting, JWT tokens, and authentication. I can help you protect your application from common attacks and vulnerabilities.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" class="portfolio">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Portfolio</h2>
-                <div class="underline"></div>
+            <div class="section-title">
+                <h2>My <span class="text-primary">Portfolio</span></h2>
+                <div class="title-line"></div>
             </div>
-            <div class="portfolio-filter">
+
+            <div class="portfolio-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="security">Security Projects</button>
-                <button class="filter-btn" data-filter="certifications">Certifications</button>
-                <button class="filter-btn" data-filter="education">Education</button>
+                <button class="filter-btn" data-filter="certification">Certifications</button>
                 <button class="filter-btn" data-filter="experience">Experience</button>
+                <button class="filter-btn" data-filter="education">Education</button>
             </div>
+
             <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="experience">
-                    <div class="portfolio-img">
-                        <img src="Images/diyarLogo.png" alt="Diyar United Company" class="project-image diyar-logo">
+                <!-- BTL1 - Sep 2025 -->
+                <a href="https://www.credly.com/badges/9252e525-ce5f-4b28-a188-5d778e78bdc2/linked_in_profile" target="_blank" class="portfolio-link" data-category="certification">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/BTL1-Medium.jpg" alt="Blue Team Level 1">
+                            <div class="item-overlay">
+                                <span class="badge"><i class="fas fa-certificate"></i> Certification</span>
+                                <div class="external-link"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>Blue Team Level 1 (BTL1)</h3>
+                            <p class="date">Issued Sep. 2025</p>
+                        </div>
                     </div>
-                    <div class="portfolio-info">
-                        <h3>Cyber Security Engineer Intern</h3>
-                        <p>Diyar United Company</p>
-                        <p>May 2025 - Present</p>
-                        <p>Kuwait City, Al Asimah, Kuwait · On-site</p>
-                        <p>Collaborating with cybersecurity engineers on implementing DLP, NDR, and EDR solutions using tools such as Forcepoint, CrowdStrike, and SealPath.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="experience">
-                    <div class="portfolio-img">
-                        <img src="Images/diyarLogo.png" alt="Diyar United Company" class="project-image diyar-logo">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Cyber Security Engineer Intern</h3>
-                        <p>Diyar United Company</p>
-                        <p>Jul 2024 - Sep 2024 · 3 months</p>
-                        <p>Kuwait City, Al Asimah, Kuwait · On-site</p>
-                        <p>Collaborated with cybersecurity engineers on implementing DLP, NDR, and EDR solutions using tools such as Forcepoint, CrowdStrike, and SealPath.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="education">
-                    <div class="portfolio-img" style="background-color: var(--card-bg); display: flex; align-items: center; justify-content: center;">
-                        <img src="Images/universityOfSalford.png" alt="University of Salford" class="university-logo">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>The University of Salford</h3>
-                        <p>BSc Computer Science with Cyber Security</p>
-                        <p>Sep 2023 - Jul 2026</p>
+                </a>
+
+                <!-- CODED Unicode - Aug 2025 -->
+                <div class="portfolio-link" data-category="certification">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/coded_logo.jpeg" alt="CODED Unicode Program">
+                            <div class="item-overlay">
+                                <span class="badge badge-gold"><i class="fas fa-trophy"></i> 1st Place CTF</span>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>Cybersecurity Unicode Program 🥇</h3>
+                            <p class="date">Issued Aug. 2025</p>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="security">
-                    <div class="portfolio-img">
-                        <img src="Images/tryhackme.jpg" alt="TryHackMe Challenges" class="project-image">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>TryHackMe Challenges</h3>
-                        <p>CTF Player</p>
-                        <a href="https://tryhackme.com/p/SulaimanAlazemi" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="security">
-                    <div class="portfolio-img">
-                        <img src="Images/OffensiveSecurityCourse.png" alt="Offensive Security Course" class="project-image">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Offensive Security Course</h3>
-                        <p>5-Day Training Development</p>
-                        <a href="https://www.instagram.com/understandkw/" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
+
+                <!-- Elastic 8 - Aug 2025 -->
+                <div class="portfolio-link" data-category="certification">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/udemy_logo.png" alt="Elasticsearch Monitoring">
+                            <div class="item-overlay">
+                                <span class="badge"><i class="fas fa-certificate"></i> Certification</span>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>ELASTIC 8: Monitoring</h3>
+                            <p class="date">Issued Aug. 2025</p>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="certifications">
-                    <div class="portfolio-img">
-                        <img src="Images/Security+.png" alt="CompTIA Security+" class="cert-image" id="security-plus-cert">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>CompTIA Security+</h3>
-                        <p>Apr. 2025 - Apr. 2028</p>
-                        <a href="https://www.credly.com/badges/eaa7d121-58ac-4fc1-a023-95d6a5bfecee" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="certifications">
-                    <div class="portfolio-img">
-                        <img src="Images/tryhackme.jpg" alt="TryHackMe Certification" class="cert-image">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Jr Penetration Tester</h3>
-                        <p>TryHackMe Certification</p>
-                        <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-8I0HLEVCP5.pdf" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
+
+                <!-- Docker - Jul 2025 -->
+                <div class="portfolio-link" data-category="certification">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/kodekloud.jpg" alt="Docker Course">
+                            <div class="item-overlay">
+                                <span class="badge"><i class="fas fa-certificate"></i> Certification</span>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>Docker for Absolute Beginner</h3>
+                            <p class="date">Issued Jul. 2025</p>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="certifications">
-                    <div class="portfolio-img">
-                        <img src="Images/A+.png" alt="CompTIA A+" class="cert-image" id="A-plus-cert">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>CompTIA A+</h3>
-                        <p>Sept. 2024 - Sept. 2027</p>
-                        <a href="https://www.credly.com/badges/3e0170a3-42f9-49c1-89f0-a78f7e200c31" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="certifications">
-                    <div class="portfolio-img">
-                        <img src="Images/network+.png" alt="CompTIA Network+" class="cert-image" id="network-plus-cert">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>CompTIA Network+</h3>
-                        <p>Apr. 2025 - Apr. 2028</p>
-                        <a href="https://www.credly.com/badges/9698db44-1ca6-4fd4-9aaf-4ba1d883e243" class="portfolio-link" target="_blank" rel="noopener"><i class="fas fa-link"></i></a>
+
+                <!-- ESIEA - Jun 2025 -->
+                <div class="portfolio-link" data-category="certification">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/esiea.png" alt="ESIEA Cybersecurity Program">
+                            <div class="item-overlay">
+                                <span class="badge"><i class="fas fa-certificate"></i> Certification</span>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>Blended Intensive Program</h3>
+                            <p class="date">Issued Jun. 2025</p>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="certifications">
-                    <div class="portfolio-img">
-                        <img src="Images/microsoft.svg" alt="Microsoft Cybersecurity" class="cert-image">
+
+                <!-- CompTIA Network+ - Apr 2025 -->
+                <a href="https://www.credly.com/badges/eaa7d121-58ac-4fc1-a023-95d6a5bfecee/linked_in_profile" target="_blank" class="portfolio-link" data-category="certification">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/network+.png" alt="CompTIA Network+">
+                            <div class="item-overlay">
+                                <span class="badge"><i class="fas fa-certificate"></i> Certification</span>
+                                <div class="external-link"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>CompTIA Network+ ce</h3>
+                            <p class="date">Issued Apr. 2025</p>
+                        </div>
                     </div>
-                    <div class="portfolio-info">
-                        <h3>Unlock Microsoft Cybersecurity Reference Architecture & Mapping to Cyber Kill Chain & MITRE ATT&CK</h3>
-                        <p>Issued Jun. 2023</p>
+                </a>
+
+                <!-- CompTIA Security+ - Apr 2025 -->
+                <a href="https://www.credly.com/badges/eaa7d121-58ac-4fc1-a023-95d6a5bfecee/linked_in_profile" target="_blank" class="portfolio-link" data-category="certification">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/Security+.png" alt="CompTIA Security+">
+                            <div class="item-overlay">
+                                <span class="badge"><i class="fas fa-certificate"></i> Certification</span>
+                                <div class="external-link"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>CompTIA Security+ ce</h3>
+                            <p class="date">Issued Apr. 2025</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- TryHackMe Jr Pentester - Feb 2025 -->
+                <a href="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-8I0HLEVCP5.pdf" target="_blank" class="portfolio-link" data-category="certification">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/tryhackme.jpg" alt="TryHackMe Jr Pentester">
+                            <div class="item-overlay">
+                                <span class="badge"><i class="fas fa-certificate"></i> Certification</span>
+                                <div class="external-link"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>Jr Penetration Tester</h3>
+                            <p class="date">Issued Feb. 2025</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- CompTIA A+ - Sep 2024 -->
+                <a href="https://www.credly.com/badges/3e0170a3-42f9-49c1-89f0-a78f7e200c31/linked_in_profile" target="_blank" class="portfolio-link" data-category="certification">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/A+.png" alt="CompTIA A+">
+                            <div class="item-overlay">
+                                <span class="badge"><i class="fas fa-certificate"></i> Certification</span>
+                                <div class="external-link"><i class="fas fa-external-link-alt"></i></div>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>CompTIA A+ ce</h3>
+                            <p class="date">Issued Sep. 2024</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Microsoft Cybersecurity - Jan 2023 -->
+                <div class="portfolio-link" data-category="certification">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/microsoft.svg" alt="Microsoft Cybersecurity">
+                            <div class="item-overlay">
+                                <span class="badge"><i class="fas fa-certificate"></i> Certification</span>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>Microsoft Cybersecurity</h3>
+                            <p class="date">Issued Jan. 2023</p>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="certifications">
-                    <div class="portfolio-img">
-                        <img src="Images/coded_logo.jpeg" alt="Coded Android Development" class="cert-image">
+
+                <!-- Android Development - Jul 2023 -->
+                <div class="portfolio-link" data-category="certification">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/coded_logo.jpeg" alt="Android Development">
+                            <div class="item-overlay">
+                                <span class="badge"><i class="fas fa-certificate"></i> Certification</span>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>Android Development</h3>
+                            <p class="date">Issued Jul. 2023</p>
+                        </div>
                     </div>
-                    <div class="portfolio-info">
-                        <h3>Coded Android Development</h3>
-                        <p>Issued Jul. 2023</p>
+                </div>
+
+                <!-- Experience - HPA -->
+                <div class="portfolio-link" data-category="experience">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/universityOfSalford.png" alt="Hourly Paid Academic">
+                            <div class="item-overlay">
+                                <span class="badge badge-experience"><i class="fas fa-briefcase"></i> Experience</span>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>Hourly Paid Academic (HPA)</h3>
+                            <p class="date">17 Sep. 2025 - 31 Aug. 2026</p>
+                            <p class="description">Assisting in Computer Science lab workshops by helping students with programming and Linux. Supporting the lecturer during sessions and answering student questions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience - Diyar 2025 -->
+                <div class="portfolio-link" data-category="experience">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/diyarLogo.png" alt="Diyar United Company">
+                            <div class="item-overlay">
+                                <span class="badge badge-experience"><i class="fas fa-briefcase"></i> Experience</span>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>Cyber Security Engineer Intern</h3>
+                            <p class="date">May 2025 - Sep. 2025</p>
+                            <p class="description">Learned how security solutions like DLP, EDR/XDR, NDR, and DNS security are used in real environments. Worked with CrowdStrike, Infoblox, Cortex, Symantec, and Palo Alto Networks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience - Diyar 2024 -->
+                <div class="portfolio-link" data-category="experience">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/diyarLogo.png" alt="Diyar United Company">
+                            <div class="item-overlay">
+                                <span class="badge badge-experience"><i class="fas fa-briefcase"></i> Experience</span>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>Cyber Security Engineer Intern</h3>
+                            <p class="date">Jul. 2024 - Sep. 2024</p>
+                            <p class="description">Worked with cybersecurity engineers on implementing DLP, NDR, and EDR solutions using tools like Forcepoint, CrowdStrike, and SealPath.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience - Instructor -->
+                <div class="portfolio-link" data-category="experience">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/OffensiveSecurityCourse.png" alt="Cybersecurity Instructor">
+                            <div class="item-overlay">
+                                <span class="badge badge-experience"><i class="fas fa-briefcase"></i> Experience</span>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>Cybersecurity Instructor</h3>
+                            <p class="date">Dec. 2023 (5 Days)</p>
+                            <p class="description">Delivered an intensive 5-day course covering ethical hacking fundamentals, penetration testing techniques, and network security practices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="portfolio-link" data-category="education">
+                    <div class="portfolio-item">
+                        <div class="item-image">
+                            <img src="Images/universityOfSalford.png" alt="University of Salford">
+                            <div class="item-overlay">
+                                <span class="badge badge-education"><i class="fas fa-graduation-cap"></i> Education</span>
+                            </div>
+                        </div>
+                        <div class="item-content">
+                            <h3>University of Salford</h3>
+                            <p class="date">Sep. 2023 - Jul. 2026</p>
+                            <p class="subtitle">BS Computer Science with Cyber Security</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
         <div class="container">
-            <div class="footer-content">
-                <div class="back-to-top">
-                    <a href="#home"><i class="fas fa-arrow-up"></i></a>
+            <div class="section-title">
+                <h2><span class="text-primary">Contact</span></h2>
+                <div class="title-line"></div>
             </div>
-                        </div>
-                        </div>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4>Email</h4>
+                    <a href="mailto:alroot777@gmail.com">alroot777@gmail.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4>Location</h4>
+                    <p>United Kingdom</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h4>GitHub</h4>
+                    <a href="https://github.com/SulaimanAlazemi321" target="_blank">SulaimanAlazemi321</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h4>LinkedIn</h4>
+                    <a href="https://www.linkedin.com/in/salazemi/" target="_blank">salazemi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Sulaiman Alazemi</p>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-            
-            // Mobile detection
-            const isMobile = window.innerWidth <= 768;
-            
-            // Apply mobile-specific layout if on mobile
-            if (isMobile) {
-                applyMobileLayout();
-                
-                // Add mobile card detail view functionality
-                setupMobileCardDetailView();
-            }
-            
-            // Handle window resize
-            window.addEventListener('resize', function() {
-                if (window.innerWidth <= 768 && !document.body.classList.contains('mobile-layout')) {
-                    applyMobileLayout();
-                    setupMobileCardDetailView();
-                } else if (window.innerWidth > 768 && document.body.classList.contains('mobile-layout')) {
-                    applyDesktopLayout();
-                }
-            });
-            
-            // Function to set up mobile card detail view
-            function setupMobileCardDetailView() {
-                const portfolioItems = document.querySelectorAll('.portfolio-item');
-                
-                portfolioItems.forEach(item => {
-                    item.addEventListener('click', function(e) {
-                        // Prevent click if user clicked on a link
-                        if (e.target.tagName === 'A' || e.target.closest('a')) {
-                            return;
-                        }
-                        
-                        // Create and show detailed card view
-                        createDetailedCardView(this);
-                    });
-                });
-            }
-            
-            // Function to create detailed card view
-            function createDetailedCardView(card) {
-                // Get card data
-                const category = card.getAttribute('data-category');
-                const imgSrc = card.querySelector('.portfolio-img img').src;
-                const imgAlt = card.querySelector('.portfolio-img img').alt;
-                const title = card.querySelector('.portfolio-info h3').textContent;
-                
-                // Get all paragraphs
-                const paragraphs = Array.from(card.querySelectorAll('.portfolio-info p')).map(p => p.textContent);
-                
-                // Get link if exists
-                const linkElement = card.querySelector('.portfolio-info a');
-                const link = linkElement ? linkElement.href : null;
-                const linkText = linkElement ? (linkElement.textContent.trim() || 'View Details') : null;
-                
-                // Create modal container
-                const modal = document.createElement('div');
-                modal.className = 'mobile-card-modal';
-                
-                // Create modal content with additional details based on category
-                let additionalContent = '';
-                
-                // Generate different additional content based on category
-                if (category === 'experience') {
-                    if (title.includes('Diyar')) {
-                        additionalContent = `
-                            <div class="modal-section">
-                                <h4>Skills & Technologies:</h4>
-                                <ul>
-                                    <li>Implemented and configured Data Loss Prevention (DLP) solutions using Forcepoint</li>
-                                    <li>Worked with Endpoint Detection and Response (EDR) using CrowdStrike</li>
-                                    <li>Configured SealPath for document protection and rights management</li>
-                                    <li>Applied security policies and best practices in real-world enterprise environments</li>
-                                    <li>Participated in security monitoring and incident response procedures</li>
-                                    <li>Collaborated with the Network Solutions team on implementing secure infrastructure</li>
-                                </ul>
-                    </div>
-                            <div class="modal-section">
-                                <h4>Key Achievements:</h4>
-                                <ul>
-                                    <li>Successfully completed security implementation projects under senior supervision</li>
-                                    <li>Gained practical experience with enterprise security tools and solutions</li>
-                                    <li>Developed understanding of security operations in a corporate environment</li>
-                                </ul>
-                        </div>
-                        `;
-                    }
-                } else if (category === 'education') {
-                    additionalContent = `
-                        <div class="modal-section">
-                            <h4>Program Details:</h4>
-                            <ul>
-                                <li>Specializing in Cyber Security and Computer Science</li>
-                                <li>Key modules include Network Security, Ethical Hacking, Secure Programming, and Digital Forensics</li>
-                                <li>Developing practical skills alongside theoretical knowledge</li>
-                                <li>Working on security-focused programming and research projects</li>
-                            </ul>
-                        </div>
-                    `;
-                } else if (category === 'security') {
-                    if (title.includes('TryHackMe')) {
-                        additionalContent = `
-                            <div class="modal-section">
-                                <h4>Platform Details:</h4>
-                                <p>TryHackMe is an online platform for learning and practicing cybersecurity skills through hands-on challenges.</p>
-                                <h4>Achievements:</h4>
-                                <ul>
-                                    <li>Completed numerous security challenges and learning paths</li>
-                                    <li>Gained practical experience in exploitation techniques and vulnerability assessment</li>
-                                    <li>Developed skills in reconnaissance, privilege escalation, and post-exploitation</li>
-                                    <li>Practiced both offensive and defensive security techniques</li>
-                                </ul>
-                    </div>
-                        `;
-                    } else if (title.includes('Offensive Security')) {
-                        additionalContent = `
-                            <div class="modal-section">
-                                <h4>Course Details:</h4>
-                                <p>Developed and delivered a 5-day training program covering offensive security techniques for beginners.</p>
-                                <h4>Topics Covered:</h4>
-                                <ul>
-                                    <li>Introduction to Kali Linux and ethical hacking tools</li>
-                                    <li>Network scanning and enumeration techniques</li>
-                                    <li>Web application security testing</li>
-                                    <li>Exploitation fundamentals and methodology</li>
-                                    <li>WiFi security assessment</li>
-                                </ul>
-                        </div>
-                        `;
-                    }
-                } else if (category === 'certifications') {
-                    if (title.includes('Security+')) {
-                        additionalContent = `
-                            <div class="modal-section">
-                                <h4>Certification Details:</h4>
-                                <p>CompTIA Security+ is a globally recognized certification validating foundational security skills.</p>
-                                <h4>Skills Validated:</h4>
-                                <ul>
-                                    <li>Network security concepts and implementation</li>
-                                    <li>Threats, vulnerabilities, and security controls</li>
-                                    <li>Identity and access management</li>
-                                    <li>Risk management and cryptography</li>
-                                    <li>Security architecture and tools</li>
-                                </ul>
-                        </div>
-                        `;
-                    } else if (title.includes('Network+')) {
-                        additionalContent = `
-                            <div class="modal-section">
-                                <h4>Certification Details:</h4>
-                                <p>CompTIA Network+ validates essential networking skills and knowledge.</p>
-                                <h4>Skills Validated:</h4>
-                                <ul>
-                                    <li>Network architecture and design</li>
-                                    <li>Network operations and security</li>
-                                    <li>Troubleshooting and tools</li>
-                                    <li>Network protocols and services</li>
-                                </ul>
-                    </div>
-                        `;
-                    } else if (title.includes('A+')) {
-                        additionalContent = `
-                            <div class="modal-section">
-                                <h4>Certification Details:</h4>
-                                <p>CompTIA A+ is the industry standard for establishing IT careers, validating understanding of hardware, software, and operating systems.</p>
-                                <h4>Skills Validated:</h4>
-                                <ul>
-                                    <li>Hardware and infrastructure support</li>
-                                    <li>Operating system configuration and support</li>
-                                    <li>Software troubleshooting</li>
-                                    <li>Security fundamentals</li>
-                                    <li>Basic networking</li>
-                                </ul>
-                    </div>
-                        `;
-                    } else if (title.includes('Jr Penetration Tester')) {
-                        additionalContent = `
-                            <div class="modal-section">
-                                <h4>Certification Details:</h4>
-                                <p>TryHackMe's Jr Penetration Tester certification validates practical penetration testing skills.</p>
-                                <h4>Skills Validated:</h4>
-                                <ul>
-                                    <li>Reconnaissance and information gathering</li>
-                                    <li>Vulnerability scanning and assessment</li>
-                                    <li>Web application security testing</li>
-                                    <li>Network security assessment</li>
-                                    <li>Basic exploitation techniques</li>
-                                </ul>
-                </div>
-                        `;
-                    }
-                }
-                
-                // Build modal content
-                modal.innerHTML = `
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3>${title}</h3>
-                            <div class="modal-close"><i class="fas fa-times"></i></div>
-                        </div>
-                        <div class="modal-body">
-                            <div class="modal-image">
-                                <img src="${imgSrc}" alt="${imgAlt}">
-                        </div>
-                            <div class="modal-info">
-                                ${paragraphs.map(p => `<p>${p}</p>`).join('')}
-                                ${additionalContent}
-                        </div>
-                            ${link ? `<a href="${link}" class="modal-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> ${linkText}</a>` : ''}
-                        </div>
-                </div>
-                `;
-                
-                // Add close functionality
-                modal.querySelector('.modal-close').addEventListener('click', function() {
-                    document.body.removeChild(modal);
-                    document.body.style.overflow = 'auto'; // Re-enable scrolling
-                });
-                
-                // Add styles for modal
-                const modalStyle = document.createElement('style');
-                modalStyle.textContent = `
-                    .mobile-card-modal {
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        background: rgba(0, 0, 0, 0.8);
-                        z-index: 10000;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        padding: 20px;
-                        animation: modalFadeIn 0.3s ease;
-                    }
-                    
-                    @keyframes modalFadeIn {
-                        from { opacity: 0; }
-                        to { opacity: 1; }
-                    }
-                    
-                    .modal-content {
-                        width: 100%;
-                        max-width: 500px;
-                        max-height: 90vh;
-                        background: var(--background-color);
-                        border-radius: 12px;
-                        overflow: hidden;
-                        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
-                        display: flex;
-                        flex-direction: column;
-                        animation: modalSlideIn 0.3s ease;
-                    }
-                    
-                    @keyframes modalSlideIn {
-                        from { transform: translateY(50px); opacity: 0; }
-                        to { transform: translateY(0); opacity: 1; }
-                    }
-                    
-                    .modal-header {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        padding: 15px 20px;
-                        border-bottom: 1px solid var(--border-color);
-                        background: var(--card-bg);
-                    }
-                    
-                    .modal-header h3 {
-                        margin: 0;
-                        color: var(--primary-color);
-                        font-size: 1.2rem;
-                    }
-                    
-                    .modal-close {
-                        width: 30px;
-                        height: 30px;
-                        background: rgba(0, 0, 0, 0.1);
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        cursor: pointer;
-                        color: var(--text-color);
-                    }
-                    
-                    .modal-body {
-                        padding: 20px;
-                        overflow-y: auto;
-                        flex: 1;
-                    }
-                    
-                    .modal-image {
-                        width: 100%;
-                        height: 200px;
-                        border-radius: 8px;
-                        overflow: hidden;
-                        margin-bottom: 20px;
-                        background: var(--card-bg);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        border: 1px solid var(--border-color);
-                    }
-                    
-                    .modal-image img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: contain;
-                        padding: 10px;
-                    }
-                    
-                    .modal-info p {
-                        margin: 10px 0;
-                        color: var(--text-color);
-                    }
-                    
-                    .modal-section {
-                        margin: 20px 0;
-                    }
-                    
-                    .modal-section h4 {
-                        color: var(--primary-color);
-                        margin: 15px 0 8px;
-                        font-size: 1.1rem;
-                    }
-                    
-                    .modal-section ul {
-                        margin: 10px 0;
-                        padding-left: 20px;
-                    }
-                    
-                    .modal-section li {
-                        margin-bottom: 8px;
-                        color: var(--text-muted);
-                    }
-                    
-                    .modal-link {
-                        display: inline-block;
-                        margin-top: 20px;
-                        padding: 10px 20px;
-                        background: var(--primary-color);
-                        color: white;
-                        text-decoration: none;
-                        border-radius: 5px;
-                        text-align: center;
-                    }
-                    
-                    .modal-link i {
-                        margin-right: 5px;
-                    }
-                    
-                    /* Special handling for various certificate images */
-                    .modal-image img[src*="A+.png"],
-                    .modal-image img[src*="Security+.png"],
-                    .modal-image img[src*="network+.png"] {
-                        padding: 20px;
-                        max-width: 90%;
-                        object-fit: contain;
-                    }
-                    
-                    .modal-image img[src*="diyarLogo.png"],
-                    .modal-image img[src*="universityOfSalford.png"] {
-                        background-color: white;
-                        padding: 20px;
-                        object-fit: contain;
-                        max-width: 80%;
-                    }
-                    
-                    /* Make the portfolio items more clickable-looking on mobile */
-                    .mobile-layout .portfolio-item {
-                        cursor: pointer;
-                        position: relative;
-                    }
-                    
-                    .mobile-layout .portfolio-item::after {
-                        content: '';
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        width: 30px;
-                        height: 30px;
-                        background: rgba(0, 0, 0, 0.3);
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: white;
-                        font-family: 'Font Awesome 5 Free';
-                        font-weight: 900;
-                        content: '\\f002';
-                        font-size: 14px;
-                        opacity: 0.7;
-                        pointer-events: none;
-                    }
-                    
-                    .dark-mode .mobile-card-modal {
-                        background: rgba(0, 0, 0, 0.9);
-                    }
-                    
-                    .dark-mode .modal-content {
-                        background: #111;
-                    }
-                    
-                    .dark-mode .modal-header {
-                        background: #0a0a0a;
-                        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-                    }
-                    
-                    .dark-mode .modal-close {
-                        background: rgba(255, 255, 255, 0.1);
-                        color: #ddd;
-                    }
-                    
-                    .dark-mode .modal-image {
-                        background: #0a0a0a;
-                        border: 1px solid rgba(255, 255, 255, 0.05);
-                    }
-                `;
-                document.head.appendChild(modalStyle);
-                
-                // Add to document
-                document.body.appendChild(modal);
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            }
-            
-            // Function to apply mobile-specific layout
-            function applyMobileLayout() {
-                document.body.classList.add('mobile-layout');
-                
-                // Hide the navigation bar on mobile
-                const header = document.querySelector('header');
-                if (header) {
-                    header.style.display = 'none';
-                }
-                
-                // Create mobile-specific sections
-                createMobileHero();
-                reorganizeSections();
-                optimizePortfolioForMobile();
-                
-                // Make sure the theme toggle is always visible
-                ensureThemeToggleVisible();
-                
-                // Update View Portfolio button to ensure it works with closed sections
-                const portfolioButton = document.querySelector('.mobile-action-button.full-width');
-                if (portfolioButton) {
-                    portfolioButton.addEventListener('click', function(e) {
-                        // Find the portfolio mobile wrapper
-                        const portfolioWrapper = document.getElementById('mobile-portfolio-wrapper');
-                        if (portfolioWrapper) {
-                            // Ensure portfolio section is expanded and others are closed
-                            const allSections = document.querySelectorAll('.mobile-section-content');
-                            const allToggles = document.querySelectorAll('.mobile-section-toggle i');
-                            
-                            // Close all sections first
-                            allSections.forEach((section, i) => {
-                                section.style.display = 'none';
-                                if (allToggles[i]) {
-                                    allToggles[i].className = 'fas fa-chevron-down';
-                                }
-                            });
-                            
-                            // Then open just the portfolio section
-                            const content = portfolioWrapper.querySelector('.mobile-section-content');
-                            const toggle = portfolioWrapper.querySelector('.mobile-section-toggle i');
-                            
-                            if (content && toggle) {
-                                content.style.display = 'block';
-                                toggle.className = 'fas fa-chevron-up';
-                                
-                                // Scroll to portfolio section
-                                setTimeout(() => {
-                                    portfolioWrapper.scrollIntoView({ behavior: 'smooth' });
-                                }, 100);
-                            }
-                        }
-                    });
-                }
-            }
-            
-            // Function to revert to desktop layout
-            function applyDesktopLayout() {
-                document.body.classList.remove('mobile-layout');
-                location.reload(); // Simple approach - reload page when switching to desktop
-            }
-            
-            // Function to ensure theme toggle is always visible
-            function ensureThemeToggleVisible() {
-                const themeToggle = document.querySelector('.theme-switch-wrapper');
-                if (!themeToggle) return;
-                
-                // Make sure the theme toggle has a higher z-index and is visible
-                themeToggle.style.zIndex = "10001";
-                themeToggle.style.position = "fixed";
-                themeToggle.style.display = "flex";
-                
-                // Add CSS for better visibility on mobile
-                const themeToggleStyle = document.createElement('style');
-                themeToggleStyle.textContent = `
-                    .theme-switch-wrapper {
-                        position: fixed;
-                        top: 15px;
-                        right: 20px;
-                        z-index: 10001;
-                        display: flex;
-                        align-items: center;
-                        padding: 8px 12px;
-                        background: rgba(0, 0, 0, 0.3);
-                        border-radius: 30px;
-                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-                        backdrop-filter: blur(5px);
-                        border: 1px solid rgba(255, 255, 255, 0.1);
-                    }
-                    
-                    .light-mode .theme-switch-wrapper {
-                        background: rgba(255, 255, 255, 0.3);
-                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                        border: 1px solid rgba(0, 0, 0, 0.1);
-                    }
-                    
-                    /* When on mobile, position in the right corner */
-                    @media screen and (max-width: 768px) {
-                        .theme-switch-wrapper {
-                            top: 15px;
-                            right: 15px;
-                        }
-                    }
-                `;
-                document.head.appendChild(themeToggleStyle);
-            }
-            
-            // Enhanced createMobileHero function with better contact details and self-study display
-            function createMobileHero() {
-                const heroSection = document.getElementById('home');
-                if (!heroSection) return;
-                
-                // Add mobile-specific class
-                heroSection.classList.add('mobile-hero');
-                
-                // Add site title at the top since navbar is gone
-                const siteTitle = document.createElement('div');
-                siteTitle.className = 'mobile-site-title';
-                siteTitle.innerHTML = '<h1>Sulaiman Alazemi</h1>';
-                
-                // Get hero content elements
-                const heroContent = heroSection.querySelector('.hero-content');
-                const heroImage = heroSection.querySelector('.hero-image');
-                
-                if (heroContent && heroImage) {
-                    // Create compact header with image and name
-                    const compactHeader = document.createElement('div');
-                    compactHeader.className = 'mobile-hero-header';
-                    
-                    // Create image wrapper
-                    const imageWrapper = document.createElement('div');
-                    imageWrapper.className = 'mobile-profile-wrapper';
-                    imageWrapper.appendChild(heroImage.querySelector('img').cloneNode(true));
-                    
-                    // Create name and title
-                    const nameTitle = document.createElement('div');
-                    nameTitle.className = 'mobile-name-title';
-                    nameTitle.innerHTML = `
-                        <h1>${heroContent.querySelector('h1').innerHTML}</h1>
-                        <h2>${heroContent.querySelector('h2').textContent}</h2>
-                    `;
-                    
-                    // Assemble compact header
-                    compactHeader.appendChild(imageWrapper);
-                    compactHeader.appendChild(nameTitle);
-                    
-                    // Create enhanced contact card section
-                    const contactCard = document.createElement('div');
-                    contactCard.className = 'mobile-contact-card';
-                    
-                    // Add contact info in a card format
-                    const contactInfo = heroContent.querySelector('.contact-info');
-                    if (contactInfo) {
-                        // Create contact card header
-                        const cardHeader = document.createElement('div');
-                        cardHeader.className = 'contact-card-header';
-                        cardHeader.innerHTML = '<i class="fas fa-address-card"></i> Contact Details';
-                        contactCard.appendChild(cardHeader);
-                        
-                        // Create contact items container
-                        const contactItems = document.createElement('div');
-                        contactItems.className = 'contact-items';
-                        
-                        // Add contact items with improved styling
-                        const contactTypes = [
-                            { icon: 'fa-envelope', prefix: 'mailto:', text: 'Email', label: 'alroot777@gmail.com', value: 'alroot777@gmail.com' },
-                            { icon: 'fa-phone', prefix: 'tel:', text: 'Phone', label: '+44 7466 563180', value: '+447466563180' },
-                            { icon: 'fa-whatsapp', prefix: 'https://wa.me/', text: 'WhatsApp', label: '+965 5159 0622', value: '+96551590622' }
-                        ];
-                        
-                        contactTypes.forEach(type => {
-                            const contactSpan = contactInfo.querySelector(`span:has(i.fas.${type.icon}), span:has(i.fab.${type.icon})`);
-                            if (contactSpan) {
-                                const contactItem = document.createElement('a');
-                                contactItem.className = 'contact-item';
-                                contactItem.href = `${type.prefix}${type.value}`;
-                                contactItem.innerHTML = `
-                                    <div class="contact-icon">
-                                        <i class="${contactSpan.querySelector('i').className}"></i>
-            </div>
-                                    <div class="contact-details">
-                                        <div class="contact-type">${type.text}</div>
-                                        <div class="contact-value">${type.label}</div>
-        </div>
-                                    <div class="contact-action">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </div>
-                                `;
-                                
-                                contactItems.appendChild(contactItem);
-                            }
-                        });
-                        
-                        contactCard.appendChild(contactItems);
-                    }
-                    
-                    // Create quick access buttons
-                    const quickAccessButtons = document.createElement('div');
-                    quickAccessButtons.className = 'mobile-quick-access';
-                    
-                    // Add View Portfolio button
-                    const portfolioButton = document.createElement('a');
-                    portfolioButton.href = '#portfolio';
-                    portfolioButton.className = 'mobile-action-button full-width';
-                    portfolioButton.innerHTML = '<i class="fas fa-briefcase"></i> View Portfolio';
-                    
-                    // Add click handler to ensure portfolio section is open
-                    portfolioButton.addEventListener('click', function(e) {
-                        // Find the portfolio mobile wrapper
-                        const portfolioWrapper = document.getElementById('mobile-portfolio-wrapper');
-                        if (portfolioWrapper) {
-                            // Ensure portfolio section is expanded
-                            const content = portfolioWrapper.querySelector('.mobile-section-content');
-                            const toggle = portfolioWrapper.querySelector('.mobile-section-toggle i');
-                            
-                            if (content && toggle) {
-                                content.style.display = 'block';
-                                toggle.className = 'fas fa-chevron-up';
-                            }
-                        }
-                    });
-                    
-                    quickAccessButtons.appendChild(portfolioButton);
-                    
-                    // Clear and rebuild the hero section
-                    heroSection.innerHTML = '';
-                    const newContainer = document.createElement('div');
-                    newContainer.className = 'container';
-                    newContainer.appendChild(siteTitle); // Add site title at the top
-                    newContainer.appendChild(compactHeader);
-                    newContainer.appendChild(contactCard);
-                    newContainer.appendChild(quickAccessButtons);
-                    
-                    // Add social icons
-                    const socialIcons = heroContent.querySelector('.social-icons');
-                    if (socialIcons) {
-                        newContainer.appendChild(socialIcons.cloneNode(true));
-                    }
-                    
-                    // Add self-study progress with improved formatting
-                    const selfStudy = heroContent.querySelector('.self-study-progress');
-                    if (selfStudy) {
-                        // Create a new formatted version
-                        const newSelfStudy = document.createElement('div');
-                        newSelfStudy.className = 'self-study-progress';
-                        newSelfStudy.style.margin = '25px 5px 0';
-                        newSelfStudy.style.padding = '15px';
-                        newSelfStudy.style.backgroundColor = 'rgba(79, 163, 224, 0.05)';
-                        newSelfStudy.style.borderRadius = '8px';
-                        
-                        // Fix formatting of hours text with better spacing
-                        newSelfStudy.innerHTML = `
-                            <div class="study-header" style="display: flex; justify-content: space-between;">
-                                <span>Hours of Self-Study</span>
-                                <span class="percentage" style="margin-left: 12px;">11.92% </span >
-                </div>
-                            <div class="study-count">1192 / 10,000</div>
-                            <div class="skill-bar" style="margin-top: 8px; height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 4px; overflow: hidden;">
-                                <div class="skill-level" style="width: 11.92%; height: 100%; background: var(--primary-color);"></div>
-            </div>
-                        `;
-                        
-                        newContainer.appendChild(newSelfStudy);
-                    }
-                    
-                    heroSection.appendChild(newContainer);
-                    
-                    // Add CSS for site title in mobile view
-                    const siteTitleStyle = document.createElement('style');
-                    siteTitleStyle.textContent = `
-                        .mobile-site-title {
-                            text-align: center;
-                            margin-bottom: 20px;
-                            padding-top: 10px;
-                        }
-                        
-                        .mobile-site-title h1 {
-                            margin: 0;
-                            font-size: 1.6rem;
-                            color: var(--primary-color);
-                            font-weight: 700;
-                            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-                        }
-                        
-                        .dark-mode .mobile-site-title h1 {
-                            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 10px rgba(79, 163, 224, 0.2);
-                        }
-                    `;
-                    document.head.appendChild(siteTitleStyle);
-                }
-            }
-            
-            // Enhanced mobile navigation
-            function enhanceMobileNavigation() {
-                const hamburger = document.querySelector('.hamburger');
-                const navLinks = document.querySelector('.nav-links');
-                
-                if (hamburger && navLinks) {
-                    // Handle hamburger click
-                    hamburger.addEventListener('click', function() {
-                        this.classList.toggle('active');
-                        navLinks.classList.toggle('active');
-                    });
-                    
-                    // Close menu when a link is clicked
-                    const links = navLinks.querySelectorAll('a');
-                    links.forEach(link => {
-                        link.addEventListener('click', function() {
-                            hamburger.classList.remove('active');
-                            navLinks.classList.remove('active');
-                            
-                            // Update active link class
-                            links.forEach(l => l.classList.remove('active'));
-                            this.classList.add('active');
-                            
-                            // Handle smooth scrolling to section
-                            const target = this.getAttribute('href');
-                            if (target.startsWith('#')) {
-                                const targetSection = document.querySelector(target);
-                                if (targetSection) {
-                                    setTimeout(() => {
-                                        window.scrollTo({
-                                            top: targetSection.offsetTop - 80,
-                                            behavior: 'smooth'
-                                        });
-                                    }, 300);
-                                }
-                            }
-                        });
-                    });
-                    
-                    // Add styles for mobile navigation
-                    const mobileNavStyle = document.createElement('style');
-                    mobileNavStyle.textContent = `
-                        @media screen and (max-width: 768px) {
-                            header {
-                                padding: 15px 20px;
-                                position: fixed;
-                                top: 0;
-                                left: 0;
-                                width: 100%;
-                                z-index: 1000;
-                            }
-                            
-                            .nav-links {
-                                position: fixed;
-                                top: 60px;
-                                left: -100%;
-                                width: 100%;
-                                height: calc(100vh - 60px);
-                                background: var(--header-bg);
-                                flex-direction: column;
-                                align-items: center;
-                                padding: 40px 0;
-                                transition: 0.3s ease;
-                                z-index: 999;
-                            }
-                            
-                            .nav-links.active {
-                                left: 0;
-                            }
-                            
-                            .nav-links li {
-                                margin: 20px 0;
-                            }
-                            
-                            .nav-links a {
-                                font-size: 1.2rem;
-                                padding: 10px 20px;
-                                width: 200px;
-                                text-align: center;
-                                border-radius: 30px;
-                                transition: all 0.3s ease;
-                            }
-                            
-                            .nav-links a:hover {
-                                background: rgba(79, 163, 224, 0.1);
-                            }
-                            
-                            .hamburger {
-                                display: block;
-                                cursor: pointer;
-                                z-index: 1001;
-                            }
-                            
-                            .hamburger span {
-                                display: block;
-                                width: 25px;
-                                height: 3px;
-                                background: var(--text-color);
-                                margin: 5px 0;
-                                transition: 0.3s;
-                            }
-                            
-                            .hamburger.active span:nth-child(1) {
-                                transform: rotate(45deg) translate(5px, 5px);
-                            }
-                            
-                            .hamburger.active span:nth-child(2) {
-                                opacity: 0;
-                            }
-                            
-                            .hamburger.active span:nth-child(3) {
-                                transform: rotate(-45deg) translate(5px, -5px);
-                            }
-                            
-                            /* Add padding to home section to accommodate fixed header */
-                            #home {
-                                padding-top: 100px !important;
-                            }
-                            
-                            .mobile-hero {
-                                padding-top: 130px !important;
-                            }
-                        }
-                    `;
-                    document.head.appendChild(mobileNavStyle);
-                }
-            }
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-            // Add "View All" section to portfolio
-            function optimizePortfolioForMobile() {
-                // Find portfolio section and grid
-                const portfolioSection = document.getElementById('portfolio');
-                if (!portfolioSection) return;
-                
-                const portfolioGrid = portfolioSection.querySelector('.portfolio-grid');
-                if (!portfolioGrid) return;
-                
-                // Add view toggle buttons
-                const portfolioFilter = portfolioSection.querySelector('.portfolio-filter');
-                if (portfolioFilter) {
-                    // Add "View All" option to portfolio
-                    const viewAllButton = document.createElement('a');
-                    viewAllButton.className = 'view-all-button';
-                    viewAllButton.innerHTML = '<i class="fas fa-th-large"></i> View All Items';
-                    viewAllButton.href = '#';
-                    viewAllButton.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        // Create full screen portfolio viewer
-                        createFullScreenPortfolioViewer(portfolioGrid);
-                    });
-                    
-                    // Insert the View All button
-                    portfolioFilter.parentNode.insertBefore(viewAllButton, portfolioFilter);
-                    
-                    // Add view toggle buttons
-                    const toggleContainer = document.createElement('div');
-                    toggleContainer.className = 'thumbnail-view-toggle';
-                    
-                    const listViewBtn = document.createElement('button');
-                    listViewBtn.className = 'view-toggle-btn';
-                    listViewBtn.textContent = 'List View';
-                    listViewBtn.addEventListener('click', function() {
-                        if (!this.classList.contains('active')) {
-                            this.classList.add('active');
-                            thumbnailViewBtn.classList.remove('active');
-                            portfolioGrid.classList.remove('thumbnail-view');
-                        }
-                    });
-                    
-                    const thumbnailViewBtn = document.createElement('button');
-                    thumbnailViewBtn.className = 'view-toggle-btn active'; // Make Grid View active by default
-                    thumbnailViewBtn.textContent = 'Grid View';
-                    thumbnailViewBtn.addEventListener('click', function() {
-                        if (!this.classList.contains('active')) {
-                            this.classList.add('active');
-                            listViewBtn.classList.remove('active');
-                            portfolioGrid.classList.add('thumbnail-view');
-                        }
-                    });
-                    
-                    toggleContainer.appendChild(listViewBtn);
-                    toggleContainer.appendChild(thumbnailViewBtn);
-                    
-                    // Insert after filter buttons
-                    portfolioFilter.parentNode.insertBefore(toggleContainer, portfolioFilter.nextSibling);
-                    
-                    // Set Grid View as default
-                    portfolioGrid.classList.add('thumbnail-view');
-                    
-                    // Add CSS for View All button
-                    const viewAllStyle = document.createElement('style');
-                    viewAllStyle.textContent = `
-                        .mobile-layout .view-all-button {
-                            display: block;
-                            margin: 0 15px 15px;
-                            padding: 12px;
-                            text-align: center;
-                            background: var(--primary-color);
-                            color: white;
-                            border-radius: 8px;
-                            text-decoration: none;
-                            font-weight: 500;
-                            box-shadow: 0 3px 10px rgba(79, 163, 224, 0.3);
-                        }
-                        
-                        .mobile-layout .view-all-button i {
-                            margin-right: 8px;
-                        }
-                        
-                        .mobile-layout .full-screen-portfolio {
-                            position: fixed;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            bottom: 0;
-                            background: var(--background-color);
-                            z-index: 9999;
-                            overflow-y: auto;
-                            padding: 60px 15px 20px;
-                        }
-                        
-                        .mobile-layout .portfolio-viewer-header {
-                            position: fixed;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            height: 50px;
-                            background: var(--primary-color);
-                            color: white;
-                            display: flex;
-                            align-items: center;
-                            padding: 0 15px;
-                            z-index: 10000;
-                            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-                        }
-                        
-                        .mobile-layout .portfolio-viewer-title {
-                            flex: 1;
-                            font-weight: 500;
-                        }
-                        
-                        .mobile-layout .close-viewer {
-                            width: 30px;
-                            height: 30px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            border-radius: 50%;
-                            background: rgba(255, 255, 255, 0.2);
-                        }
-                        
-                        .mobile-layout .portfolio-viewer-grid {
-                            display: grid;
-                            grid-template-columns: repeat(2, 1fr);
-                            gap: 10px;
-                        }
-                        
-                        .mobile-layout .portfolio-viewer-item {
-                            background: var(--card-bg);
-                            border-radius: 8px;
-                            overflow: hidden;
-                            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                        }
-                        
-                        .mobile-layout .portfolio-viewer-img {
-                            height: 120px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            overflow: hidden;
-                        }
-                        
-                        .mobile-layout .portfolio-viewer-img img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;
-                        }
-                        
-                        .mobile-layout .portfolio-viewer-info {
-                            padding: 10px;
-                        }
-                        
-                        .mobile-layout .portfolio-viewer-info h3 {
-                            margin: 0 0 5px;
-                            font-size: 0.9rem;
-                            white-space: nowrap;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                        }
-                        
-                        .dark-mode .portfolio-viewer-item {
-                            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-                        }
-                    `;
-                    document.head.appendChild(viewAllStyle);
-                    
-                    // Enhance mobile filter functionality
-                    enhanceMobileFilters(portfolioFilter, portfolioGrid);
-                }
-                
-                // Optimize each portfolio item for mobile
-                const portfolioItems = portfolioGrid.querySelectorAll('.portfolio-item');
-                portfolioItems.forEach(item => {
-                    // Create a more efficient layout for mobile
-                    const img = item.querySelector('.portfolio-img img');
-                    if (img) {
-                        // Add loading="lazy" for better performance
-                        img.setAttribute('loading', 'lazy');
-                        
-                        // Adjust image display for different types
-                        if (img.classList.contains('diyar-logo') || 
-                            img.classList.contains('university-logo')) {
-                            img.style.objectFit = 'contain';
-                            img.style.padding = '10px';
-                        }
-                    }
-                    
-                    // Make links more touch-friendly
-                    const link = item.querySelector('.portfolio-link');
-                    if (link) {
-                        // Add icon for better visibility
-                        link.innerHTML = '<i class="fas fa-external-link-alt"></i> View';
-                    }
-                });
-            }
-            
-            // Theme toggling functionality
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = document.querySelector('.theme-icon i');
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            
-            if (savedTheme === 'light') {
-                document.documentElement.classList.remove('dark-mode');
-                document.documentElement.classList.add('light-mode');
-                themeToggle.checked = false;
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            } else {
-                document.documentElement.classList.remove('light-mode');
-                document.documentElement.classList.add('dark-mode');
-                themeToggle.checked = true;
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            }
-            
-            themeToggle.addEventListener('change', function() {
-                if (this.checked) {
-                    document.documentElement.classList.remove('light-mode');
-                    document.documentElement.classList.add('dark-mode');
-                    localStorage.setItem('theme', 'dark');
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
-                } else {
-                    document.documentElement.classList.remove('dark-mode');
-                    document.documentElement.classList.add('light-mode');
-                    localStorage.setItem('theme', 'light');
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
-                }
-            });
-            
-            window.dispatchEvent(new Event('scroll'));
-            
-            if (document.documentElement.classList.contains('dark-mode')) {
-                forceBlackBackgrounds();
-            }
-            
-            function forceBlackBackgrounds() {
-                const style = document.createElement('style');
-                style.id = 'force-dark-mode';
-                style.innerHTML = `
-                    html.dark-mode { background-color: #000 !important; }
-                    html.dark-mode body { background-color: #000 !important; }
-                    html.dark-mode section { background-color: #000 !important; }
-                    html.dark-mode header { background-color: rgba(0,0,0,0.95) !important; }
-                    html.dark-mode .hero { background: #000 !important; }
-                    html.dark-mode .about { background: #000 !important; }
-                    html.dark-mode .services { background: #000 !important; }
-                    html.dark-mode .portfolio { background: #000 !important; }
-                    html.dark-mode footer { background-color: #080808 !important; }
-                    html.dark-mode .portfolio-item { background-color: #111 !important; }
-                    html.dark-mode .service-card { background-color: #111 !important; }
-                    html.dark-mode .portfolio-info { background-color: #111 !important; }
-                `;
-                document.head.appendChild(style);
-            }
-            
-            function removeBlackBackgrounds() {
-                const style = document.getElementById('force-dark-mode');
-                if (style) {
-                    style.remove();
-                }
-            }
-        });
-
-        // Enhanced full-screen portfolio viewer with category organization
-        function createFullScreenPortfolioViewer(portfolioGrid) {
-            // Create viewer container
-            const viewer = document.createElement('div');
-            viewer.className = 'full-screen-portfolio';
-            
-            // Create header
-            const header = document.createElement('div');
-            header.className = 'portfolio-viewer-header';
-            header.innerHTML = `
-                <div class="portfolio-viewer-title">All Portfolio Items</div>
-                <div class="close-viewer"><i class="fas fa-times"></i></div>
-            `;
-            
-            // Add close functionality
-            const closeBtn = header.querySelector('.close-viewer');
-            closeBtn.addEventListener('click', function() {
-                document.body.removeChild(viewer);
-            });
-            
-            // Create main content container with scrolling
-            const contentContainer = document.createElement('div');
-            contentContainer.className = 'portfolio-viewer-content';
-            
-            // Group items by category
-            const categories = [
-                { id: 'certifications', label: 'Certifications', icon: 'certificate' },
-                { id: 'security', label: 'Security Projects', icon: 'shield-alt' },
-                { id: 'education', label: 'Education', icon: 'graduation-cap' },
-                { id: 'experience', label: 'Experience', icon: 'briefcase' }
-            ];
-            
-            // Get all portfolio items
-            const portfolioItems = portfolioGrid.querySelectorAll('.portfolio-item');
-            
-            // Create a container for each category and populate with matching items
-            categories.forEach(category => {
-                // Create category section
-                const categorySection = document.createElement('div');
-                categorySection.className = 'portfolio-viewer-category';
-                
-                // Create category header
-                const categoryHeader = document.createElement('div');
-                categoryHeader.className = 'category-header';
-                categoryHeader.innerHTML = `
-                    <i class="fas fa-${category.icon}"></i>
-                    <h2>${category.label}</h2>
-                `;
-                categorySection.appendChild(categoryHeader);
-                
-                // Create grid for this category
-                const categoryGrid = document.createElement('div');
-                categoryGrid.className = 'portfolio-viewer-grid';
-                
-                // Find and clone items for this category
-                let itemCount = 0;
-                portfolioItems.forEach(item => {
-                    if (item.getAttribute('data-category') === category.id) {
-                        itemCount++;
-                        
-                        // Create viewer item clone
-                        const viewerItem = createViewerItem(item);
-                        categoryGrid.appendChild(viewerItem);
-                    }
-                });
-                
-                // Only add category if it has items
-                if (itemCount > 0) {
-                    categorySection.appendChild(categoryGrid);
-                    contentContainer.appendChild(categorySection);
-                }
-            });
-            
-            // Helper function to create viewer item
-            function createViewerItem(originalItem) {
-                // Create a simplified version of each item
-                const viewerItem = document.createElement('div');
-                viewerItem.className = 'portfolio-viewer-item';
-                viewerItem.setAttribute('data-category', originalItem.getAttribute('data-category'));
-                
-                // Copy the image
-                const imgContainer = document.createElement('div');
-                imgContainer.className = 'portfolio-viewer-img';
-                
-                const originalImg = originalItem.querySelector('.portfolio-img img');
-                if (originalImg) {
-                    const img = originalImg.cloneNode(true);
-                    imgContainer.appendChild(img);
-                }
-                
-                // Copy the title
-                const infoContainer = document.createElement('div');
-                infoContainer.className = 'portfolio-viewer-info';
-                
-                const originalTitle = originalItem.querySelector('.portfolio-info h3');
-                if (originalTitle) {
-                    const title = document.createElement('h3');
-                    title.textContent = originalTitle.textContent;
-                    infoContainer.appendChild(title);
-                }
-                
-                // Add description if available (first paragraph)
-                const originalDesc = originalItem.querySelector('.portfolio-info p');
-                if (originalDesc) {
-                    const desc = document.createElement('p');
-                    desc.textContent = originalDesc.textContent;
-                    infoContainer.appendChild(desc);
-                }
-                
-                // Add link if exists
-                const originalLink = originalItem.querySelector('.portfolio-link');
-                if (originalLink) {
-                    const link = originalLink.cloneNode(true);
-                    link.className = 'portfolio-viewer-link';
-                    // Keep original href
-                    infoContainer.appendChild(link);
-                }
-                
-                // Assemble viewer item
-                viewerItem.appendChild(imgContainer);
-                viewerItem.appendChild(infoContainer);
-                
-                // Make the entire item clickable if it has a link
-                if (originalLink) {
-                    viewerItem.style.cursor = 'pointer';
-                    viewerItem.addEventListener('click', function(e) {
-                        if (e.target.tagName !== 'A') { // Don't trigger if clicking the link itself
-                            window.open(originalLink.href, '_blank');
-                        }
-                    });
-                }
-                
-                return viewerItem;
-            }
-            
-            // Add CSS for category organization
-            const categoryStyle = document.createElement('style');
-            categoryStyle.textContent = `
-                .portfolio-viewer-content {
-                    padding-bottom: 30px;
-                }
-                
-                .portfolio-viewer-category {
-                    margin-bottom: 25px;
-                }
-                
-                .category-header {
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: 15px;
-                    padding-bottom: 8px;
-                    border-bottom: 1px solid var(--border-color);
-                }
-                
-                .category-header i {
-                    width: 30px;
-                    height: 30px;
-                    background: var(--primary-color);
-                    color: white;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-right: 12px;
-                }
-                
-                .category-header h2 {
-                    margin: 0;
-                    font-size: 1.2rem;
-                    font-weight: 600;
-                    color: var(--text-color);
-                }
-                
-                .portfolio-viewer-grid {
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 12px;
-                }
-                
-                .portfolio-viewer-item {
-                    background: var(--card-bg);
-                    border-radius: 8px;
-                    overflow: hidden;
-                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
-                }
-                
-                .portfolio-viewer-item:active {
-                    transform: scale(0.98);
-                }
-                
-                .portfolio-viewer-img {
-                    height: 130px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    overflow: hidden;
-                    background: #f8f8f8;
-                }
-                
-                .dark-mode .portfolio-viewer-img {
-                    background: #0d0d0d;
-                }
-                
-                .portfolio-viewer-img img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: contain;
-                    padding: 5px;
-                }
-                
-                .portfolio-viewer-info {
-                    padding: 12px;
-                }
-                
-                .portfolio-viewer-info h3 {
-                    margin: 0 0 5px;
-                    font-size: 0.95rem;
-                    font-weight: 600;
-                    color: var(--primary-color);
-                }
-                
-                .portfolio-viewer-info p {
-                    margin: 0 0 8px;
-                    font-size: 0.8rem;
-                    color: var(--text-muted);
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
-                }
-                
-                .portfolio-viewer-link {
-                    display: inline-flex;
-                    align-items: center;
-                    padding: 5px 10px;
-                    background: rgba(79, 163, 224, 0.1);
-                    border-radius: 4px;
-                    color: var(--primary-color);
-                    font-size: 0.8rem;
-                    text-decoration: none;
-                }
-                
-                .portfolio-viewer-link i {
-                    margin-right: 5px;
-                }
-                
-                .dark-mode .portfolio-viewer-item {
-                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-                }
-            `;
-            document.head.appendChild(categoryStyle);
-            
-            // Assemble viewer
-            viewer.appendChild(header);
-            viewer.appendChild(contentContainer);
-            
-            // Add to document
-            document.body.appendChild(viewer);
-            
-            // Add scroll position to top
-            setTimeout(() => {
-                contentContainer.scrollTop = 0;
-            }, 100);
-        }
-
-        // Add CSS for full-width button and improved filter UI for mobile
-        const styleSheet = document.createElement("style");
-        styleSheet.innerHTML = `
-            .mobile-action-button.full-width {
-                width: 100%;
-                margin: 0;
-            }
-            
-            /* Make sure filter buttons work well on mobile */
-            .mobile-layout .filter-btn {
-                flex: 0 0 auto;
-                margin: 0 5px;
-                white-space: nowrap;
-                transition: all 0.3s ease;
-            }
-            
-            .mobile-layout .filter-btn.active {
-                background: var(--primary-color);
-                color: white;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            }
-            
-            .mobile-layout .filter-btn:active {
-                transform: scale(0.95);
-            }
-        `;
-        document.head.appendChild(styleSheet);
-
-        // Reorganize sections for mobile
-        function reorganizeSections() {
-            const main = document.createElement('div');
-            main.className = 'mobile-main-content';
-            
-            // Move portfolio section to be right after hero for quick access
-            const portfolioSection = document.getElementById('portfolio');
-            const aboutSection = document.getElementById('about');
-            const servicesSection = document.getElementById('services');
-            
-            if (portfolioSection && aboutSection && servicesSection) {
-                // Get the parent element
-                const parent = portfolioSection.parentElement;
-                
-                // Create mobile section wrappers with tab-like navigation
-                const mobilePortfolioWrapper = createMobileSectionWrapper(portfolioSection, 'Portfolio');
-                const mobileAboutWrapper = createMobileSectionWrapper(aboutSection, 'About');
-                const mobileServicesWrapper = createMobileSectionWrapper(servicesSection, 'Services');
-                
-                // Remove original sections
-                portfolioSection.remove();
-                aboutSection.remove();
-                servicesSection.remove();
-                
-                // Add mobile sections in desired order
-                parent.appendChild(mobilePortfolioWrapper);
-                parent.appendChild(mobileAboutWrapper);
-                parent.appendChild(mobileServicesWrapper);
-                
-                // Initialize mobile tabs (all closed by default)
-                initializeMobileTabs();
-            }
-        }
-
-        // Create mobile section wrapper with tab-like header
-        function createMobileSectionWrapper(section, title) {
-            const wrapper = document.createElement('div');
-            wrapper.className = 'mobile-section-wrapper';
-            wrapper.id = `mobile-${section.id}-wrapper`;
-            
-            // Create tab-like header
-            const header = document.createElement('div');
-            header.className = 'mobile-section-header';
-            header.innerHTML = `
-                <h2>${title}</h2>
-                <div class="mobile-section-toggle">
-                    <i class="fas fa-chevron-down"></i>
-        </div>
-            `;
-            
-            // Create content container
-            const content = document.createElement('div');
-            content.className = 'mobile-section-content';
-            content.style.display = 'none'; // Initially hidden
-            
-            // Clone the section and fix any category highlighting issues
-            const clonedSection = section.cloneNode(true);
-            
-            // If this is the portfolio section, ensure only one filter button is active
-            if (section.id === 'portfolio') {
-                const filterButtons = clonedSection.querySelectorAll('.filter-btn');
-                filterButtons.forEach((btn, index) => {
-                    if (index === 0) { // Only make "All" active
-                        btn.classList.add('active');
-                    } else {
-                        btn.classList.remove('active');
-                    }
-                });
-            }
-            
-            content.appendChild(clonedSection);
-            
-            // Add click event to header
-            header.addEventListener('click', function() {
-                const isOpen = content.style.display !== 'none';
-                content.style.display = isOpen ? 'none' : 'block';
-                header.querySelector('.mobile-section-toggle i').className = 
-                    isOpen ? 'fas fa-chevron-down' : 'fas fa-chevron-up';
-            });
-            
-            wrapper.appendChild(header);
-            wrapper.appendChild(content);
-            
-            return wrapper;
-        }
-
-        // Initialize mobile tabs
-        function initializeMobileTabs() {
-            // Ensure all tabs are closed by default
-            const sectionWrappers = document.querySelectorAll('.mobile-section-wrapper');
-            sectionWrappers.forEach(wrapper => {
-                const content = wrapper.querySelector('.mobile-section-content');
-                const toggle = wrapper.querySelector('.mobile-section-toggle i');
-                
-                if (content && toggle) {
-                    content.style.display = 'none';
-                    toggle.className = 'fas fa-chevron-down';
-                }
-            });
-        }
-
-        // New function to enhance mobile filters
-        function enhanceMobileFilters(filterContainer, portfolioGrid) {
-            // Get all filter buttons
-            const filterButtons = Array.from(filterContainer.querySelectorAll('.filter-btn'));
-            
-            // Create completely new buttons to avoid any event handler conflicts
-            filterButtons.forEach(oldBtn => {
-                // Create a new button element
-                const newBtn = document.createElement('button');
-                newBtn.className = 'filter-btn';
-                newBtn.setAttribute('data-filter', oldBtn.getAttribute('data-filter'));
-                newBtn.textContent = oldBtn.textContent;
-                
-                // Set active state for 'All' button only
-                if (oldBtn.getAttribute('data-filter') === 'all') {
-                    newBtn.classList.add('active');
-                }
-                
-                // Add improved click handler
-                newBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    // Remove active class from ALL filter buttons
-                    const allFilterButtons = document.querySelectorAll('.filter-btn');
-                    allFilterButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to ONLY this button
-                    this.classList.add('active');
-                    
-                    const filterValue = this.getAttribute('data-filter');
-                    const portfolioItems = document.querySelectorAll('.portfolio-item');
-                    
-                    // Apply filtering with animation
-                    portfolioItems.forEach(item => {
-                        const itemCategory = item.getAttribute('data-category');
-                        
-                        if (filterValue === 'all' || itemCategory === filterValue) {
-                            // Show matching items
-                            item.style.display = 'flex';
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                                item.style.transform = 'translateY(0)';
-                            }, 50);
-                        } else {
-                            // Hide non-matching items
-                            item.style.opacity = '0';
-                            item.style.transform = 'translateY(10px)';
-                            setTimeout(() => {
-                                item.style.display = 'none';
-                            }, 300);
-                        }
-                    });
-                    
-                    // Scroll to the top of the portfolio section
-                    const topOfPortfolio = portfolioGrid.getBoundingClientRect().top + window.pageYOffset - 80;
-                    window.scrollTo({
-                        top: topOfPortfolio,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                // Replace the old button with the new one
-                oldBtn.parentNode.replaceChild(newBtn, oldBtn);
-            });
-            
-            // Add CSS for better filter button highlighting and styles
-            const styleSheet = document.createElement("style");
-            styleSheet.innerHTML = `
-                .mobile-layout .portfolio-item {
-                    transition: opacity 0.3s ease, transform 0.3s ease;
-                }
-                
-                .mobile-layout .filter-btn {
-                    background: rgba(79, 163, 224, 0.05);
-                    color: var(--text-muted);
-                    border: 1px solid transparent;
-                    padding: 8px 16px;
-                    border-radius: 20px;
-                    font-size: 0.9rem;
-                    transition: all 0.3s ease;
-                    position: relative;
-                    overflow: hidden;
-                }
-                
-                .mobile-layout .filter-btn.active {
-                    background: var(--primary-color);
-                    color: white;
-                    box-shadow: 0 3px 10px rgba(79, 163, 224, 0.3);
-                    transform: translateY(-2px);
-                }
-                
-                .mobile-layout .filter-btn.active::after {
-                    content: '';
-                    position: absolute;
-                    bottom: -1px;
-                    left: 0;
-                    width: 100%;
-                    height: 2px;
-                    background: white;
-                }
-            `;
-            document.head.appendChild(styleSheet);
-        }
-    </script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
-    <style>
-        /* Always keep theme toggle visible */
-        .theme-switch-wrapper {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1001;
-            background: var(--card-bg);
-            padding: 10px 15px;
-            border-radius: 30px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-        
-        /* Mobile-specific theme toggle styling */
-        @media screen and (max-width: 768px) {
-            .theme-switch-wrapper {
-                top: 15px;
-                right: 70px; /* Position to the left of hamburger menu */
-                padding: 8px 12px;
-            }
-            
-            /* Adjust header for mobile */
-            header {
-                padding: 15px 20px;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                z-index: 1000;
-                background: var(--header-bg);
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 60px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 60px);
-                background: var(--header-bg);
-                flex-direction: column;
-                align-items: center;
-                padding: 40px 0;
-                transition: 0.3s ease;
-                z-index: 999;
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links li {
-                margin: 20px 0;
-            }
-            
-            .nav-links a {
-                font-size: 1.2rem;
-                padding: 10px 20px;
-                width: 200px;
-                text-align: center;
-                border-radius: 30px;
-                transition: all 0.3s ease;
-            }
-            
-            .nav-links a:hover {
-                background: rgba(79, 163, 224, 0.1);
-            }
-            
-            .hamburger {
-                display: block;
-                cursor: pointer;
-                z-index: 1001;
-            }
-            
-            .hamburger span {
-                display: block;
-                width: 25px;
-                height: 3px;
-                background: var(--text-color);
-                margin: 5px 0;
-                transition: 0.3s;
-            }
-            
-            .hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-            
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
-            }
-            
-            #home {
-                padding-top: 100px;
-            }
-        }
-    </style>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
 </body>
-</html> 
+</html>
