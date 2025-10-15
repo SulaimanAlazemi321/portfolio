@@ -1,223 +1,181 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+// ===== AOS Animation Initialize =====
+AOS.init({
+    duration: 800,
+    once: true,
+    offset: 100,
+    easing: 'ease-out'
+});
 
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-    }
+// ===== Navbar Functionality =====
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+const navLinks = document.querySelectorAll('.nav-link');
 
-    const sections = document.querySelectorAll('section');
-    const navItems = document.querySelectorAll('.nav-links a');
+// Hamburger menu toggle
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+});
 
-    navItems.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            window.scrollTo({
-                top: targetSection.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        });
+// Close menu when clicking a link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
     });
+});
 
-    window.addEventListener('scroll', function() {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navItems.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-    });
-
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            const filterValue = this.getAttribute('data-filter');
-            
-            portfolioItems.forEach(item => {
-                if (!(filterValue === 'all' || item.getAttribute('data-category') === filterValue)) {
-                    item.style.display = 'none';
-                }
-            });
-            
-            portfolioItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(8px) scale(0.98)';
-                    item.style.display = 'block';
-                    void item.offsetWidth;
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateY(0) scale(1)';
-                }
-            });
-        });
-    });
-
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && subject && message) {
-                alert('Thank you for your message! I will get back to you soon.');
-                contactForm.reset();
-            } else {
-                alert('Please fill in all fields.');
-            }
-        });
-    }
-
-    const backToTop = document.querySelector('.back-to-top');
-    
-    if (backToTop) {
-        backToTop.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-
-    function revealOnScroll() {
-        const reveals = document.querySelectorAll('.section-header, .service-card, .portfolio-item, .about-content, .contact-content');
-        
-        reveals.forEach(element => {
-            const windowHeight = window.innerHeight;
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < windowHeight - elementVisible) {
-                element.classList.add('active');
-            }
-        });
-    }
-    
-    window.addEventListener('scroll', revealOnScroll);
-    
-    revealOnScroll();
-
-    document.querySelectorAll('.section-header, .service-card, .portfolio-item, .about-content, .contact-content').forEach(el => {
-        el.classList.add('reveal');
-    });
-
-    const typeWriter = document.querySelector('.hero-content h2');
-    
-    if (typeWriter) {
-        const text = typeWriter.textContent;
-        typeWriter.textContent = '';
-        
-        let i = 0;
-        function type() {
-            if (i < text.length) {
-                typeWriter.textContent += text.charAt(i);
-                i++;
-                setTimeout(type, 100);
-            }
-        }
-        
-        setTimeout(type, 1000);
-    }
-    
-    window.dispatchEvent(new Event('scroll'));
-
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.querySelector('.theme-icon i');
-
-    if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark-mode');
-        document.documentElement.classList.add('light-mode');
-        themeToggle.checked = false;
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
     } else {
-        document.documentElement.classList.remove('light-mode');
-        document.documentElement.classList.add('dark-mode');
-        themeToggle.checked = true;
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
+        navbar.classList.remove('scrolled');
     }
+});
 
-    themeToggle.addEventListener('change', function() {
-        if (this.checked) {
-            document.documentElement.classList.remove('light-mode');
-            document.documentElement.classList.add('dark-mode');
-            localStorage.setItem('theme', 'dark');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-            forceBlackBackgrounds();
-        } else {
-            document.documentElement.classList.remove('dark-mode');
-            document.documentElement.classList.add('light-mode');
-            localStorage.setItem('theme', 'light');
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-            removeBlackBackgrounds();
+// Active nav link on scroll
+const sections = document.querySelectorAll('section');
+
+function updateActiveLink() {
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
         }
     });
-
-    function forceBlackBackgrounds() {
-        const style = document.createElement('style');
-        style.id = 'force-dark-mode';
-        style.innerHTML = `
-            html.dark-mode { background-color: #000 !important; }
-            html.dark-mode body { background-color: #000 !important; }
-            html.dark-mode section { background-color: #000 !important; }
-            html.dark-mode header { background-color: rgba(0,0,0,0.95) !important; }
-            html.dark-mode .hero { background: #000 !important; }
-            html.dark-mode .about { background: #000 !important; }
-            html.dark-mode .services { background: #000 !important; }
-            html.dark-mode .portfolio { background: #000 !important; }
-            html.dark-mode footer { background-color: #080808 !important; }
-            html.dark-mode .portfolio-item { background-color: #111 !important; }
-            html.dark-mode .service-card { background-color: #111 !important; }
-            html.dark-mode .portfolio-info { background-color: #111 !important; }
-        `;
-        document.head.appendChild(style);
-    }
-
-    function removeBlackBackgrounds() {
-        const style = document.getElementById('force-dark-mode');
-        if (style) {
-            style.remove();
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active');
         }
-    }
+    });
+}
 
-    if (document.documentElement.classList.contains('dark-mode')) {
-        forceBlackBackgrounds();
+window.addEventListener('scroll', updateActiveLink);
+
+// ===== Skills Animation =====
+const skillsSection = document.querySelector('.skills-content');
+let skillsAnimated = false;
+
+function animateSkills() {
+    if (!skillsSection) return;
+    
+    const sectionTop = skillsSection.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    
+    if (sectionTop < windowHeight * 0.75 && !skillsAnimated) {
+        const skillBars = document.querySelectorAll('.skill-fill');
+        
+        skillBars.forEach(bar => {
+            const width = bar.getAttribute('data-width');
+            setTimeout(() => {
+                bar.style.width = width + '%';
+            }, 100);
+        });
+        
+        skillsAnimated = true;
     }
-}); 
+}
+
+window.addEventListener('scroll', animateSkills);
+
+// ===== Portfolio Filter =====
+function setupPortfolioFilter() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+        // Remove any existing listeners by cloning
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+    });
+    
+    // Re-query after cloning
+    const freshFilterButtons = document.querySelectorAll('.filter-btn');
+    
+    freshFilterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            freshFilterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            const filterValue = button.getAttribute('data-filter');
+            
+            // Query fresh each time
+            const allPortfolioLinks = document.querySelectorAll('.portfolio-link');
+            
+            allPortfolioLinks.forEach(link => {
+                const category = link.getAttribute('data-category');
+                
+                // Force display
+                if (filterValue === 'all' || category === filterValue) {
+                    link.style.display = 'block';
+                    link.style.visibility = 'visible';
+                } else {
+                    link.style.display = 'none';
+                    link.style.visibility = 'hidden';
+                }
+            });
+        });
+    });
+}
+
+// Setup after everything loads
+window.addEventListener('load', () => {
+    setTimeout(setupPortfolioFilter, 500);
+});
+
+// ===== Back to Top Button =====
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        backToTop.classList.add('show');
+    } else {
+        backToTop.classList.remove('show');
+    }
+});
+
+backToTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// ===== Smooth Scroll =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const offsetTop = target.offsetTop - 80;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// ===== Console Message =====
+console.log('%c🛡️ Sulaiman Alazemi - Cybersecurity Portfolio', 'color: #4fa3e0; font-size: 18px; font-weight: bold;');
+console.log('%c📧 Contact: alroot777@gmail.com', 'color: #ecf0f1; font-size: 14px;');
+
+// ===== Initialize =====
+document.addEventListener('DOMContentLoaded', () => {
+    updateActiveLink();
+    animateSkills();
+    
+    // Setup filter with delay to ensure AOS is ready
+    setTimeout(() => {
+        setupPortfolioFilter();
+    }, 1000);
+});
